@@ -416,7 +416,7 @@ params:
   # Easily browse and edit blog source code online.
   postEdit:
     enable: true
-    url: https://github.com/peace0phmind/peace0phmind.github.io/tree/main/
+    url: https://github.com/peace0phmind/peace0phmind.github.io/tree/master/content/
 
 
   # 设置文本的对齐方式
