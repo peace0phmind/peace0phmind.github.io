@@ -607,17 +607,10 @@ params:
   # See: https://ziyuan.baidu.com/site
   baiduSiteVerification: #<verify_code>
 
-
   # ---------------------------------------------------------------
   # 第三方插件和服务设置
   # Third Party Plugins & Services Settings
   # ---------------------------------------------------------------
-
-  # 数学公式渲染支持，可选值： mathjax, katex
-  # 注意这里全局配置，意味着所有页面都会加载数学公式脚本
-  # Math Formulas Render Support, options: mathjax, katex
-  # Warning: It's global settings then will load scripts in every page.
-  #math: mathjax
 
   # TODO
   # FancyBox is a tool that offers a nice and elegant way 

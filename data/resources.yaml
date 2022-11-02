@@ -98,19 +98,6 @@ plugins:
       name: mathjax
       version: 3.2.0
       file: es5/tex-mml-chtml.js
-  katex:
-    js:
-      - name: katex
-        version: 0.16.0
-        file: dist/katex.min.js
-      - name: auto-render
-        alias_name: katex
-        version: 0.16.0
-        file: dist/contrib/auto-render.min.js
-    css:
-      name: katex
-      version: 0.16.0
-      file: dist/katex.min.css
   # 画图渲染
   mermaid:
     js:

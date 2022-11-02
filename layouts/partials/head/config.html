@@ -30,10 +30,6 @@
   "js"  (index $.Site.Data.resources.plugins .).js
 }}
 
-{{ if eq . "katex" }}
-  {{ $math = merge $math ( dict "css" $.Site.Data.resources.plugins.katex.css ) }}
-{{ end }}
-
 {{ $pageCfg = merge $pageCfg (dict "math" $math) }}
 {{ end }}
 

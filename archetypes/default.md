@@ -11,8 +11,7 @@ draft: true
 categories:
   -
 tags:
-  -
-  -
+  - {{replace .Name "-" "\n  - "}}
 
 # 作者
 #author:
@@ -30,14 +29,10 @@ tags:
 # 关闭文章目录功能
 #toc: false
 # 绝对访问路径
-#url: "{{ lower .Name }}.html"
+#url: "{{ lower .Dir }}{{ lower .Name }}"
 # 开启文章置顶，数字越小越靠前
 #weight: 1
-# 开启数学公式渲染，可选值： mathjax, katex
-#math: mathjax
 # 开启各种图渲染，如流程图、时序图、类图等
 # Enable chart render, such as: flow, sequence, classes etc
 #mermaid: true
 ---
-
-{{ .Name }}

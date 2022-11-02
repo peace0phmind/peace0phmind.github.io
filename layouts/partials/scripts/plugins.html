@@ -1,5 +1,7 @@
 {{/* Defind loading plugin scripts which only need in pages */}}
 
+{{ printf "%#v" .Params.math }}
+
 {{ if or .Params.math .Site.Params.math }}
   {{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "math.js") }}
 {{ end }}
