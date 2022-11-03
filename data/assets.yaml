@@ -5,5 +5,5 @@ js:
     url: "https://cdn.jsdelivr.net/npm/mathjax@%s/es5/tex-mml-chtml.js"
   mermaid:
     version: "9.2.0"
-    sri: "sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="
+    sri: "sha512-bAUSYGDF/K+6ME3orRcyGh86wxE7kBRunb1tPd4btqx+iZrS3CWaxil1KNUNsVw2OlqQJvXw3id+jsPflaK49g=="
     url: "https://cdn.jsdelivr.net/npm/mermaid@%s/dist/mermaid.min.js"

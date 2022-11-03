@@ -1,6 +1,6 @@
 {{/* mathjax */}}
-{{ $js := .Site.Data.assets.js}}
-{{ if or (.Page.Store.Get "has_math") .Params.math }}
+{{- $js := .Site.Data.assets.js -}}
+{{- if or (.Page.Store.Get "has_math") .Params.math -}}
 <script type="text/javascript">
     window.MathJax = {
         options: {
@@ -25,17 +25,27 @@
     };
 </script>
 {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.mathJax.url $js.mathJax.version) $js.mathJax.sri | safeHTML }}
-{{ end }}
+{{- end -}}
 
 {{/* mermaid */}}
-{{ if .Page.Store.Get "has_mermaid" }}
-{{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "mermaid.js") }}
+{{- if .Page.Store.Get "has_mermaid" -}}
 {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" (printf $js.mermaid.url $js.mermaid.version) $js.mermaid.sri | safeHTML }}
-{{ end }}
+<script type="text/javascript">
+    mermaid.initialize({
+        theme    : CONFIG.darkmode && window.matchMedia('(prefers-color-scheme: dark)').matches ? CONFIG.mermaid.theme.dark : CONFIG.mermaid.theme.light,
+        darkMode: true,
+        logLevel : 4,
+        flowchart: { curve: 'linear' },
+        gantt    : { axisFormat: '%m/%d/%Y' },
+        sequence : { actorMargin: 50 }
+    });
+    mermaid.init();
+</script>
+{{- end -}}
 
 
 {{/* Mindmaps */}}
-{{ if .Page.Store.Get "has_markmap" -}}
+{{- if .Page.Store.Get "has_markmap" -}}
 <style>
     .markmap > svg {
         width: 100%;
@@ -55,4 +65,4 @@
     };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
-{{ end -}}
+{{- end -}}
