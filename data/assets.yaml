@@ -1,0 +1,9 @@
+js:
+  mathJax:
+    version: "3"
+    sri: ""  # No SRI as dynamically generated.
+    url: "https://cdn.jsdelivr.net/npm/mathjax@%s/es5/tex-mml-chtml.js"
+  mermaid:
+    version: "9.2.0"
+    sri: "sha256-TIYL00Rhw/8WaoUhYTLX9SKIEFdXxg+yMWSLVUbhiLg="
+    url: "https://cdn.jsdelivr.net/npm/mermaid@%s/dist/mermaid.min.js"

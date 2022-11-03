@@ -92,12 +92,6 @@ instant:
   file: dist/instantsearch.production.min.js
 
 plugins:
-  # 数学公式渲染
-  mathjax:
-    js:
-      name: mathjax
-      version: 3.2.0
-      file: es5/tex-mml-chtml.js
   # 画图渲染
   mermaid:
     js:

@@ -15,22 +15,5 @@
 {{ $pageCfg = merge $pageCfg (dict "waline" $counter) }}
 {{ end }}
 
-{{/* Append mermaid plugin */}}
-{{ if .Params.mermaid }}
-{{ $mermaid := dict
-  "js"  .Site.Data.resources.plugins.mermaid.js
-}}
-{{ $pageCfg = merge $pageCfg (dict "mermaid" $mermaid) }}
-{{ end }}
-
-{{/* Append math render plugin */}}
-{{ with or .Params.math .Site.Params.math }}
-{{ $math := dict
-  "render" .
-  "js"  (index $.Site.Data.resources.plugins .).js
-}}
-
-{{ $pageCfg = merge $pageCfg (dict "math" $math) }}
-{{ end }}
 
 <script class="next-config" data-name="page" type="application/json">{{- $pageCfg -}}</script>

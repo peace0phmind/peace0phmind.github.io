@@ -15,24 +15,9 @@ tags:
 
 
 url: "posts/math-formula.html"
-math: mathjax
 
 draft: true
 ---
-
-本主题支持 `mathjax` 和 `katex` 两种不的方案支持数学公式的渲染，可根据自已的需求进行选择。
-
-<!--more-->
-
-接下的示例中，将使用 [MathJax](https://www.mathjax.org/) 方案来展示渲染效果。
-
-{{< note info >}}
-
-- 使用 `hugo new` 命令创建一篇新的文章
-- 可以全局启用数据公式渲染，请在项目配置参数 `math: katex` 或 `math: mathjax`
-- 或是将该参数配置到需要显示数学公式的页面头部（减少不必要的加载消耗）
-
-{{< /note >}}
 
 **注意：** 使用[支持的TeX功能](https://docs.mathjax.org/en/latest/input/tex/index.html)的联机参考资料。
 
@@ -40,10 +25,11 @@ draft: true
 
 
 ### 重复的分数
+```math
 $$
 \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} \equiv 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
 $$
-
+```
 
 ### 总和记号
 $$

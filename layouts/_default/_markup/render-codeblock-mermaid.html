@@ -1,0 +1,5 @@
+{{ printf "%#v" . }}
+<div class="mermaid">
+    {{- .Inner | safeHTML -}}
+</div>
+{{ .Page.Store.Set "has_mermaid" true }}

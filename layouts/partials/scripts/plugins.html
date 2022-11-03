@@ -1,11 +1,58 @@
-{{/* Defind loading plugin scripts which only need in pages */}}
-
-{{ printf "%#v" .Params.math }}
-
-{{ if or .Params.math .Site.Params.math }}
-  {{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "math.js") }}
+{{/* mathjax */}}
+{{ $js := .Site.Data.assets.js}}
+{{ if or (.Page.Store.Get "has_math") .Params.math }}
+<script type="text/javascript">
+    window.MathJax = {
+        options: {
+            // Don't render math in mindmaps as Markmap has its own math renderer.
+            ignoreHtmlClass: 'markmap',
+        },
+        tex: {
+            inlineMath: [
+                ['$', '$'],
+                ['\\(', '\\)'],
+            ],
+            displayMath: [
+                ['$$', '$$'],
+                ['\\[', '\\]'],
+            ],
+            processEscapes: false,
+            packages: {'[+]': ['noerrors']},
+        },
+        loader: {
+            load: ['[tex]/noerrors'],
+        },
+    };
+</script>
+{{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.mathJax.url $js.mathJax.version) $js.mathJax.sri | safeHTML }}
 {{ end }}
 
-{{ if .Params.mermaid }}
-  {{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "mermaid.js") }}
+{{/* mermaid */}}
+{{ if .Page.Store.Get "has_mermaid" }}
+{{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "mermaid.js") }}
+{{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" (printf $js.mermaid.url $js.mermaid.version) $js.mermaid.sri | safeHTML }}
 {{ end }}
+
+
+{{/* Mindmaps */}}
+{{ if .Page.Store.Get "has_markmap" -}}
+<style>
+    .markmap > svg {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<script type="text/javascript">
+    window.markmap = {
+        autoLoader: {
+            manual: false,
+            onReady() {
+                const {autoLoader, builtInPlugins} = window.markmap;
+                // Disable Prism highlighting plugin as it conflicts and attempts to re-render code blocks outside of Markmap.
+                autoLoader.transformPlugins = builtInPlugins.filter(plugin => plugin.name !== 'prism');
+            },
+        },
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
+{{ end -}}
