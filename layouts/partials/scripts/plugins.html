@@ -1,6 +1,6 @@
 {{/* mathjax */}}
 {{- $js := .Site.Data.assets.js -}}
-{{- if or (.Page.Store.Get "has_math") .Params.math -}}
+{{- if or (.Page.Store.Get "has_math") .Site.Params.mathDefaultInclude -}}
 <script type="text/javascript">
     window.MathJax = {
         options: {

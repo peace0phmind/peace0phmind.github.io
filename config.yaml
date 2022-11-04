@@ -141,6 +141,7 @@ params:
   # Dark Mode
   darkmode: true
 
+  mathDefaultInclude: true
 
   # 站点基本信息
   # Site Information Settings

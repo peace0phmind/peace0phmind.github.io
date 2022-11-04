@@ -169,3 +169,7 @@ $second_comment_name        : {{ lower (index $sortNav 1).name }};
 // TODO 
 // --------------------------------------------------
 // @import 'theme.injects.style';
+
+table thead tr th:empty {
+  display: none;
+}
