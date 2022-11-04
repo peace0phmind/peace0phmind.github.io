@@ -1,5 +1,5 @@
 ---
-title: "Mpv Keyboard"
+title: "Mpv快捷键"
 description: "mpv-keyboard"
 keywords: "mpv,keyboard"
 
@@ -12,7 +12,7 @@ url: "posts/202211/mpv-keyboard"
 draft: false
 
 categories:
-  -
+  - blog
 tags:
   - mpv
 

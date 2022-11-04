@@ -21,9 +21,6 @@ weight: 1
 
 ---
 
-
-
-
 ```markmap
 # ML
 
