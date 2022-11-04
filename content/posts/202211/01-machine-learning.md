@@ -9,7 +9,7 @@ lastmod: 2022-11-04T08:50:08+08:00
 author: peace0phmind
 url: "posts/202211/01-machine-learning"
 
-draft: true
+draft: false
 
 categories:
   - machine-learning
@@ -24,7 +24,50 @@ weight: 1
 ```markmap
 # ML
 
-## 
+## Suppervised Learning
+- Training Data
+- Labels
+- Gradient Descent 
+
+## Self-Supervised Learning
+- Pre-Trained Model(Foundation Model)
+- unlabeled Data
+- Downstream Tasks
+- Models
+  - BERT
+  - ELMo
+  - GPT-2
+  - GPT-3
+  - T5
+
+## Generative Adversarial Network
+- 收集大量x和y
+- x和y是unpaired
+- 研究成果
+  - [Unsupervised Abstractive Summarization](https://arxiv.org/abs/1810.02851)
+  - [Unsupervised Translation](https://arxiv.org/abs/1710.11041)
+    - [04087](https://arxiv.org/abs/1710.04087)
+  - [Unsupervised ASR](https://arxiv.org/abs/2105.11084)
+    - [1804.00316](https://arxiv.org/abs/1804.00316)
+    - [1812.09323](https://arxiv.org/abs/1812.09323)
+    - [1904.04100](https://arxiv.org/abs/1904.04100)
+
+## Reinforcement Learning (RL)
+
+## Anomaly Detaction(异常检测, 让机器知道它不知道)
+
+## Explainable AI
+
+## Model Attack (模型攻击)
+
+## Domain Adaptation
+
+## Network Compression
+
+## Life-Long Learning
+
+## Meta Learning = Learn to Learn
+- Few-shot Learning
 
 ```
 
