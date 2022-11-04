@@ -7,14 +7,14 @@ date: 2022-11-01T09:03:08+08:00
 lastmod: 2022-11-01T09:03:08+08:00
 
 categories:
-  - 示例
+  - blog
 tags:
-  - 数学公式
   - mathjax
   - symbol
 
 
 url: "posts/202211/usable-symbols.html"
+weight: 3
 
 draft: false
 ---
