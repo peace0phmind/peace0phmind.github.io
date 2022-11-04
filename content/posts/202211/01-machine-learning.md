@@ -71,6 +71,12 @@ weight: 1
 
 ```
 
+## Machine Learning是什么
+
+简单的理解就是在输入和输出中找一个函数
+
+![Different types of Functions](/images/202211/01-machine-learning/01.0001.jpg)
+
 ## 参考
 系列文档是国立台湾大学[李宏毅](https://speech.ee.ntu.edu.tw/~hylee/index.php)老师Machine Learning系列教材的学习整理。
 
