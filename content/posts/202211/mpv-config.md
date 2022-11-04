@@ -9,7 +9,7 @@ lastmod: 2022-11-04T15:02:11+08:00
 author: peace0phmind
 url: "posts/202211/mpv-config"
 
-draft: true
+draft: false
 
 categories:
   - blog
