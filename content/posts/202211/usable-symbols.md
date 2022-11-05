@@ -64,16 +64,27 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 
 |  |  |  |
 |--|--|--|
-| $\leftarrow$ \leftarrow or \gets        | $\rightarrow$ \rightarrow or \to        | $\leftrightarrow$ \leftrightarrow         |
-| $\Leftarrow$ \Leftarrow                 | $\Rightarrow$ \Rightarrow               | $\Leftrightarrow$ \Leftrightarrow         |
-| $\longleftarrow$ \longleftarrow         | $\longrightarrow$ \longrightarrow       | $\longleftrightarrow$ \longleftrightarrow |
+| $\leftarrow$ \leftarrow or \gets        | $\rightarrow$ \rightarrow or \to        | $\leftrightarrow$ \leftrightarrow           |
+| $\Leftarrow$ \Leftarrow                 | $\Rightarrow$ \Rightarrow               | $\Leftrightarrow$ \Leftrightarrow           |
+| $\longleftarrow$ \longleftarrow         | $\longrightarrow$ \longrightarrow       | $\longleftrightarrow$ \longleftrightarrow   |
 | $\Longleftarrow$ \Longleftarrow         | $\Longrightarrow$ \Longrightarrow       | $\Longleftrightarrow$ \Longleftrightarrow or \iff |
-| $\uparrow$ \uparrow                     | $\downarrow$ \downarrow                 | $\updownarrow$ \updownarrow               |
-| $\Uparrow$ \Uparrow                     | $\Downarrow$ \Downarrow                 | $\Updownarrow$ \Updownarrow               |
-| $\mapsto$ \mapsto                       | $\longmapsto$ \longmapsto               | $\nearrow$ \nearrow                       |
-| $\hookleftarrow$ \hookleftarrow         | $\hookrightarrow$ \hookrightarrow       | $\searrow$ \searrow                       |
-| $\leftharpoonup$ \leftharpoonup         | $\rightharpoonup$ \rightharpoonup       | $\swarrow$ \swarrow                       |
-| $\leftharpoondown$ \leftharpoondown     | $\rightharpoondown$ \rightharpoondown   | $\nwarrow$ \nwarrow                       |
-| $\leftrightharpoons$ \leftrightharpoons | $\rightleftharpoons$ \rightleftharpoons | $\leadsto$ \leadsto                       |
+| $\uparrow$ \uparrow                     | $\downarrow$ \downarrow                 | $\updownarrow$ \updownarrow                 |
+| $\Uparrow$ \Uparrow                     | $\Downarrow$ \Downarrow                 | $\Updownarrow$ \Updownarrow                 |
+| $\mapsto$ \mapsto                       | $\longmapsto$ \longmapsto               | $\multimap$ \multimap                       |
+| $\hookleftarrow$ \hookleftarrow         | $\hookrightarrow$ \hookrightarrow       | $\upharpoonleft$ \upharpoonleft             |
+| $\leftharpoonup$ \leftharpoonup         | $\rightharpoonup$ \rightharpoonup       | $\upharpoonright$ \upharpoonright           |
+| $\leftharpoondown$ \leftharpoondown     | $\rightharpoondown$ \rightharpoondown   | $\downharpoonleft$ \downharpoonleft         |
+| $\leftrightharpoons$ \leftrightharpoons | $\rightleftharpoons$ \rightleftharpoons | $\downharpoonright$ \downharpoonright       |
+| $\leftleftarrows$ \leftleftarrows       | $\rightrightarrows$ \rightrightarrows   | $\upuparrows$ \upuparrows                   |
+| $\leftrightarrows$ \leftrightarrows     | $\rightleftarrows$ \rightleftarrows     | $\downdownarrows$ \downdownarrows           |
+| $\dashleftarrow$ \dashleftarrow         | $\dashrightarrow$ \dashrightarrow       | $\nearrow$ \nearrow                         |
+| $\twoheadleftarrow$ \twoheadleftarrow   | $\twoheadrightarrow$ \twoheadrightarrow | $\searrow$ \searrow                         |
+| $\leftarrowtail$ \leftarrowtail         | $\rightarrowtail$ \rightarrowtail       | $\swarrow$ \swarrow                         |
+| $\Lsh$ \Lsh                             | $\Rsh$ \Rsh                             | $\nwarrow$ \nwarrow                         |
+| $\Lleftarrow$ \Lleftarrow               | $\Rrightarrow$ \Rrightarrow             | $\rightsquigarrow$ \rightsquigarrow or \leadsto |
+| $\looparrowleft$ \looparrowleft         | $\looparrowright$ \looparrowright       | $\leftrightsquigarrow$ \leftrightsquigarrow |
+| $\curvearrowleft$ \curvearrowleft       | $\curvearrowright$ \curvearrowright     | |
+| $\circlearrowleft$ \circlearrowleft     | $\circlearrowright$ \circlearrowright   | |
+
 
 
