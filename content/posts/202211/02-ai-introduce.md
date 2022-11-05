@@ -39,6 +39,22 @@ $e = |y - \hat{y}|$ $L$ is mean absolute error (MAE) <br/>
 $e = (y-\hat{y})^2$ $L$ is mean square error (MSE) <br/>
 if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-entropy`
 
+使用不同的参数，计算出来的Loss画出来的等高线图叫做：`Error Surface`
+![等高线图](/images/202211/02-ai-introduce/01.0001.jpg)
+
+### Optimization
+找一个$w$和$b$，使$L$最小： $ w^\*, b^\* = arg \min\limits_{w, b} L$
+这种找到最小$w$和$b$的方法叫做：`Gradient Descent`
+
+以一个参数$w$为例描述`Gradient Descent`的过程: 
+- 随机初始化点$w^0$
+- 计算$w=w^0$时，对$L$的微分是多少：$\frac{{\delta}L}{{\delta}W}|_{w=w^0}$
+  - 如果计算出来的结果为负数，则增加$w$
+  - 如果计算出来的结果为正数，则减少$w$
+  - 增加或减少的数值为：${\color{red}\eta}\frac{{\delta}L}{{\delta}W}|_{w=w^0}$, $\color{red}\eta$:叫learning rate,是一个hyperparameter
+  - 这个过程用数学是表达就是：$ w^1 \get  $
+
+`hyperparameter`: 需要人来设置的参数
 
 ## 参考
 {{< youtube Ye018rCVvOo >}}

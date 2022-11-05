@@ -59,3 +59,21 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\nu$       &emsp; \nu                               | $\Xi$ $\xi$  &emsp; \Xi \xi      | $o$         &emsp; o  &emsp; (omicron)         | $\Pi$ $\pi$  $\varpi$      &emsp; \Pi \pi  \varpi              | 
 | $\rho$   $\varrho$     &emsp; \rho  \varrho          | $\Sigma$ $\sigma$ $\varsigma$ &emsp; \Sigma \sigma \varsigma | $\tau$ &emsp; \tau | $\Upsilon$ $\upsilon$   &emsp; \Upsilon \upsilon               |
 | $\Phi$  $\phi$  $\varphi$ &emsp; \Phi \phi  \varphi  | $\chi$   &emsp; \chi             | $\Psi$ $\psi$ &emsp; \Psi \psi                 | $\Omega$ $\omega$   &emsp; \Omega \omega                       |
+
+## Arrows
+
+|  |  |  |
+|--|--|--|
+| $\leftarrow$ \leftarrow or \gets        | $\rightarrow$ \rightarrow or \to        | $\leftrightarrow$ \leftrightarrow         |
+| $\Leftarrow$ \Leftarrow                 | $\Rightarrow$ \Rightarrow               | $\Leftrightarrow$ \Leftrightarrow         |
+| $\longleftarrow$ \longleftarrow         | $\longrightarrow$ \longrightarrow       | $\longleftrightarrow$ \longleftrightarrow |
+| $\Longleftarrow$ \Longleftarrow         | $\Longrightarrow$ \Longrightarrow       | $\Longleftrightarrow$ \Longleftrightarrow or \iff |
+| $\uparrow$ \uparrow                     | $\downarrow$ \downarrow                 | $\updownarrow$ \updownarrow               |
+| $\Uparrow$ \Uparrow                     | $\Downarrow$ \Downarrow                 | $\Updownarrow$ \Updownarrow               |
+| $\mapsto$ \mapsto                       | $\longmapsto$ \longmapsto               | $\nearrow$ \nearrow                       |
+| $\hookleftarrow$ \hookleftarrow         | $\hookrightarrow$ \hookrightarrow       | $\searrow$ \searrow                       |
+| $\leftharpoonup$ \leftharpoonup         | $\rightharpoonup$ \rightharpoonup       | $\swarrow$ \swarrow                       |
+| $\leftharpoondown$ \leftharpoondown     | $\rightharpoondown$ \rightharpoondown   | $\nwarrow$ \nwarrow                       |
+| $\leftrightharpoons$ \leftrightharpoons | $\rightleftharpoons$ \rightleftharpoons | $\leadsto$ \leadsto                       |
+
+

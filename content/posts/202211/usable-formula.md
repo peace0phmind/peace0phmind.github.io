@@ -20,8 +20,8 @@ tags:
 ---
 
 ## Use $\Sigma$ in different mode
-[making-the-subscript-under-the-summation](https://tex.stackexchange.com/questions/218603/making-the-subscript-under-the-summation)
-
+- sum mode [making-the-subscript-under-the-summation](https://tex.stackexchange.com/questions/218603/making-the-subscript-under-the-summation)
+- use color [Using_colours_in_LaTeX](https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX)
 
 ### inline math
 ```text
@@ -45,6 +45,11 @@ $\sum\limits_{i=1}^{\infty}|x_i-y_i|$
 ```
 $\sum\limits_{i=1}^{\infty}|x_i-y_i|$
 
+## use color
+```text
+${\color{red}\eta}\frac{{\delta}L}{{\delta}W}|_{w=w^0}$
+```
+${\color{red}\eta}\frac{{\delta}L}{{\delta}W}|_{w=w^0}$
 
 ## 参考
 [Classical ML Equations in LaTeX](https://blmoistawinde.github.io/ml_equations_latex/)
