@@ -51,5 +51,28 @@ ${\color{red}\eta}\frac{{\delta}L}{{\delta}W}|_{w=w^0}$
 ```
 ${\color{red}\eta}\frac{{\delta}L}{{\delta}W}|_{w=w^0}$
 
+## newline, space and align
+- new line use `\cr`
+- space use `\\,`
+- align use `\begin{align}`, `\end{align}` and `&`
+```text
+$$
+\begin{align}
+x&=y           &  w &=z              &  a&=b+c \cr
+2x&=-y         &  3w&=\frac{1}{2}z   &  a&=b \cr
+-4 + 5x&=2+y   &  w+2&=-1+w          &  ab&=c\\,b
+\end{align}
+$$
+```
+$$
+\begin{align}
+x&=y           &  w &=z              &  a&=b+c \cr
+2x&=-y         &  3w&=\frac{1}{2}z   &  a&=b \cr
+-4 + 5\\,x&=2+y   &  w+2&=-1+w          &  ab&=c\\,b
+\end{align}
+$$
+
+
+
 ## 参考
 [Classical ML Equations in LaTeX](https://blmoistawinde.github.io/ml_equations_latex/)
