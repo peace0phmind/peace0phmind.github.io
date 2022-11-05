@@ -87,4 +87,19 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\circlearrowleft$ \circlearrowleft     | $\circlearrowright$ \circlearrowright   | |
 
 
+## Miscellaneous Symbols
+
+|  |  |  |  |
+|--|--|--|--|
+| $\dots$ \dots               | $\cdots$ \cdots         | $\vdots$ \vdots       | $\ddots$ \ddots         |
+| $\hbar$ \hbar               | $\imath$ \imath         | $\jmath$ \jmath       | $\ell$ \ell             |
+| $\Re$ \Re                   | $\Im$ \Im               | $\aleph$ \aleph       | $\wp$ \wp               |
+| $\forall$ \forall           | $\exists$ \exists       | $\mho$ \mho           | $\partial$ \partial     |
+| $'$ '                       | $\prime$ \prime         | $\emptyset$ \emptyset | $\infty$ \infty         |
+| $\nabla$ \nabla             | $\triangle$ \triangle   | $\Box$ \Box           | $\Diamond$ \Diamond     |
+| $\bot$ \bot                 | $\top$ \top             | $\angle$ \angle       | $\surd$ \surd           |
+| $\diamondsuit$ \diamondsuit | $\heartsuit$ \heartsuit | $\clubsuit$ \clubsuit | $\spadesuit$ \spadesuit |
+| $\neg$ \neg or \lnot        | $\flat$ \flat           | $\natural$ \natural   | $\sharp$ \sharp         |
+
+
 
