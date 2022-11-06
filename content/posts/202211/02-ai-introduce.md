@@ -9,7 +9,7 @@ lastmod: 2022-11-04T22:20:52+08:00
 author: peace0phmind
 url: "posts/202211/02-ai-introduce"
 
-draft: true
+draft: false
 
 categories:
   - machine-learning
@@ -23,7 +23,7 @@ tags:
 - `Classification`: Given options(classes), the function outputs the correct one.
 - `Structured Learning`: Create something with structure (image, document).
 
-## 回归
+## 回归问题
 预测问题：根据前面的浏览数据，预测后面的浏览量
 
 ### Function with Unknown Parameters
@@ -67,7 +67,7 @@ if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy
   - Update $w$ and $b$ interatively
 
 通过观察资料发现数据有7天为一个周期，所以使用新的公式进行调整, 并得到下面数据：
-| days | function | training loss | test loss |
+| days | function | training loss | testing loss |
 |--|--|--|--|
 | 1  | $ y = b + wx_{\color{red}1} $                       | $ L = 0.48k $ | $ L' = 0.58k $ |
 | 7  | $ y = b + \sum\limits_{j=1}^{\color{red}7}w_jx_j $  | $ L = 0.38k $ | $ L' = 0.49k $ |
@@ -95,7 +95,7 @@ if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy
 All Piecewise Linear Curves = constant + sum of a set of `Hard Sigmoid`
 ![Piecewise Linear Curves](/images/202211/02-ai-introduce/02.0003.jpg)
 
-### sigmoid function
+### use sigmoid model
 \begin{align*}
 y &= {\color{red}c}\frac{1}{1+e^{-({\color{green}b}+{\color{blue}w}x_1)}}  \cr
 &= {\color{red}c}\\,sigmoid({\color{green}b}+{\color{blue}w}x_1)
@@ -143,6 +143,92 @@ r_3 &= {\color{green}b_3} + {\color{blue}w_{31}}x_1 + {\color{blue}w_{32}}x_2 + 
 \end{bmatrix}
 \begin{bmatrix} x_1 \cr x_2 \cr x_3 \end{bmatrix}
 \end{align*}
+
+其中$\color{red}\sigma$表示`sigmoid`表达式
+![展开图示](/images/202211/02-ai-introduce/02.0008.jpg)
+
+如下图所示，x为`feature`；而所有的$W, {\color{green}b}, c^T, b$作为unknown parameters展开为一个长的一维向量，定义为$\color{red}\theta$
+![unknown parameters](/images/202211/02-ai-introduce/02.0009.jpg)
+
+### Loss function
+- Loss is a function of parameters $L(\theta)$
+- Loss means how good a set of values is.
+
+### Optimization of New Model
+$ \theta^* = arg\\,\min\limits_\theta L$
+- (Randomly) Pick initial values $\theta^0$
+- 对所有参数$\theta$对$L$做微分，这里的$g$叫做`gradient`
+```math
+\begin{align}
+gradient \Leftarrow g &=
+\begin{bmatrix}
+{\frac{\partial L}{\partial\theta_1}|_{\theta=\theta^0}}  \cr
+{\frac{\partial L}{\partial\theta_2}|_{\theta=\theta^0}}  \cr
+\vdots
+\end{bmatrix} \cr
+g &= \nabla L(\theta^0)
+\end{align}
+```
+- 然后进行参数更新
+```math
+$$
+\begin{bmatrix}
+\theta_1^1  \cr \theta_2^1 \cr \vdots
+\end{bmatrix} 
+\leftarrow
+\begin{bmatrix}
+\theta_1^0  \cr \theta_2^0 \cr \vdots
+\end{bmatrix}
+-
+\begin{bmatrix}
+{\color{red}\eta}\frac{\partial L}{\partial\theta_1}|_{\theta=\theta^0} \cr
+{\color{red}\eta}\frac{\partial L}{\partial\theta_2}|_{\theta=\theta^0} \cr
+\vdots
+\end{bmatrix}
+$$
+
+$$
+\theta^1 \leftarrow \theta^0 - {\color{red}\eta}g
+$$
+```
+- Compute gradient $ g = \nabla L(\theta^0) $
+
+全部资料是$L$,批次编号为$L^1, L^2, L^3$。`batch`是进行参数更新的单位，即一个批次进行一次参数更新；`epoch`表示所有批次全部执行了参数更新。
+![batch and epoch](/images/202211/02-ai-introduce/02.0010.jpg)
+
+### 使用$ Sigmoid \rightarrow ReLU $
+- `Rectified Linear Unit (ReLU)`: $ {\color{red}c}\\,max(0, {\color{green}b} + {\color{blue}w}x_1) $
+- 类似`sigmoid`和`ReLU`的函数在机器学习中叫做`Activation function`
+
+#### 作个数不同的ReLU
+- only one layer
+- input features are the no. of views in the past 56 days
+
+| model | training loss | testing loss |
+|--|--|--|
+| linear   | 0.32k | 0.46k |
+| 10ReLU   | 0.32k | 0.45k |
+| 100ReLU  | 0.28k | 0.43k |
+| 1000ReLU | 0.27k | 0.43k |
+
+#### 作多层ReLU
+- 100 ReLU for each layer
+- input features are the no. of views in the past 56 days
+- `Better on training data, worse on unseen data: Overfitting`, see layer number 4.
+
+| layer number | training loss | testing loss |
+|--|--|--|
+| 1 | 0.28k | 0.43k |
+| 2 | 0.18k | 0.39k |
+| 3 | 0.14k | 0.38k |
+| 4 | 0.10k | 0.44k |
+
+## Deep = Many hidden layers
+- AlexNet(2012), 8 layers, error rate: 16.4%
+- VGG(2014), 19 layers, error rate: 7.3%
+- GoogleNet(2014), 22 layers, error rate: 6.7%
+- Residual Net(2015), 152 layers, error rate: 3.57%
+
 
 
 ## 参考
