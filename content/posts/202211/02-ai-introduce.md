@@ -37,7 +37,7 @@ Loss: how good a set of values is.          <br/>
 Loss: $ L = \frac{1}{N}\sum\limits_{n}e_n$  <br/>
 $e = |y - \hat{y}|$ $L$ is mean absolute error (MAE) <br/>
 $e = (y-\hat{y})^2$ $L$ is mean square error (MSE) <br/>
-if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-entropy`
+if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy`
 
 使用不同的参数，计算出来的Loss画出来的等高线图叫做：`Error Surface`
 ![等高线图](/images/202211/02-ai-introduce/01.0001.jpg)
@@ -92,17 +92,31 @@ if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-entropy
 ![Linear Models的局限性](/images/202211/02-ai-introduce/02.0002.jpg)
 
 ### All Piecewise Linear Curves
-All Piecewise Linear Curves = constant + sum of a set of `hard sigmoid`
+All Piecewise Linear Curves = constant + sum of a set of `Hard Sigmoid`
 ![Piecewise Linear Curves](/images/202211/02-ai-introduce/02.0003.jpg)
 
 ### sigmoid function
-$$ 
-\begin{align}
+\begin{align*}
 y &= {\color{red}c}\frac{1}{1+e^{-({\color{green}b}+{\color{blue}w}x_1)}}  \cr
 &= {\color{red}c}\\,sigmoid({\color{green}b}+{\color{blue}w}x_1)
-\end{align}
-$$
+\end{align*}
 
+调整$ {\color{blue}w}, {\color{green}b}, {\color{red}c} $对应的函数图像
+![Sigmoid Parameters](/images/202211/02-ai-introduce/02.0004.jpg)
+
+相对于红色线段，可以用多个`Sigmoid`函数组合出来，将0:`constant`和1,2,3`sigmoid`加起来就是红色线段
+
+\begin{align*}
+b\tag{0}\cr
+{\color{red}c_1}\\,sigmoid({\color{green}b_1}+{\color{blue}w_1}x_1)\tag{1}\cr
+{\color{red}c_2}\\,sigmoid({\color{green}b_2}+{\color{blue}w_2}x_1)\tag{2}\cr
+{\color{red}c_3}\\,sigmoid({\color{green}b_3}+{\color{blue}w_3}x_1)\tag{3}\cr
+{\color{red}red\\,curve}\\,will\\,be: \cr
+y = b + \sum_i{\color{red}c_i}\\,sigmoid({\color{green}b_i}+{\color{blue}w_i}x1)
+\end{align*}
+
+
+![Sigmoid Parameters](/images/202211/02-ai-introduce/02.0005.jpg)
 
 
 ## 参考
