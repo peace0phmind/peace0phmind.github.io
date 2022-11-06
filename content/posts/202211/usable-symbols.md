@@ -19,15 +19,14 @@ weight: 3
 draft: false
 ---
 
-## 参考
+## reference
 
-[MathJax LaTex Ref](https://docs.mathjax.org/en/latest/input/tex/index.html)
-[LaTex Math Symbols](https://www.math.uci.edu/~xiangwen/pdf/LaTeX-Math-Symbols.pdf)
-[LaTex Math Symbols](/files/LaTeX-Math-Symbols.pdf)
-[LaTeX_mathematical_symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
+- [MathJax LaTex Ref](https://docs.mathjax.org/en/latest/input/tex/index.html)
+- [LaTex Math Symbols](/files/LaTeX-Math-Symbols.pdf) or [LaTex Math Symbols](https://www.math.uci.edu/~xiangwen/pdf/LaTeX-Math-Symbols.pdf)
+- [LaTeX_mathematical_symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
+- [short-math-guide](/files/short-math-guide.pdf) or [short-math-guide](https://mirrors.sustech.edu.cn/CTAN/info/short-math-guide/short-math-guide.pdf)
 
-
-## 空格符号
+## spaces
 
 ```txt
 Regular space  : There's a regular&nbsp;space.
@@ -101,5 +100,22 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\diamondsuit$ \diamondsuit | $\heartsuit$ \heartsuit | $\clubsuit$ \clubsuit | $\spadesuit$ \spadesuit |
 | $\neg$ \neg or \lnot        | $\flat$ \flat           | $\natural$ \natural   | $\sharp$ \sharp         |
 
+## bold fonts
+For those symbols where `\mathbf` is not applicable, the `\boldsymbol` or `\pmb` commands can be used.
 
+```text
+A_\infty + \pi A_0
+\sim \mathbf{A}_{\boldsymbol{\infty}} \boldsymbol{+}
+\boldsymbol{\pi} \mathbf{A}_{\boldsymbol{0}}
+\sim\pmb{A}_{\pmb{\infty}} \pmb{+}\pmb{\pi} \pmb{A}_{\pmb{0}}
+```
+
+```math
+$$
+A_\infty + \pi A_0 
+\sim \mathbf{A}_{\boldsymbol{\infty}} \boldsymbol{+}
+\boldsymbol{\pi} \mathbf{A}_{\boldsymbol{0}}
+\sim\pmb{A}_{\pmb{\infty}} \pmb{+}\pmb{\pi} \pmb{A}_{\pmb{0}}
+$$
+```
 
