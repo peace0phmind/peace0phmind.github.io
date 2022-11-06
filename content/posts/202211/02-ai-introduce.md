@@ -193,12 +193,12 @@ $$
 ```
 - Compute gradient $ g = \nabla L(\theta^0) $
 
-全部资料是$L$,批次编号为$L^1, L^2, L^3$。`batch`是进行参数更新的单位，即一个批次进行一次参数更新；`epoch`表示所有批次全部执行了参数更新。
+全部资料是$L$,批次编号为$L^1, L^2, L^3$。{{<clr>}}batch{{</clr>}}是进行参数更新的单位，即一个批次进行一次参数更新；{{<clr>}}epoch{{</clr>}}表示所有批次全部执行了参数更新。
 ![batch and epoch](/images/202211/02-ai-introduce/02.0010.jpg)
 
 ### 使用$ Sigmoid \rightarrow ReLU $
 - `Rectified Linear Unit (ReLU)`: $ {\color{red}c}\\,max(0, {\color{green}b} + {\color{blue}w}x_1) $
-- 类似`sigmoid`和`ReLU`的函数在机器学习中叫做`Activation function`
+- 类似`sigmoid`和`ReLU`的函数在机器学习中叫做{{<clr>}}`Activation function`{{</clr>}}
 
 #### 作个数不同的ReLU
 - only one layer
@@ -214,7 +214,7 @@ $$
 #### 作多层ReLU
 - 100 ReLU for each layer
 - input features are the no. of views in the past 56 days
-- `Better on training data, worse on unseen data: Overfitting`, see layer number 4.
+- `Better on training data, worse on unseen data`: {{<clr>}}`Overfittin`{{</clr>}} , see layer number 4.
 
 | layer number | training loss | testing loss |
 |--|--|--|
