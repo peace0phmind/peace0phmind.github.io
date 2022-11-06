@@ -112,11 +112,37 @@ b\tag{0}\cr
 {\color{red}c_2}\\,sigmoid({\color{green}b_2}+{\color{blue}w_2}x_1)\tag{2}\cr
 {\color{red}c_3}\\,sigmoid({\color{green}b_3}+{\color{blue}w_3}x_1)\tag{3}\cr
 {\color{red}red\\,curve}\\,will\\,be: \cr
-y = b + \sum_i{\color{red}c_i}\\,sigmoid({\color{green}b_i}+{\color{blue}w_i}x1)
+y = b + \sum_{i=1}^3{\color{red}c_i}\\,sigmoid({\color{green}b_i}+{\color{blue}w_i}x1)
 \end{align*}
 
 
 ![Sigmoid Parameters](/images/202211/02-ai-introduce/02.0005.jpg)
+
+基于sigmoid的模型，对原来的模型进行调整如下：
+\begin{align*}
+y &= b+wx_1  \cr
+& \Downarrow  \cr
+y &= b + \sum_{i=1}^n {\color{red}c_i} \\, sigmoid({\color{green}b_i}+{\color{blue}w_i}x_i) \cr
+y &= b + \sum_{j=1}^m w_jx_j  \cr
+& \Downarrow  \cr
+y &= b + \sum_{i=1}^n {\color{red}c_i} \\, sigmoid({\color{green}b_i}+\sum_{j=1}^m{\color{blue}w_{ij}}x_j)
+\end{align*}
+
+使$n=3, m=3$对表达式$y = b + \sum_{i=1}^n {\color{red}c_i} \\, sigmoid({\color{green}b_i}+\sum_{j=1}^m{\color{blue}w_{ij}}x_j)$进行展开
+\begin{align*}
+r_1 &= {\color{green}b_1} + {\color{blue}w_{11}}x_1 + {\color{blue}w_{12}}x_2 + {\color{blue}w_{13}}x_3  \cr
+r_2 &= {\color{green}b_2} + {\color{blue}w_{21}}x_1 + {\color{blue}w_{22}}x_2 + {\color{blue}w_{23}}x_3  \cr
+r_3 &= {\color{green}b_3} + {\color{blue}w_{31}}x_1 + {\color{blue}w_{32}}x_2 + {\color{blue}w_{33}}x_3  \cr
+&\Downarrow \cr
+\begin{bmatrix} r_1 \cr r_2 \cr r_3 \end{bmatrix} &=
+\begin{bmatrix} {\color{green}b_1} \cr {\color{green}b_2} \cr {\color{green}b_3} \end{bmatrix} + 
+\begin{bmatrix}
+{\color{blue}w_{11}} & {\color{blue}w_{12}} & {\color{blue}w_{13}}  \cr
+{\color{blue}w_{21}} & {\color{blue}w_{22}} & {\color{blue}w_{23}}  \cr
+{\color{blue}w_{31}} & {\color{blue}w_{32}} & {\color{blue}w_{33}}  \cr
+\end{bmatrix}
+\begin{bmatrix} x_1 \cr x_2 \cr x_3 \end{bmatrix}
+\end{align*}
 
 
 ## 参考

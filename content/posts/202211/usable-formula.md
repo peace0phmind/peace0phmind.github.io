@@ -159,5 +159,18 @@ x=y \cr y=b
 x=y \cr y=b
 \end{align} 
 
+## matrices
+- [Matrices](https://www.overleaf.com/learn/latex/Matrices)
+
+| Type | Latex markup | Render as |
+|--|--|--|
+| Plain                             | \begin{`matrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`matrix`} | \begin{matrix} 1 & 2 & 3\cr a & b & c \end{matrix}|
+| Parentheses; <br/> round brackets | \begin{`pmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`pmatrix`} | \begin{pmatrix} 1 & 2 & 3\cr a & b & c \end{pmatrix}|
+| Brackets; <br/> square brackets   | \begin{`bmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`bmatrix`} | \begin{bmatrix} 1 & 2 & 3\cr a & b & c \end{bmatrix}|
+| Braces; <br/> curly brackets      | \begin{`Bmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`Bmatrix`} | \begin{Bmatrix} 1 & 2 & 3\cr a & b & c \end{Bmatrix}|
+| Pipes                             | \begin{`vmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`vmatrix`} | \begin{vmatrix} 1 & 2 & 3\cr a & b & c \end{vmatrix}|
+| Double pipes                      | \begin{`Vmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`Vmatrix`} | \begin{Vmatrix} 1 & 2 & 3\cr a & b & c \end{Vmatrix}|
+
+
 ## 参考
 - [Classical ML Equations in LaTeX](https://blmoistawinde.github.io/ml_equations_latex/)
