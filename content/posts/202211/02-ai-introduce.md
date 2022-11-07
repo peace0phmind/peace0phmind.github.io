@@ -308,7 +308,8 @@ $$
 - Function (Model):
   \begin{align} g(x) > 0 \quad\quad Output &= class 1 \cr else \quad\quad Output &= class 2 \end{align}
 - Loss Function
-  $$ L(f) = \sum_n\delta(f(x^n) \noteq \hat{y}^n ) $$
+  - The number of times f get incorrect results on training data.
+    $$ L(f) = \sum_n\delta(f(x^n) \ne \hat{y}^n ) $$
 ## reference
 - [nvidia training resource](https://www.nvidia.com/en-us/training/resources/)
 
