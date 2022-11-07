@@ -100,6 +100,15 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\diamondsuit$ \diamondsuit | $\heartsuit$ \heartsuit | $\clubsuit$ \clubsuit | $\spadesuit$ \spadesuit |
 | $\neg$ \neg or \lnot        | $\flat$ \flat           | $\natural$ \natural   | $\sharp$ \sharp         |
 
+## delimiters
+
+|  |  |  |  |
+|--|--|--|--|
+| $($ (                     | $)$ )                    | $\lbrack$ [ or \lbrack | $\rbrack$ ] or \rbrack  |
+| $\lbrace$ \\{ or \lbrace  | $\rbrace$ \\} or \rbrace | $\langle$ \langle      | $\rangle$ \rangle       |
+| $/$ /                     | $\backslash$ \backslash  | $\vert$ \vert or `\|`  | $\Vert$ \Vert or `\\\|` |
+| $\lfloor$ \lfloor         | $\rfloor$ \rfloor        | $\lceil$ \lceil        | $\rceil$ \rceil         |
+
 ## bold fonts
 For those symbols where `\mathbf` is not applicable, the `\boldsymbol` or `\pmb` commands can be used.
 

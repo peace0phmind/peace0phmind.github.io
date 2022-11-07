@@ -19,6 +19,8 @@ tags:
 ---
 
 ## 介绍
+`Machine Learning = Looking for Function`
+
 - `Regression`: Input a vector, the function outputs a scalar.
 - `Classification`: Given options(classes), the function outputs the correct one.
 - `Structured Learning`: Create something with structure (image, document).
@@ -32,12 +34,12 @@ $y$(`Label`): no. of views on 2/26， $x_1$(`feature`): no. of views on 2/25  <b
 $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 
 ### Define Loss from Training Data
-Loss is a function of parameters: $L(b, w)$ <br/>
-Loss: how good a set of values is.          <br/>
-Loss: $ L = \frac{1}{N}\sum\limits_{n}e_n$  <br/>
-$e = |y - \hat{y}|$ $L$ is mean absolute error (MAE) <br/>
-$e = (y-\hat{y})^2$ $L$ is mean square error (MSE) <br/>
-if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy`
+- Loss is a function of parameters: $L(b, w)$ <br/>
+- Loss: how good a set of values is.          <br/>
+- Loss: $ L = \frac{1}{N}\sum\limits_{n}e_n$  <br/>
+  - $e = |y - \hat{y}|$ $L$ is mean absolute error (MAE) <br/>
+  - $e = (y-\hat{y})^2$ $L$ is mean square error (MSE) <br/>
+  - if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy`
 
 使用不同的参数，计算出来的Loss画出来的等高线图叫做：`Error Surface`
 ![等高线图](/images/202211/02-ai-introduce/01.0001.jpg)
@@ -87,7 +89,7 @@ if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy
 - define loss from training data
 - optimization
 
-## 打破Linear Models的局限性，对模型的进一步调整
+## 打破模型局限
 不同的w和不同的b对Linear Models的影响如蓝色线。红色表示可能的真实趋势。这种来自于Model的限制叫做`Model Bias`。
 ![Linear Models的局限性](/images/202211/02-ai-introduce/02.0002.jpg)
 
@@ -95,7 +97,7 @@ if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy
 All Piecewise Linear Curves = constant + sum of a set of `Hard Sigmoid`
 ![Piecewise Linear Curves](/images/202211/02-ai-introduce/02.0003.jpg)
 
-### use sigmoid model
+### sigmoid
 \begin{align*}
 y &= {\color{red}c}\frac{1}{1+e^{-({\color{green}b}+{\color{blue}w}x_1)}}  \cr
 &= {\color{red}c}\\,sigmoid({\color{green}b}+{\color{blue}w}x_1)
@@ -214,22 +216,57 @@ $$
 #### 作多层ReLU
 - 100 ReLU for each layer
 - input features are the no. of views in the past 56 days
-- `Better on training data, worse on unseen data`: {{<clr>}}`Overfittin`{{</clr>}} , see layer number 4.
+- `Better on training data, worse on unseen data`: {{<clr>}}`Overfittin`{{</clr>}} , see layer count 4.
 
-| layer number | training loss | testing loss |
+| layer count | training loss | testing loss |
 |--|--|--|
 | 1 | 0.28k | 0.43k |
 | 2 | 0.18k | 0.39k |
 | 3 | 0.14k | 0.38k |
 | 4 | 0.10k | 0.44k |
 
-## Deep = Many hidden layers
+## Deep Learning Introduce
+
+### history (Ups and downs of Deep Learning)
+- 1958: Perceptron (linear model)
+- {{<clr>}}1969: Perceptron has limitation{{</clr>}}
+- 1980: Multi-layer perceptron
+  - Do not have significant difference from DNN today
+- 1986: Backpropagation
+  - Usually more than 3 hidden layers is not helpful
+- {{<clr>}}1989: 1 hidden layer is "good enough", why deep?{{</clr>}}
+- 2006: RBM initialization (breakthrough)
+- 2009: GPU
+- 2011: Start to be popular in speech recognition
+- 2012: win ILSVRC image competition
+
+### Fully Connect Feedforward Network
+- 输入叫`Input Layer`
+- 输出叫`Output Layer`
+- 中间层叫`hidden Layers`
+![Fully Connect Feedforward Network](/images/202211/02-ai-introduce/Lecture6.0002.jpg)
+
+### Deep = Many hidden layers
 - AlexNet(2012), 8 layers, error rate: 16.4%
 - VGG(2014), 19 layers, error rate: 7.3%
 - GoogleNet(2014), 22 layers, error rate: 6.7%
 - Residual Net(2015), 152 layers, error rate: 3.57%
 
+### FAQ
+- Q: How many layers? How many neurons for each layer?
+  - `Trial and Error` + `Intuition`
+- Q: Can the structure be automatically determined?
+  - Evolutionary Artificial Neural Networks
+- Q: Can we design the network structure?
+  - Convolutional Neural Network (CNN)
 
+### [Backpropagation](http://speech.ee.ntu.edu.tw/~tlkagk/courses/MLDS_2015_2/Lecture/DNN%20backprop.ecm.mp4/index.html)
+`Backpropgation`: an efficient way to compute $\frac{\partial L}{\partial w}$
+
+#### Background
+- Cost Function $C(\theta)$
+  - Given training examples:
+    - $\\{ (x^1, \hat{y}^1),\cdots, \\}$
 
 ## 参考
 {{< youtube Ye018rCVvOo >}}
