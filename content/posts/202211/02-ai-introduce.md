@@ -259,14 +259,25 @@ $$
   - Evolutionary Artificial Neural Networks
 - Q: Can we design the network structure?
   - Convolutional Neural Network (CNN)
+- Q: Deeper is Better?
+  - Universality Theorem
+    - Any continuous function f
+    - $ f : R^N \rightarrow R^M $
+    - Can be realized by a network with one hidden layer (given `enough` hidden neurons)
+    - {{<clr>}}Why `Deep` neural network not `Fat` neural network?{{</clr>}}
 
 ### [Backpropagation](http://speech.ee.ntu.edu.tw/~tlkagk/courses/MLDS_2015_2/Lecture/DNN%20backprop.ecm.mp4/index.html)
-`Backpropgation`: an efficient way to compute $\frac{\partial L}{\partial w}$
+`Backpropgation`: an efficient way to compute ${\partial L}/{\partial w}$
 
 #### Background
 - Cost Function $C(\theta)$
   - Given training examples:
-    - $\\{ (x^1, \hat{y}^1),\cdots, \\}$
+    - $\\{ (x^1, \hat{y}^1),\cdots,(x^r, \hat{y}^r),\cdots,(x^R, \hat{y}^R) \\}$
+  - Find a set of parameters $\theta^*$ minimizing $C(\theta)$
+    - $ C(\theta) = \frac{1}{R}\sum_rC^r(\theta),C^r(\theta)=\\|f(x^r;\theta)-\hat{y}^r\\| $
+- Gradient Descent
+  - $ \nabla C(\theta)=\frac{1}{R}\sum_r\nabla C^r(\theta) $
+  - Given $W_{ij}^l$ and $b_i^l$, we have to compute ${\partial C^r}/{\partial w_{ij}^l}$ and ${\partial C^r}/{\partial b_i^l}$
 
 ## 参考
 {{< youtube Ye018rCVvOo >}}
