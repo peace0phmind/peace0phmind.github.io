@@ -36,7 +36,7 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 ### Define Loss from Training Data
 - Loss is a function of parameters: $L(b, w)$ <br/>
 - Loss: how good a set of values is.          <br/>
-- Loss: $ L = \frac{1}{N}\sum\limits_{n}e_n$  <br/>
+- Loss: $ L = \frac{1}{N}\sum\limits_{n=1}^N e_n$  <br/>
   - $e = |y - \hat{y}|$ $L$ is mean absolute error (MAE) <br/>
   - $e = (y-\hat{y})^2$ $L$ is mean square error (MSE) <br/>
   - if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy`
@@ -53,7 +53,7 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 - 计算$w=w^0$时，对$L$的微分是多少：$\frac{{\partial}L}{{\partial}W}|_{w=w^0}$
   - 如果计算出来的结果为负数，则增加$w$
   - 如果计算出来的结果为正数，则减少$w$
-  - 增加或减少的数值为：${\color{red}\eta}\frac{{\partial}L}{{\partial}W}|_{w=w^0}$, $\color{red}\eta$:叫learning rate,是一个hyperparameter
+  - 增加或减少的数值为：${\color{red}\eta}\frac{{\partial}L}{{\partial}W}|_{w=w^0}$, $\color{red}\eta$:叫{{<clr>}}learning rate{{</clr>}},是一个hyperparameter
   - 这个过程用的数学表达式是：$ w^1 \leftarrow w^0 - {\color{red}\eta}\frac{{\partial}L}{{\partial}W}|_{w=w^0} $
   - 重复上述步骤不断更新$w$。两种状况会停下来:
     - 更新的次数达到预设值
@@ -244,7 +244,7 @@ $$
 - 输入叫`Input Layer`
 - 输出叫`Output Layer`
 - 中间层叫`hidden Layers`
-![Fully Connect Feedforward Network](/images/202211/02-ai-introduce/Lecture6.0002.jpg)
+![Fully Connect Feedforward Network](/images/202211/02-ai-introduce/6.0002.jpg)
 
 ### Deep = Many hidden layers
 - AlexNet(2012), 8 layers, error rate: 16.4%
@@ -266,20 +266,26 @@ $$
     - Can be realized by a network with one hidden layer (given `enough` hidden neurons)
     - {{<clr>}}Why `Deep` neural network not `Fat` neural network?{{</clr>}}
 
-### [Backpropagation](http://speech.ee.ntu.edu.tw/~tlkagk/courses/MLDS_2015_2/Lecture/DNN%20backprop.ecm.mp4/index.html)
+## Backpropagation
 `Backpropgation`: an efficient way to compute ${\partial L}/{\partial w}$
 
-#### Background
-- Cost Function $C(\theta)$
-  - Given training examples:
-    - $\\{ (x^1, \hat{y}^1),\cdots,(x^r, \hat{y}^r),\cdots,(x^R, \hat{y}^R) \\}$
-  - Find a set of parameters $\theta^*$ minimizing $C(\theta)$
-    - $ C(\theta) = \frac{1}{R}\sum_rC^r(\theta),C^r(\theta)=\\|f(x^r;\theta)-\hat{y}^r\\| $
-- Gradient Descent
-  - $ \nabla C(\theta)=\frac{1}{R}\sum_r\nabla C^r(\theta) $
-  - Given $W_{ij}^l$ and $b_i^l$, we have to compute ${\partial C^r}/{\partial w_{ij}^l}$ and ${\partial C^r}/{\partial b_i^l}$
+### Gradient Descent
+- 对每一个参数针对L进行偏微分得到: $\nabla L(\theta)$
+- 使用`batch`的数据对参数$\theta$进行更新.
+![Gradient Descent](/images/202211/02-ai-introduce/7.0001.jpg)
+
+### Chain Rule
+- case 1: $\frac{dz}{dx}=\frac{dz}{dy}\frac{dy}{dx}$
+- case 2: $\frac{dz}{ds}=\frac{dz}{dx}\frac{dx}{ds}+\frac{dz}{dy}\frac{dy}{ds}$
+![Chain Rule](/images/202211/02-ai-introduce/7.0002.jpg)
+
+### Forward and Backward pass:
+- `Forward pass`: Compute ${\partial z}/{\partial w}$ for all parameters
+- `Backward pass`: Compute ${\partial C}/{\partial z}$ for all activation function inputs z
+![Forward and Backward pass](/images/202211/02-ai-introduce/7.0003.jpg)
 
 ## reference
+- [nvidia training resource](https://www.nvidia.com/en-us/training/resources/)
 
 ### reference book
 - [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)

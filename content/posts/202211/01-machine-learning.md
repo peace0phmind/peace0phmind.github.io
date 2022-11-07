@@ -84,4 +84,5 @@ weight: 1
 - [Machine Learning 2021](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php)
 - [Machine Learning 2020](https://speech.ee.ntu.edu.tw/~hylee/ml/2020-spring.php)
 - [Machine Learning 2019](https://speech.ee.ntu.edu.tw/~hylee/ml/2019-spring.php)
-- [Machine Learning 2016 ALL](https://speech.ee.ntu.edu.tw/~hylee/ml/2016-fall.php)
+- [Machine Learning 2016 FALL](https://speech.ee.ntu.edu.tw/~hylee/ml/2016-fall.php)
+- [MLDS 2015 FALL](https://speech.ee.ntu.edu.tw/~hylee/mlds/2015-fall.php)
