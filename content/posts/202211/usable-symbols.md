@@ -26,7 +26,7 @@ draft: false
 - [LaTeX_mathematical_symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
 - [short-math-guide](/files/short-math-guide.pdf) or [short-math-guide](https://mirrors.sustech.edu.cn/CTAN/info/short-math-guide/short-math-guide.pdf)
 
-## spaces
+## spaces in markdown
 
 ```txt
 Regular space  : There's a regular&nbsp;space.
@@ -108,6 +108,25 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\lbrace$ \\\\{ or \lbrace | $\rbrace$ \\\\} or \rbrace | $\langle$ \langle      | $\rangle$ \rangle       |
 | $/$ /                      | $\backslash$ \backslash    | $\vert$ \vert or `\|`  | $\Vert$ \Vert or `\\\|` |
 | $\lfloor$ \lfloor          | $\rfloor$ \rfloor          | $\lceil$ \lceil        | $\rceil$ \rceil         |
+
+## Binary Relations
+
+|  |  |  |
+|--|--|--|
+| $<$ <                     | $>$ >                     | $=$ =             |
+| $\leq$ \leq or \le        | $\geq$ \geq or \ge        | $\equiv$ \equiv   |
+| $\ll$ \ll                 | $\gg$ \gg                 | $\doteq$ \doteq   |
+| $\prec$ \prec             | $\succ$ \succ             | $\sim$ \sim       |
+| $\preceq$ \preceq         | $\succeq$ \succeq         | $\simeq$ \simeq   |
+| $\subset$ \subset         | $\supset$ \supset         | $\approx$ \approx |
+| $\subseteq$ \subseteq     | $\supseteq$ \supseteq     | $\cong$ \cong     |
+| $\sqsubset$ \sqsubset     | $\sqsupset$ \sqsupset     | $\Join$ \Join     |
+| $\sqsubseteq$ \sqsubseteq | $\sqsupseteq$ \sqsupseteq | $\bowtie$ \bowtie |
+| $\in$ \in                 | $\ni$ \ni or \owns        | $\propto$ \propto |
+| $\vdash$ \vdash           | $\dashv$ \dashv           | $\models$ \models |
+| $\mid$ \mid               | $\parallel$ \parallel     | $\perp$ \perp     |
+| $\smile$ \smile           | $\frown$ \frown           | $\asymp$ \asymp   |
+| $:$ :                     | $\notin$ \notin           | $\ne$ \neq or \ne |
 
 ## bold fonts
 For those symbols where `\mathbf` is not applicable, the `\boldsymbol` or `\pmb` commands can be used.

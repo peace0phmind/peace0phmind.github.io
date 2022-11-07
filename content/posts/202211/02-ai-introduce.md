@@ -285,7 +285,7 @@ $$
 ![Forward and Backward pass](/images/202211/02-ai-introduce/7.0003.jpg)
 
 ## Regularization
-`Regularization`出现的背景：当原始数据有过多的feature和w，可能存在某些feature确实与最终的结果无关，在这种情况下可以先将所有feature包含进来，然后通过`Regularization`的思路对w进行优化，从而降低无效feature对最终结果的影响。
+`Regularization`出现的背景：当原始数据有过多的feature和模型有大量的w，可能存在某些feature确实与最终的结果无关，在这种情况下可以先将所有feature包含进来，然后通过`Regularization`的思路对w进行优化，从而降低无效feature对最终结果的影响。
 - 假设Model Function为$ y = b + \sum w_i x_i $
 - 原来定义的Loss Function为$ L = \sum\limits_n( \hat{y}^n - ( b + \sum w_i x_i ) )^2$
 - Regularization既是在上面Loss Function的基础上加上红色部分: $ L = \sum\limits_n( \hat{y}^n - ( b + \sum w_i x_i ) )^2 + \color{red}\lambda\sum(w_i)^2$
@@ -304,6 +304,11 @@ $$
 
 ![Regularization Loss](/images/202211/02-ai-introduce/1.0001.jpg)
 
+## Classification
+- Function (Model):
+  \begin{align} g(x) > 0 \quad\quad Output &= class 1 \cr else \quad\quad Output &= class 2 \end{align}
+- Loss Function
+  $$ L(f) = \sum_n\delta(f(x^n) \noteq \hat{y}^n ) $$
 ## reference
 - [nvidia training resource](https://www.nvidia.com/en-us/training/resources/)
 
