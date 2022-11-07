@@ -279,7 +279,15 @@ $$
   - $ \nabla C(\theta)=\frac{1}{R}\sum_r\nabla C^r(\theta) $
   - Given $W_{ij}^l$ and $b_i^l$, we have to compute ${\partial C^r}/{\partial w_{ij}^l}$ and ${\partial C^r}/{\partial b_i^l}$
 
-## 参考
+## reference
+
+### reference book
+- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
+  - written by Michael Nielsen
+- [Deep Learning](https://www.deeplearningbook.org/)
+  - written by Yoshua Bengio, Ian J. Goodfellow and Aaron Courville
+
+### reference video
 {{< youtube Ye018rCVvOo >}}
 {{< youtube bHcJCp2Fyxs >}}
 
