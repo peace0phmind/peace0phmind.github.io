@@ -51,6 +51,36 @@ ${\color{red}\eta}\frac{{\delta}L}{{\delta}W}|_{w=w^0}$
 ```
 ${\color{red}\eta}\frac{{\delta}L}{{\delta}W}|_{w=w^0}$
 
+## frac and sfrac
+```text
+$ \frac{1}{2} = \sfrac{1}{2} $
+```
+$ \frac{1}{2} = \sfrac{1}{2} $
+
+## text and textcolor
+```text
+$\textcolor{red}{\text{red curve}}\text{ will be}$
+```
+$\textcolor{red}{\text{red curve}}\text{ will be}$
+
+## cases
+```text
+$$
+\delta(x) = 
+\begin{cases}  
+    g(x) > 0 & \text{Output = class 1} \cr 
+    else & \text{Output = class 2} 
+\end{cases}
+$$
+```
+$$
+\delta(x) = 
+\begin{cases}  
+    g(x) > 0 & \text{Output = class 1} \cr 
+    else & \text{Output = class 2} 
+\end{cases}
+$$
+
 ## newline, space, align and tag
 - new line use `\cr` or `\\\\`
 - space use `\\,`, `\quad`
@@ -86,6 +116,20 @@ x&=y           &  w &=z              &  a&=b+c \\\\
 2x&=-y         &  3w&=\frac{1}{2}z   &  a&=b \notag \cr
 -4 + 5x&=2+y   &  w+2&=-1+w          &  a \quad b&=c\\,b\tag{xyz}
 \end{align*}
+
+
+## matrices
+- [Matrices](https://www.overleaf.com/learn/latex/Matrices)
+
+| Type | Latex markup | Render as |
+|--|--|--|
+| Plain                             | \begin{`matrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`matrix`} | \begin{matrix} 1 & 2 & 3\cr a & b & c \end{matrix}|
+| Parentheses; <br/> round brackets | \begin{`pmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`pmatrix`} | \begin{pmatrix} 1 & 2 & 3\cr a & b & c \end{pmatrix}|
+| Brackets; <br/> square brackets   | \begin{`bmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`bmatrix`} | \begin{bmatrix} 1 & 2 & 3\cr a & b & c \end{bmatrix}|
+| Braces; <br/> curly brackets      | \begin{`Bmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`Bmatrix`} | \begin{Bmatrix} 1 & 2 & 3\cr a & b & c \end{Bmatrix}|
+| Pipes                             | \begin{`vmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`vmatrix`} | \begin{vmatrix} 1 & 2 & 3\cr a & b & c \end{vmatrix}|
+| Double pipes                      | \begin{`Vmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`Vmatrix`} | \begin{Vmatrix} 1 & 2 & 3\cr a & b & c \end{Vmatrix}|
+
 
 ## block symbol: equation, split, multline, gather, align
 
@@ -158,18 +202,6 @@ x=y \cr y=b
 \begin{align}
 x=y \cr y=b
 \end{align} 
-
-## matrices
-- [Matrices](https://www.overleaf.com/learn/latex/Matrices)
-
-| Type | Latex markup | Render as |
-|--|--|--|
-| Plain                             | \begin{`matrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`matrix`} | \begin{matrix} 1 & 2 & 3\cr a & b & c \end{matrix}|
-| Parentheses; <br/> round brackets | \begin{`pmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`pmatrix`} | \begin{pmatrix} 1 & 2 & 3\cr a & b & c \end{pmatrix}|
-| Brackets; <br/> square brackets   | \begin{`bmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`bmatrix`} | \begin{bmatrix} 1 & 2 & 3\cr a & b & c \end{bmatrix}|
-| Braces; <br/> curly brackets      | \begin{`Bmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`Bmatrix`} | \begin{Bmatrix} 1 & 2 & 3\cr a & b & c \end{Bmatrix}|
-| Pipes                             | \begin{`vmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`vmatrix`} | \begin{vmatrix} 1 & 2 & 3\cr a & b & c \end{vmatrix}|
-| Double pipes                      | \begin{`Vmatrix`} <br/> 1 & 2 & 3\cr <br/> a & b & c <br/> \\end{`Vmatrix`} | \begin{Vmatrix} 1 & 2 & 3\cr a & b & c \end{Vmatrix}|
 
 
 ## 参考

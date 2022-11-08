@@ -113,7 +113,7 @@ b\tag{0}\cr
 {\color{red}c_1}\\,sigmoid({\color{green}b_1}+{\color{blue}w_1}x_1)\tag{1}\cr
 {\color{red}c_2}\\,sigmoid({\color{green}b_2}+{\color{blue}w_2}x_1)\tag{2}\cr
 {\color{red}c_3}\\,sigmoid({\color{green}b_3}+{\color{blue}w_3}x_1)\tag{3}\cr
-{\color{red}red\\,curve}\\,will\\,be: \cr
+\textcolor{red}{\text{red curve}}\text{ will be:} \cr
 y = b + \sum_{i=1}^3{\color{red}c_i}\\,sigmoid({\color{green}b_i}+{\color{blue}w_i}x1)
 \end{align*}
 
@@ -267,7 +267,7 @@ $$
     - {{<clr>}}Why `Deep` neural network not `Fat` neural network?{{</clr>}}
 
 ## Backpropagation
-`Backpropgation`: an efficient way to compute ${\partial L}/{\partial w}$
+`Backpropgation`: an efficient way to compute $\sfrac{\partial L}{\partial w}$
 
 ### Gradient Descent
 - 对每一个参数针对L进行偏微分得到: $\nabla L(\theta)$
@@ -280,8 +280,8 @@ $$
 ![Chain Rule](/images/202211/02-ai-introduce/7.0002.jpg)
 
 ### Forward and Backward pass:
-- `Forward pass`: Compute ${\partial z}/{\partial w}$ for all parameters
-- `Backward pass`: Compute ${\partial C}/{\partial z}$ for all activation function inputs z
+- `Forward pass`: Compute $\sfrac{\partial z}{\partial w}$for all parameters
+- `Backward pass`: Compute $\sfrac{\partial C}{\partial z}$ for all activation function inputs z
 ![Forward and Backward pass](/images/202211/02-ai-introduce/7.0003.jpg)
 
 ## Regularization
@@ -306,7 +306,7 @@ $$
 
 ## Classification
 - Function (Model):
-  \begin{align} g(x) > 0 \quad\quad Output &= class 1 \cr else \quad\quad Output &= class 2 \end{align}
+  $$ \delta(x) \begin{cases}  g(x) > 0 & \text{Output = class 1} \cr else & \text{Output = class 2} \end{cases} $$
 - Loss Function
   - The number of times f get incorrect results on training data.
     $$ L(f) = \sum_n\delta(f(x^n) \ne \hat{y}^n ) $$

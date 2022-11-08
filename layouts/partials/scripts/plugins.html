@@ -6,9 +6,9 @@
         options: {
             // Don't render math in mindmaps as Markmap has its own math renderer.
             ignoreHtmlClass: 'markmap',
+            // processHtmlClass: "has_am",
         },
         tex: {
-            // tags: 'ams',
             inlineMath: [
                 ['$', '$'],
                 ['\\(', '\\)'],
@@ -17,11 +17,48 @@
                 ['$$', '$$'],
                 ['\\[', '\\]'],
             ],
+            tags: "none",
+            useLabelIds: true,
+            tagSide: "right",
+            tagIndent: ".8em",
             processEscapes: false,
-            packages: {'[+]': ['noerrors']},
+            packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl', 'sfrac']}
+        },
+        chtml: {
+            scale: 0.88,
+            mtextInheritFont: true
         },
         loader: {
-            load: ['[tex]/noerrors'],
+            load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+            paths: {pretext: "https://pretextbook.org/js/lib"},
+        },
+        startup: {
+            ready() {
+                //
+                // Creating a simple "sfrac" package on-the-fly
+                //
+                const Configuration = MathJax._.input.tex.Configuration.Configuration;
+                const CommandMap = MathJax._.input.tex.SymbolMap.CommandMap;
+
+                new CommandMap('sfrac', {
+                        sfrac: 'SFrac'
+                    }, {
+                    SFrac(parser, name) {
+                        const num = parser.ParseArg(name);
+                        const den = parser.ParseArg(name);
+                        const frac = parser.create('node', 'mfrac', [num, den], {bevelled: true});
+                        parser.Push(frac);
+                    }
+                });
+                //
+                // Create the package for the overridden macros
+                //
+                Configuration.create('sfrac', {
+                    handler: {macro: ['sfrac']}
+                });
+
+                MathJax.startup.defaultReady();
+            }
         },
     };
 </script>
