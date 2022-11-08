@@ -20,7 +20,23 @@ tags:
 
 `Classification`: Given options(classes), the function outputs the correct one.
 
-## Classification
+## Probabilistic Generative Model
+
+### features and predict target
+- 一共有7个features，其中
+- Total = HP + Attack + Deffense + SP Atk + Sp Def + Speed
+- predict target: type of pokemon
+
+![features and predict target](/images/202211/03-classification/4.0001.jpg "features and predict target")
+
+### How to do Classification
+- Training data for Classification
+- Classification as Regression?
+  - Binary classification as example
+  - Training: Class 1 means the target is 1; Class 2 means the target is -1
+  - Testing: $ \text{closer to 1} \rightarrow \text{class 1}; \text{closer to -1} \rightarrow \text{class 2} $
+
+### ???
 - Function (Model):
   $$ \delta(x) \begin{cases}  g(x) > 0 & \text{Output = class 1} \cr else & \text{Output = class 2} \end{cases} $$
 - Loss Function
