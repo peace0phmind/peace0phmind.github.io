@@ -25,9 +25,12 @@ weight: 1
 # ML
 
 ## Suppervised Learning
-- Training Data
-- Labels
-- Gradient Descent 
+- [Regression](/posts/202211/02-regression)
+  - [Backpropagation](/posts/202211/02-regression#backpropagation)
+  - [Regularization](/posts/202211/02-regression#regularization)
+- [Classification](/posts/202211/03-classification)
+- Structured Learning
+  - Create something with structure (image, document)
 
 ## Self-Supervised Learning
 - Pre-Trained Model(Foundation Model)
@@ -75,9 +78,51 @@ weight: 1
 
 简单的理解就是在输入和输出中找一个函数
 
-![Different types of Functions](/images/202211/01-machine-learning/01.0001.jpg)
+![Different types of Functions](/images/202211/01-machine-learning/01.0001.jpg "Different types of Functions")
 
-## 参考
+## Deep Learning Introduce
+
+### history (Ups and downs of Deep Learning)
+- 1958: Perceptron (linear model)
+- {{<clr>}}1969: Perceptron has limitation{{</clr>}}
+- 1980: Multi-layer perceptron
+  - Do not have significant difference from DNN today
+- 1986: Backpropagation
+  - Usually more than 3 hidden layers is not helpful
+- {{<clr>}}1989: 1 hidden layer is "good enough", why deep?{{</clr>}}
+- 2006: RBM initialization (breakthrough)
+- 2009: GPU
+- 2011: Start to be popular in speech recognition
+- 2012: win ILSVRC image competition
+
+### Fully Connect Feedforward Network
+- 输入叫`Input Layer`
+- 输出叫`Output Layer`
+- 中间层叫`hidden Layers`
+![Fully Connect Feedforward Network](/images/202211/01-machine-learning/6.0002.jpg "Fully Connect Feedforward Network")
+
+### Deep = Many hidden layers
+- AlexNet(2012), 8 layers, error rate: 16.4%
+- VGG(2014), 19 layers, error rate: 7.3%
+- GoogleNet(2014), 22 layers, error rate: 6.7%
+- Residual Net(2015), 152 layers, error rate: 3.57%
+
+### FAQ
+- Q: How many layers? How many neurons for each layer?
+  - `Trial and Error` + `Intuition`
+- Q: Can the structure be automatically determined?
+  - Evolutionary Artificial Neural Networks
+- Q: Can we design the network structure?
+  - Convolutional Neural Network (CNN)
+- Q: Deeper is Better?
+  - Universality Theorem
+    - Any continuous function f
+    - $ f : R^N \rightarrow R^M $
+    - Can be realized by a network with one hidden layer (given `enough` hidden neurons)
+    - {{<clr>}}Why `Deep` neural network not `Fat` neural network?{{</clr>}}
+
+
+## Reference
 系列文档是国立台湾大学[李宏毅](https://speech.ee.ntu.edu.tw/~hylee/index.php)老师Machine Learning系列教材的学习整理。
 
 - [Machine Learning 2022](https://speech.ee.ntu.edu.tw/~hylee/ml/2022-spring.php)
@@ -86,3 +131,13 @@ weight: 1
 - [Machine Learning 2019](https://speech.ee.ntu.edu.tw/~hylee/ml/2019-spring.php)
 - [Machine Learning 2016 FALL](https://speech.ee.ntu.edu.tw/~hylee/ml/2016-fall.php)
 - [MLDS 2015 FALL](https://speech.ee.ntu.edu.tw/~hylee/mlds/2015-fall.php)
+
+### Nvidia Resources
+- [nvidia training resource](https://www.nvidia.com/en-us/training/resources/)
+
+
+### Reference Book
+- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
+  - written by Michael Nielsen
+- [Deep Learning](https://www.deeplearningbook.org/)
+  - written by Yoshua Bengio, Ian J. Goodfellow and Aaron Courville

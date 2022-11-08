@@ -1,31 +1,28 @@
 ---
-title: "Ai介绍"
-description: "ai introduce"
-keywords: "ai"
+title: "Regression"
+description: "regression"
+keywords: "regression"
 
-date: 2022-11-04T22:20:52+08:00
-lastmod: 2022-11-04T22:20:52+08:00
+date: 2022-11-08T14:27:33+08:00
+lastmod: 2022-11-08T14:27:33+08:00
 
 author: peace0phmind
-url: "posts/202211/02-ai-introduce"
+url: "posts/202211/02-regression"
 
 draft: false
 
 categories:
   - machine-learning
 tags:
-  -
+  - regression
 
 ---
 
-## 介绍
-`Machine Learning = Looking for Function`
+`Regression`: Input a vector, the function outputs a scalar.
 
-- `Regression`: Input a vector, the function outputs a scalar.
-- `Classification`: Given options(classes), the function outputs the correct one.
-- `Structured Learning`: Create something with structure (image, document).
+# 单参数到历史多参数的模型演进
 
-## 回归问题
+## 使用简单模型
 预测问题：根据前面的浏览数据，预测后面的浏览量
 
 ### Function with Unknown Parameters
@@ -42,12 +39,13 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
   - if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy`
 
 使用不同的参数，计算出来的Loss画出来的等高线图叫做：`Error Surface`
-![等高线图](/images/202211/02-ai-introduce/01.0001.jpg)
+![等高线图](/images/202211/02-regression/01.0001.jpg "等高线图: Error Surface")
 
 ### Optimization
 找一个$w$和$b$，使$L$最小： $ w^\*, b^\* = arg \min\limits_{w, b} L$
 这种找到最小$w$和$b$的方法叫做：`Gradient Descent`
 
+#### 简述`Gradient Descent`过程
 以一个参数$w$为例描述`Gradient Descent`的过程: 
 - 随机初始化点$w^0$
 - 计算$w=w^0$时，对$L$的微分是多少：$\frac{{\partial}L}{{\partial}W}|_{w=w^0}$
@@ -68,6 +66,8 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
   - $ b^1 \leftarrow b^0 - {\color{red}\eta}\frac{\partial L}{\partial b}|_{w=w^0, b=b^0} $
   - Update $w$ and $b$ interatively
 
+#### 使用单参数的多个连续的历史记录
+
 通过观察资料发现数据有7天为一个周期，所以使用新的公式进行调整, 并得到下面数据：
 | days | function | training loss | testing loss |
 |--|--|--|--|
@@ -77,6 +77,9 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 | 56 | $ y = b + \sum\limits_{j=1}^{\color{red}56}w_jx_j $ | $ L = 0.32k $ | $ L' = 0.46k $ |
 
 上述模型有个共同的名字`Linear Models`
+
+{{<clr>}}调整模型参数，观察Training Loss和Testing Loss的变化，挑选合适的模型{{</clr>}}
+#### 名词解释
 
 `hyperparameter`: 需要人来设置的参数
 
@@ -91,11 +94,11 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 
 ## 打破模型局限
 不同的w和不同的b对Linear Models的影响如蓝色线。红色表示可能的真实趋势。这种来自于Model的限制叫做`Model Bias`。
-![Linear Models的局限性](/images/202211/02-ai-introduce/02.0002.jpg)
+![Linear Models的局限性](/images/202211/02-regression/02.0002.jpg "Linear Models的局限性")
 
 ### All Piecewise Linear Curves
 All Piecewise Linear Curves = constant + sum of a set of `Hard Sigmoid`
-![Piecewise Linear Curves](/images/202211/02-ai-introduce/02.0003.jpg)
+![Piecewise Linear Curves](/images/202211/02-regression/02.0003.jpg "Piecewise Linear Curves")
 
 ### sigmoid
 \begin{align*}
@@ -104,7 +107,7 @@ y &= {\color{red}c}\frac{1}{1+e^{-({\color{green}b}+{\color{blue}w}x_1)}}  \cr
 \end{align*}
 
 调整$ {\color{blue}w}, {\color{green}b}, {\color{red}c} $对应的函数图像
-![Sigmoid Parameters](/images/202211/02-ai-introduce/02.0004.jpg)
+![Sigmoid Parameters](/images/202211/02-regression/02.0004.jpg "Sigmoid Parameters")
 
 相对于红色线段，可以用多个`Sigmoid`函数组合出来，将0:`constant`和1,2,3`sigmoid`加起来就是红色线段
 
@@ -118,7 +121,7 @@ y = b + \sum_{i=1}^3{\color{red}c_i}\\,sigmoid({\color{green}b_i}+{\color{blue}w
 \end{align*}
 
 
-![Sigmoid Parameters](/images/202211/02-ai-introduce/02.0005.jpg)
+![Sigmoid Parameters](/images/202211/02-regression/02.0005.jpg "Sigmoid Parameters")
 
 基于sigmoid的模型，对原来的模型进行调整如下：
 \begin{align*}
@@ -147,10 +150,10 @@ r_3 &= {\color{green}b_3} + {\color{blue}w_{31}}x_1 + {\color{blue}w_{32}}x_2 + 
 \end{align*}
 
 其中$\color{red}\sigma$表示`sigmoid`表达式
-![展开图示](/images/202211/02-ai-introduce/02.0008.jpg)
+![展开图示](/images/202211/02-regression/02.0008.jpg "Sigmoid 展开图示")
 
 如下图所示，x为`feature`；而所有的$W, {\color{green}b}, c^T, b$作为unknown parameters展开为一个长的一维向量，定义为$\color{red}\theta$
-![unknown parameters](/images/202211/02-ai-introduce/02.0009.jpg)
+![unknown parameters](/images/202211/02-regression/02.0009.jpg "unknown parameters")
 
 ### Loss function
 - Loss is a function of parameters $L(\theta)$
@@ -196,7 +199,7 @@ $$
 - Compute gradient $ g = \nabla L(\theta^0) $
 
 全部资料是$L$,批次编号为$L^1, L^2, L^3$。{{<clr>}}batch{{</clr>}}是进行参数更新的单位，即一个批次进行一次参数更新；{{<clr>}}epoch{{</clr>}}表示所有批次全部执行了参数更新。
-![batch and epoch](/images/202211/02-ai-introduce/02.0010.jpg)
+![batch and epoch](/images/202211/02-regression/02.0010.jpg "batch and epoch")
 
 ### 使用$ Sigmoid \rightarrow ReLU $
 - `Rectified Linear Unit (ReLU)`: $ {\color{red}c}\\,max(0, {\color{green}b} + {\color{blue}w}x_1) $
@@ -225,64 +228,23 @@ $$
 | 3 | 0.14k | 0.38k |
 | 4 | 0.10k | 0.44k |
 
-## Deep Learning Introduce
-
-### history (Ups and downs of Deep Learning)
-- 1958: Perceptron (linear model)
-- {{<clr>}}1969: Perceptron has limitation{{</clr>}}
-- 1980: Multi-layer perceptron
-  - Do not have significant difference from DNN today
-- 1986: Backpropagation
-  - Usually more than 3 hidden layers is not helpful
-- {{<clr>}}1989: 1 hidden layer is "good enough", why deep?{{</clr>}}
-- 2006: RBM initialization (breakthrough)
-- 2009: GPU
-- 2011: Start to be popular in speech recognition
-- 2012: win ILSVRC image competition
-
-### Fully Connect Feedforward Network
-- 输入叫`Input Layer`
-- 输出叫`Output Layer`
-- 中间层叫`hidden Layers`
-![Fully Connect Feedforward Network](/images/202211/02-ai-introduce/6.0002.jpg)
-
-### Deep = Many hidden layers
-- AlexNet(2012), 8 layers, error rate: 16.4%
-- VGG(2014), 19 layers, error rate: 7.3%
-- GoogleNet(2014), 22 layers, error rate: 6.7%
-- Residual Net(2015), 152 layers, error rate: 3.57%
-
-### FAQ
-- Q: How many layers? How many neurons for each layer?
-  - `Trial and Error` + `Intuition`
-- Q: Can the structure be automatically determined?
-  - Evolutionary Artificial Neural Networks
-- Q: Can we design the network structure?
-  - Convolutional Neural Network (CNN)
-- Q: Deeper is Better?
-  - Universality Theorem
-    - Any continuous function f
-    - $ f : R^N \rightarrow R^M $
-    - Can be realized by a network with one hidden layer (given `enough` hidden neurons)
-    - {{<clr>}}Why `Deep` neural network not `Fat` neural network?{{</clr>}}
-
 ## Backpropagation
 `Backpropgation`: an efficient way to compute $\sfrac{\partial L}{\partial w}$
 
 ### Gradient Descent
 - 对每一个参数针对L进行偏微分得到: $\nabla L(\theta)$
 - 使用`batch`的数据对参数$\theta$进行更新.
-![Gradient Descent](/images/202211/02-ai-introduce/7.0001.jpg)
+![Gradient Descent](/images/202211/02-regression/7.0001.jpg "Gradient Descent")
 
 ### Chain Rule
 - case 1: $\frac{dz}{dx}=\frac{dz}{dy}\frac{dy}{dx}$
 - case 2: $\frac{dz}{ds}=\frac{dz}{dx}\frac{dx}{ds}+\frac{dz}{dy}\frac{dy}{ds}$
-![Chain Rule](/images/202211/02-ai-introduce/7.0002.jpg)
+![Chain Rule](/images/202211/02-regression/7.0002.jpg "Chain Rule")
 
 ### Forward and Backward pass:
 - `Forward pass`: Compute $\sfrac{\partial z}{\partial w}$for all parameters
 - `Backward pass`: Compute $\sfrac{\partial C}{\partial z}$ for all activation function inputs z
-![Forward and Backward pass](/images/202211/02-ai-introduce/7.0003.jpg)
+![Forward and Backward pass](/images/202211/02-regression/7.0003.jpg "Forward and Backward pass")
 
 ## Regularization
 `Regularization`出现的背景：当原始数据有过多的feature和模型有大量的w，可能存在某些feature确实与最终的结果无关，在这种情况下可以先将所有feature包含进来，然后通过`Regularization`的思路对w进行优化，从而降低无效feature对最终结果的影响。
@@ -302,46 +264,14 @@ $$
 - We prefer smooth function, but don't be too smooth.
 - 所以$\lambda$的选择值选择在Testing的Loss的转折点处
 
-![Regularization Loss](/images/202211/02-ai-introduce/1.0001.jpg)
+![Regularization Loss](/images/202211/02-regression/1.0001.jpg "Regularization Loss")
 
-## Classification
-- Function (Model):
-  $$ \delta(x) \begin{cases}  g(x) > 0 & \text{Output = class 1} \cr else & \text{Output = class 2} \end{cases} $$
-- Loss Function
-  - The number of times f get incorrect results on training data.
-    $$ L(f) = \sum_n\delta(f(x^n) \ne \hat{y}^n ) $$
-- Find the best function:
-  - Example: Perceptron, SVM
+# TODO: 完成$ X \rightarrow X^x $的模型演进
 
-从训练数据中找出二分类问题的概率的模型叫做:{{<clr>}}`Generative Model`{{</clr>}} $ P(x) = P(x|C1)P(C1) + P(x|C2)P(C2) $
-![Generative Model](/images/202211/02-ai-introduce/4.0002.jpg)
-
-### Gaussian Distribution
-$ f_{\mu,\sum}(x) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\sum|^{1/2}} exp \\{  -\frac{1}{2}(x-\mu)^T\sum^{-1}(x-\mu)  \\} $
-- input: vector x, output: probability of sampling x
-- The shape of the function determines by {{<clr>}}mean $\mu${{</clr>}} and {{<clr>}}covariance matrix $\sum${{</clr>}}
-
-![Gaussian Distribution](/images/202211/02-ai-introduce/4.0004.jpg)
-
-### Maximum Likelihood
-![Maximum Likelihood](/images/202211/02-ai-introduce/4.0006.jpg)
-
-
-## reference
-- [nvidia training resource](https://www.nvidia.com/en-us/training/resources/)
-
-### reference book
-- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
-  - written by Michael Nielsen
-- [Deep Learning](https://www.deeplearningbook.org/)
-  - written by Yoshua Bengio, Ian J. Goodfellow and Aaron Courville
-
-### reference video
+# Reference Video
 {{< youtube Ye018rCVvOo >}}
 {{< youtube bHcJCp2Fyxs >}}
 
 {{< youtube Dr-WRlEFefw >}}
 {{< youtube ibJpTrp5mcE >}}
 {{< youtube fegAeph9UaA >}}
-{{< youtube fZAZUYEeIMg >}}
-{{< youtube hSXFuypLukA >}}
