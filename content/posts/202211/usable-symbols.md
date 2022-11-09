@@ -128,6 +128,23 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\smile$ \smile           | $\frown$ \frown           | $\asymp$ \asymp   |
 | $:$ :                     | $\notin$ \notin           | $\ne$ \neq or \ne |
 
+## Binary Operators
+
+|  |  |  |
+|--|--|--|
+| $\pm$ \pm                       | $\mp$ \mp                           | $\triangleleft$ \triangleleft   |
+| $\cdot$ \cdot                   | $\div$ \div                         | $\triangleright$ \triangleright |
+| $\times$ \times                 | $\setminus$ \setminus               | $\star$ \star                   |
+| $\cup$ \cup                     | $\cap$ \cap                         | $\ast$ \ast                     |
+| $\sqcup$ \sqcup                 | $\sqcap$ \sqcap                     | $\circ$ \circ                   |
+| $\vee$ \vee, \lor               | $\land$ \wedge, \land               | $\bullet$ \bullet               |
+| $\oplus$ \oplus                 | $\ominus$ \ominus                   | $\diamond$ \diamond             |
+| $\odot$ \odot                   | $\oslash$ \oslash                   | $\uplus$ \uplus                 |
+| $\otimes$ \otimes               | $\bigcirc$ \bigcirc                 | $\amalg$ \amalg                 |
+| $\bigtriangleup$ \bigtriangleup | $\bigtriangledown$ \bigtriangledown | $\dagger$ \dagger               |
+| $\lhd$ \lhd                     | $\rhd$ \rhd                         | $\ddagger$ \ddagger             |
+| $\unlhd$ \unlhd                 | $\unrhd$ \unrhd                     | $\wr$ \wr                       |
+
 ## bold fonts
 For those symbols where `\mathbf` is not applicable, the `\boldsymbol` or `\pmb` commands can be used.
 
