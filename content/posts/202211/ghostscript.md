@@ -9,7 +9,7 @@ lastmod: 2022-11-08T22:29:48+08:00
 author: peace0phmind
 url: "posts/202211/ghostscript"
 
-draft: true
+draft: false
 
 categories:
   -
@@ -32,7 +32,7 @@ Ghostscript 由 PostScript解释器层和图形库组成。图形库与Ghostscri
 - `URW Font Information`: urwfonts 目录中的一组truetype字体是PCL/XL解释器正常运行所必需的，但它们不是免费软件，也不是在GNU GPL/AGPL下分发的。相反，它们可以根据禁止商业用途的AFPL许可证重新分发。
 
 ## Convert PDF to Images
-这里使用该[input.pdf](https://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Logistic%20Regression%20(v3).pdf)文件作为转换研究。测试时，现将该文件保存为input.pdf。
+这里使用该[input.pdf](https://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Classification%20(v3).pdf)文件作为转换研究。测试时，现将该文件保存为input.pdf。
 
 ### 常用参数与含义
 - `-dBATCH`: 在处理完所有在命令行中命名的文件后退出，而不是进入读取 PostScript 命令的交互式循环。相当于将-c quit放在命令行末尾。
@@ -49,27 +49,70 @@ Ghostscript 由 PostScript解释器层和图形库组成。图形库与Ghostscri
   - 单个页码。例如： -sPageList=1,3,5 ；表示只处理1,3,5页
   - 起始页码-结束页码。例如： -sPageList=5-10 ；表示从第5页开始，处理到第10页。
   - 起始页码-。例如：-sPageList=12- ；表示从第12页开始，一直处理到最后一页。
+- `-dFitPage`: 此选项设置`-dEPSFitPage`和`-dPDFFitPage`选项。
+- `-dPDFFitPage`：将PDF文件缩放以适应当前设备页面大小。与`-dFIXEDMEDIA`选项一起使用，用于将内容调整到页面大小。
+- `-dTextAlphaBits`和`-dGraphicsAlphaBits`: 针对文本和图形内容分别启用抗锯齿。允许的值为1，2或4。至越小渲染越快。
+- `dDownScaleFactor`: 内部渲染在输出之前按给定的整数因子按比例缩小,取值<=8。
 
-### Convert PDF to png
-- `-sDEVICE=png16m`: 8-bit/color RGB
-- `-sDEVICE=pnggray`: 8-bit grayscale
+### 图像大小
+在控制输出不同图像大小时测试发现如下两种组合：
+- `-dDEVICEWIDTHPOINTS=w -dDEVICEHEIGHTPOINTS=h -dFIXEDMEDIA -dPSFitPage`: 前三个是控制页面大小，最后一个是将内容填充到页面大小。
+- `-rres`: 可以理解为对pdf做等比例缩放。其还有另一种形式`-rXRESxYRES`，可以分别控制宽和高的缩放比例。例如`-r100x50`,则高度会被压缩到原来的50%。
+这两种组合如果在对pdf输出图像时是等比例缩放，则效果相同。
 
 ```bash
-gs -sDEVICE=png16m -sPageList=4 -o png-01.%03d.png input.pdf
-gs -sDEVICE=pnggray -sPageList=4 -o png-02.%03d.png input.pdf
-gs -sDEVICE=png16m -sPageList=4 -dDEVICEWIDTHPOINTS=960 -dDEVICEHEIGHTPOINTS=720 -dFIXEDMEDIA -o png-03.%03d.png input.pdf
-gs -sDEVICE=pnggray -sPageList=4 -dDEVICEWIDTHPOINTS=960 -dDEVICEHEIGHTPOINTS=720 -dFIXEDMEDIA -o png-04.%03d.png input.pdf
-gs -sDEVICE=png16m -sPageList=4 -r96 -o png-05.%03d.png input.pdf
-gs -sDEVICE=pnggray -sPageList=4 -r96 -o png-06.%03d.png input.pdf
+gs -sDEVICE=png16m -sPageList=4 -dDEVICEWIDTHPOINTS=960 -dDEVICEHEIGHTPOINTS=720 -dFIXEDMEDIA -dPSFitPage -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o png-00.%03d.png input.pdf
+gs -sDEVICE=jpeg -sPageList=4 -dDEVICEWIDTHPOINTS=960 -dDEVICEHEIGHTPOINTS=720 -dFIXEDMEDIA -dPSFitPage -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o jpg-00.%03d.png input.pdf
+```
+
+### Convert PDF to png
+- `-sDEVICE=png16m`: 24-bit RGB color
+- `-sDEVICE=pnggray`: 8-bit grayscale
+- `-sDEVICE=png256`: 8-bit color
+- `-sDEVICE=png16`: 4-bit color
+- `-sDEVICE=pngmono`: black-and-white
+
+```bash
+gs -sDEVICE=png16m -sPageList=4 -r96 -o png-01.%03d.png input.pdf
+gs -sDEVICE=png16m -sPageList=4 -r96 -dTextAlphaBits=1 -dGraphicsAlphaBits=1 -o png-02.%03d.png input.pdf
+gs -sDEVICE=png16m -sPageList=4 -r96 -dTextAlphaBits=2 -dGraphicsAlphaBits=2 -o png-03.%03d.png input.pdf
+gs -sDEVICE=png16m -sPageList=4 -r96 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o png-04.%03d.png input.pdf
+
+
+gs -sDEVICE=png16m -sPageList=4 -r192 -dDownScaleFactor=2 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o png-05.%03d.png input.pdf
+gs -sDEVICE=png16m -sPageList=4 -r384 -dDownScaleFactor=4 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o png-06.%03d.png input.pdf
+gs -sDEVICE=png16m -sPageList=4 -r768 -dDownScaleFactor=8 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o png-07.%03d.png input.pdf
+```
+
+最终选择质量和大小都相对能接受的参数：
+```bash
+gs -sDEVICE=png16m -r96 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o png.%03d.png input.pdf
 ```
 
 ### Convert PDF to jpeg
 - `-sDEVICE=jpeg`: JFIF standard 1.01
+- `-sDEVICE=jpeggray`: grayscale
+- `-dJPEGQ=`: 该等级可平衡压缩程度与重构时图像的保真度。较低的值会从图像中丢弃更多信息以实现更高的压缩率，因此在重构时质量会降低。int, [0,100], 默认75。
+- `-dQFactor=`: Adobe的QFactor质量等级，可以使用它来代替上面的JPEGQ。float, [0.0, 1.0]。默认`-dJPEGQ=75`与`-dQFactor=0.5`等价。
 
 ```bash
-gs -sDEVICE=jpeg -sPageList=4 -o jpg-01.%03d.jpg input.pdf
-gs -sDEVICE=jpeg -sPageList=4 -dDEVICEWIDTHPOINTS=960 -dDEVICEHEIGHTPOINTS=720 -dFIXEDMEDIA -o jpg-02.%03d.jpg input.pdf
-gs -sDEVICE=jpeg -sPageList=4 -r96 -o jpg-03.%03d.jpg input.pdf
+gs -sDEVICE=jpeg -sPageList=4 -r96 -o jpg-01.%03d.jpg input.pdf
+gs -sDEVICE=jpeg -sPageList=4 -r96 -dTextAlphaBits=1 -dGraphicsAlphaBits=1 -o jpg-02.%03d.jpg input.pdf
+gs -sDEVICE=jpeg -sPageList=4 -r96 -dTextAlphaBits=2 -dGraphicsAlphaBits=2 -o jpg-03.%03d.jpg input.pdf
+gs -sDEVICE=jpeg -sPageList=4 -r96 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o jpg-04.%03d.jpg input.pdf
+
+
+gs -sDEVICE=jpeg -sPageList=4 -r192 -dDownScaleFactor=2 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o jpg-05.%03d.jpg input.pdf
+gs -sDEVICE=jpeg -sPageList=4 -r384 -dDownScaleFactor=4 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o jpg-06.%03d.jpg input.pdf
+gs -sDEVICE=jpeg -sPageList=4 -r768 -dDownScaleFactor=8 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o jpg-07.%03d.jpg input.pdf
+
+
+gs -sDEVICE=jpeg -sPageList=4 -r192 -dDownScaleFactor=2 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -dQFactor=70 -o jpg-08.%03d.jpg input.pdf
+```
+
+最终选择质量和大小相对能接受的参数：
+```bash
+gs -sDEVICE=jpeg -r192 -dDownScaleFactor=2 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o jpg.%03d.jpg input.pdf
 ```
 
 ## Show PDF
@@ -81,4 +124,5 @@ gs -dBATCH input.pdf
 
 
 ## Reference
-[ghostscript reference](https://ghostscript.readthedocs.io/en/latest/Use.html)
+- [Console Options](https://ghostscript.readthedocs.io/en/latest/Use.html)
+- [Devices](https://ghostscript.readthedocs.io/en/latest/Devices.html)

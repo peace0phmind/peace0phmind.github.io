@@ -27,7 +27,7 @@ tags:
 - Total = HP + Attack + Deffense + SP Atk + Sp Def + Speed
 - predict target: type of pokemon
 
-![features and predict target](/images/202211/03-classification/4.0001.jpg "features and predict target")
+![features and predict target](/images/202211/03-classification/4.001.jpg "features and predict target")
 
 ### How to do Classification
 - Training data for Classification
