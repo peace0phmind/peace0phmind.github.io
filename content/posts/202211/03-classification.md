@@ -163,7 +163,7 @@ z &= ln\frac{|\Sigma^2|^{1/2}}{|\Sigma^1|^{1/2}} - \frac{1}{2}x^T(\Sigma^1)^{-1}
 \end{align}
 
 
-### 求 $\sigma(z)$
+#### 求 $\sigma(z)$
 - 当$ \Sigma_1 = \Sigma_2 = \Sigma $时，表达式(1)变为表达式(2)
 - 设: $ w^T = (\mu_1 - \mu_2)^T\Sigma^{-1} $以及$ b = -\frac{1}{2}(\mu^1)^T(\Sigma^1)-1\mu^1 + \frac{1}{2}(\mu^2)^T(\Sigma^2)-1\mu^2 + ln\frac{N_1}{N_2} $则(2)可以推导为(3)
 - In generative model, we estimate $ N_1, N_2, \mu^1, \mu^2, \Sigma $, then we have w and b.
