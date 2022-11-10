@@ -1,13 +1,13 @@
 ---
-title: "有用的公式"
-description: "usable-formula"
-keywords: "formula"
+title: "latex公式"
+description: "latex-formula"
+keywords: "latex,formula"
 
 date: 2022-11-04T23:29:09+08:00
 lastmod: 2022-11-04T23:29:09+08:00
 
 author: peace0phmind
-url: "posts/202211/usable-formula"
+url: "posts/202211/latex-formula"
 
 draft: false
 weight: 2
@@ -15,6 +15,7 @@ weight: 2
 categories:
   - blog
 tags:
+  - latex
   - formula
 
 ---

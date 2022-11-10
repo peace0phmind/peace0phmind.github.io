@@ -1,7 +1,7 @@
 ---
-title: "有用的符号"
-description: "有用的符号，包括基于mathJax的数学符号"
-keywords: "math,symbol"
+title: "latex符号"
+description: "latex-symbols"
+keywords: "latex,symbol"
 
 date: 2022-11-01T09:03:08+08:00
 lastmod: 2022-11-01T09:03:08+08:00
@@ -9,11 +9,11 @@ lastmod: 2022-11-01T09:03:08+08:00
 categories:
   - blog
 tags:
-  - mathjax
+  - latex
   - symbol
 
 
-url: "posts/202211/usable-symbols.html"
+url: "posts/202211/latex-symbols.html"
 weight: 3
 
 draft: false
