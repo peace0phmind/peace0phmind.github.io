@@ -124,7 +124,7 @@ tags:
 
 ### Probability Distribution
 - You can always use the distribution you like
-- 假设$P(x|C^1)$构成Class1的x有K个，且K个x想对于Class1的几率是独立的，则：$ P(x|C1) = P(x_1|C_1)P(x_2|C_1)\cdotsP(x_K|C_1) $，这个会得到1-D Gaussian,参数会进一步简化
+- 假设$P(x|C^1)$构成Class1的x有K个，且K个x想对于Class1的几率是独立的，则：$ P(x|C1) = P(x_1|C_1)P(x_2|C_1)\cdots P(x_K|C_1) $，这个会得到1-D Gaussian,参数会进一步简化
 - For binary features, you may assume they are from `Bernouli distributions`.
 - If you assume all the dimensions are independent, then you are using `Naive Bayes Classifier`.
 
