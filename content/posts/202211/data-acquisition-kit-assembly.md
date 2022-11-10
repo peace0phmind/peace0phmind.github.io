@@ -32,18 +32,42 @@ tags:
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C2.jpg"/> | 黑色电线 | $C_2$ | 200cm | 用于变送器和采集器的电源 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C3.jpg"/> | 4色信号线缆  | $C_3$ | 540cm | 用于变送器信号线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C4.jpg"/> | 3色电源线缆  | $C_4$ | 2m | 用于电源线 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C5.jpg"/> | 端子台线缆  | $C_5$ | 1根 | 用于电源线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C11.jpg"/> | 红色接线端子E0306 | $C_{11}$ | 40个 | 用于变送器信号线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C12.jpg"/> | 黄色接线端子E0306 | $C_{12}$ | 40个 | 用于变送器信号线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C13.jpg"/> | 绿色接线端子E0306 | $C_{13}$ | 40个 | 用于变送器信号线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C14.jpg"/> | 黑色接线端子E0306 | $C_{14}$ | 40个 | 用于变送器信号线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C15.jpg"/> | 红色接线端子TE0508 | $C_{15}$ | 1个 | 用于电源线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C16.jpg"/> | 黑色接线端子TE0508 | $C_{16}$ | 1个 | 用于电源线 |
-| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P1.jpg"/> | 数字采集器端子台 | $P_{1}$ | 1个 | 端子台 |
-| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P2.jpg"/> | 220V转24VDC电源 | $P_{2}$ | 1个 | 电源 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P1.jpg"/> | 220V转24VDC电源 | $P_{1}$ | 1个 | 电源 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P2.jpg"/> | 数字采集器端子台 | $P_{2}$ | 1个 | 端子台 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P3.jpg"/> | RJ45双端子台 | $P_{3}$ | 2个 | RJ45双端子台 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P4.jpg"/> | RJ45单端子台 | $P_{4}$ | 1个 | RJ45单端子台 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P5.jpg"/> | 3路变送器 | $P_{5}$ | 10个 | 3路变送器 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P6.jpg"/> | 机柜用Dim槽 | $P_{6}$ | 1个 | 机柜用Dim槽 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P7.jpg"/> | Dim槽 | $P_{7}$ | 1根 | Dim槽 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P8.jpg"/> | Dim槽端子 | $P_{8}$ | 1根 | Dim槽端子 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P9.jpg"/> | 三项交流电流传感器 | $P_{9}$ | 10组 | 1组3个，分别是红、黄、绿线 |
+| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P10.jpg"/> | RJ45端子 | $P_{10}$ | 5个 | 1组3个，分别是红、黄、绿线 |
 
 ## 配件确认
 
-### 端子台配件确认
+### 数字采集器端子台($P_2$)配件确认与调整
+- 如图示方向为端子台正确安装方向
+- 4排编号如下表格所示
+- 请确保贴纸与PCB板上丝印与表格顺序一致
+- 如发现丝印错误请联系厂商，如发现贴纸顺序错误则可以将贴纸撕下再按正确顺序粘帖
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|
+|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|
+|1 |2 |3 |4 |5 |6 |7 |8 |9 |10|11|12|13|14|15|16|17|
+|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|
+
+|  |  |
+|--|--|
+|![DC_1](/images/202211/data-acquisition-kit-assembly/P2.jpg)|![DC_1](/images/202211/data-acquisition-kit-assembly/P2_1.jpg)
 
 
 ## 零件加工
@@ -97,4 +121,24 @@ tags:
 | $SL_{36}$ | 36 | 3 |
 | $SL_{42}$ | 42 | 2 |
 | $SL_{48}$ | 48 | 2 |
+
+
+### 接线顺序
+#### 变送器顺序与线材表
+- 从左向右数，1-10的变送器
+- 数字下方为对应编号变送器的线材标号
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| $SL_{30}$ | $SL_{30}$ | $SL_{36}$ | $SL_{36}$ | $SL_{24}$ | $SL_{42}$ | $SL_{42}$ | $SL_{48}$ | $SL_{48}$ | $SL_{36}$ |
+
+#### 端子台接线表：
+- 数字表示端子台丝印上的编号。
+- 数字的右上角数字表示对应的[变送器的编号](#变送器顺序与线材表)，如表可知对应编号所用线材标号。
+- 数字自身的颜色以及右下角角标的颜色表示链接对应颜色的线缆。
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|52|$\color{black}53_黑^4$|$\color{green}54_绿^4$|$\color{Goldenrod}55_黄^4$|$\color{red}56_红^4$|$\color{black}57_黑^3$|$\color{green}58_绿^3$|$\color{Goldenrod}59_黄^3$|$\color{red}60_红^3$|$\color{black}61_黑^2$|$\color{green}62_绿^2$|$\color{Goldenrod}63_黄^2$|$\color{red}64_红^2$|$\color{black}65_黑^1$|$\color{green}66_绿^1$|$\color{Goldenrod}67_黄^1$|$\color{red}68_红^1$|
+|$\color{black}18_黑^9$|$\color{green}19_绿^9$|$\color{Goldenrod}20_黄^9$|$\color{red}21_红^9$|$\color{black}22_黑^8$|$\color{green}23_绿^8$|$\color{Goldenrod}24_黄^8$|$\color{red}25_红^8$|$\color{black}26_黑^7$|$\color{green}27_绿^7$|$\color{Goldenrod}28_黄^7$|$\color{red}29_红^7$|$\color{black}30_黑^6$|$\color{green}31_绿^6$|$\color{Goldenrod}32_黄^6$|$\color{red}33_红^6$|34|
+|1 |2 |3 |4 |5 |6 |7 |8 |9 |10|11|12|$\color{green}13_绿^{10}$|$\color{black}14_黑^{10}$|$\color{Goldenrod}15_黄^{10}$|$\color{red}16_红^{10}$|17|
+|35|36|37|38|39|40|41|42|43|44|45|46|47|$\color{green}48_绿^5$|$\color{black}49_黑^5$|$\color{Goldenrod}50_黄^5$|$\color{red}51_红^5$|
 
