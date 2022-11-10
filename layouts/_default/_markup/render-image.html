@@ -1,1 +1,16 @@
-<img src="/images/img-lazy-loading.gif" data-src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{- $URL := .Destination -}}
+{{- $width := "" -}}
+{{- $height := "" -}}
+{{ if findRE "^(.+)_([0-9]+)x([0-9]+)$" .Destination }}
+    {{- $args := replaceRE "^(.+)_([0-9]+)x([0-9]+)$" "$1;;;$2;;;$3" .Destination -}}
+    {{- $args = split $args ";;;" -}}
+    {{- $URL = index $args 0 -}}
+    {{- $width = index $args 1 -}}
+    {{- $height = index $args 2 -}}
+{{- end -}}
+<figure>
+    <img src="/images/img-lazy-loading.gif" data-src="{{ $URL | safeURL }}" alt="{{ .Text }}"  {{ with $width}} width="{{ . }}" {{ end }}  {{ with $height}} height="{{ . }}" {{ end }}  {{ with .Title}} title="{{ . }}" {{ end }} />
+    {{ with .Title}}
+    <figcaption>{{ . }}</figcaption>
+    {{ end }}
+</figure>

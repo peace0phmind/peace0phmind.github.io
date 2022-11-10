@@ -177,3 +177,15 @@ table thead tr th:empty {
 .post-body table tbody tr td img {
     margin-bottom: 0px;
 };
+
+figure {
+  margin: 0px;
+}
+
+figcaption {
+  background-color: black;
+  color: white;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}

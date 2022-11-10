@@ -28,7 +28,7 @@ tags:
 
 | 图片 | 材料名称 | 编号 | 数量 | 用途 |
 |--|--|--|--|--|
-| <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C1.jpg"/> | 红色电线 | $C_1$ | 200cm | 用于变送器和采集器的电源 |
+| ![](/images/202211/data-acquisition-kit-assembly/C1.jpg_160x120) | 红色电线 | $C_1$ | 200cm | 用于变送器和采集器的电源 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C2.jpg"/> | 黑色电线 | $C_2$ | 200cm | 用于变送器和采集器的电源 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C3.jpg"/> | 4色信号线缆  | $C_3$ | 540cm | 用于变送器信号线 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/C4.jpg"/> | 3色电源线缆  | $C_4$ | 2m | 用于电源线 |
