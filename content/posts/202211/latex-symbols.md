@@ -145,6 +145,19 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\lhd$ \lhd                     | $\rhd$ \rhd                         | $\ddagger$ \ddagger             |
 | $\unlhd$ \unlhd                 | $\unrhd$ \unrhd                     | $\wr$ \wr                       |
 
+## AMS Miscellaneous
+|  |  |  |
+|--|--|--|
+| $\hbar$ \hbar | $\hslash$ \hslash | $\Bbbk$ \Bbbk |
+| $\square$ \square | $\blacksquare$ \blacksquare | $\circledS$ \circledS |
+| $\vartriangle$ \vartriangle | $\blacktriangle$ \blacktriangle | $\complement$ \complement |
+| $\triangledown$ \triangledown | $\blacktriangledown$ \blacktriangledown | $\Game$ \Game |
+| $\lozenge$ \lozenge | $\blacklozenge$ \blacklozenge | $\bigstar$ \bigstar |
+| $\angle$ \angle | $\measuredangle$ \measuredangle | $\sphericalangle$ \sphericalangle |
+| $\diagup$ \diagup | $\diagdown$ \diagdown | $\backprime$ \backprime |
+| $\nexists$ \nexists | $\Finv$ \Finv | $\varnothing$ \varnothing |
+| $\eth$ \eth | $\mho$ \mho |  |
+
 ## bold fonts
 For those symbols where `\mathbf` is not applicable, the `\boldsymbol` or `\pmb` commands can be used.
 
