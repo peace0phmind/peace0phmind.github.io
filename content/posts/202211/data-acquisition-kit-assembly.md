@@ -24,7 +24,7 @@ tags:
 - `配件`: 配件为从供应商处采购，通过简单的安装(或组装)即可正常使用的部件。配件编号统一大写P加下标数字编号$Pn$。
 - `零件`: 从材料通过加工得到的部件，零件有其自己独立的编号体系。
 
-## 材料和配件准备
+## 材料和配件清单
 
 | 图片 | 材料名称 | 编号 | 数量 | 用途 |
 |--|--|--|--|--|
@@ -41,15 +41,32 @@ tags:
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P1.jpg"/> | 数字采集器端子台 | $P_{1}$ | 1个 | 端子台 |
 | <img width="160" height="120" src="/images/202211/data-acquisition-kit-assembly/P2.jpg"/> | 220V转24VDC电源 | $P_{2}$ | 1个 | 电源 |
 
+## 配件确认
+
+### 端子台配件确认
 
 
-## 零部件检查与调整
+## 零件加工
+
+### 接线端子的安装方法
+- 剥离线缆最外层绝缘层
+- 继续剥离各电线自身绝缘层，让铜线裸露约1cm左右
+- 找到对应颜色的接线端子
+- 将裸露的铜线`完全`插入接线端子，使铜线头从接线端子顶端露出
+- 使用打线钳将接线端子与铜线进行固定
+- 使用剪线钳将多余的露出端子头的裸露铜线减除
+
+|  |  |  |
+|--|--|--|
+| ![DC_1](/images/202211/data-acquisition-kit-assembly/DC_1.jpg)|![DC_1](/images/202211/data-acquisition-kit-assembly/DC_2.jpg)|![DC_1](/images/202211/data-acquisition-kit-assembly/DC_3.jpg)|
+| ![DC_1](/images/202211/data-acquisition-kit-assembly/DC_4.jpg)|![DC_1](/images/202211/data-acquisition-kit-assembly/DC_5.jpg)|![DC_1](/images/202211/data-acquisition-kit-assembly/DC_6.jpg)|
 
 ### 端子台检查
 
 ### 
 
 ## 零部件组装
+
 
 ### 变送器电源线组装
 
