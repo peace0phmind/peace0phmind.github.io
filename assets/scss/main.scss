@@ -172,4 +172,8 @@ $second_comment_name        : {{ lower (index $sortNav 1).name }};
 
 table thead tr th:empty {
   display: none;
-}
+};
+
+.post-body table tbody tr td img {
+    margin-bottom: 0px;
+};
