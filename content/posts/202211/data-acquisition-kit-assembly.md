@@ -58,6 +58,7 @@ tags:
 - 请确保贴纸与PCB板上丝印与表格顺序一致
 - 如发现丝印错误请联系厂商，如发现贴纸顺序错误则可以将贴纸撕下再按正确顺序粘帖
 
+
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 |52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|
@@ -95,12 +96,12 @@ tags:
 #### 线缆裁剪要求
 将90cm的红黑两色电线裁剪成如下尺寸和数量的电线。
 
-| 材料名称 | 图片 | 长度 | 数量 | 
+| 材料名称 | 材料编号 | 长度(cm) | 数量 | 
 |--|--|:--:|:--:|
-| 红色电线 | x | 6cm | 9 |
-| 黑色电线 | x | 6cm | 9 |
-| 红色电线 | x | 36cm | 1 |
-| 黑色电线 | x | 36cm | 1 |
+| 红色电线 | $L_{6}^{red}$ | 6 | 9 |
+| 黑色电线 | $L_{6}^{black}$ | 6 | 9 |
+| 红色电线 | $L_{36}^{red}$ | 36 | 1 |
+| 黑色电线 | $L_{36}^{black}$ | 36 | 1 |
 
 #### 组装方式
 
@@ -125,18 +126,23 @@ tags:
 #### 变送器顺序与线材表
 - 从左向右数，1-10的变送器
 - 数字下方为对应编号变送器的线材标号
-| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+
+
+|   |   |   |   |   |   |   |   |   |   |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 | $SL_{30}$ | $SL_{30}$ | $SL_{36}$ | $SL_{36}$ | $SL_{24}$ | $SL_{42}$ | $SL_{42}$ | $SL_{48}$ | $SL_{48}$ | $SL_{36}$ |
 
 #### 端子台接线表：
 - 数字表示端子台丝印上的编号。
-- 数字的右上角数字表示对应的[变送器的编号](#变送器顺序与线材表)，如表可知对应编号所用线材标号。
-- 数字自身的颜色以及右下角角标的颜色表示链接对应颜色的线缆。
+- 数字的右下角数字表示对应的[变送器的编号](#变送器顺序与线材表)，如表可知对应编号所用线材标号。
+- 数字自身的颜色以及右上角角标的颜色表示链接对应颜色的线缆。
+
+
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
-|52|$\color{black}53_黑^4$|$\color{green}54_绿^4$|$\color{Goldenrod}55_黄^4$|$\color{red}56_红^4$|$\color{black}57_黑^3$|$\color{green}58_绿^3$|$\color{Goldenrod}59_黄^3$|$\color{red}60_红^3$|$\color{black}61_黑^2$|$\color{green}62_绿^2$|$\color{Goldenrod}63_黄^2$|$\color{red}64_红^2$|$\color{black}65_黑^1$|$\color{green}66_绿^1$|$\color{Goldenrod}67_黄^1$|$\color{red}68_红^1$|
-|$\color{black}18_黑^9$|$\color{green}19_绿^9$|$\color{Goldenrod}20_黄^9$|$\color{red}21_红^9$|$\color{black}22_黑^8$|$\color{green}23_绿^8$|$\color{Goldenrod}24_黄^8$|$\color{red}25_红^8$|$\color{black}26_黑^7$|$\color{green}27_绿^7$|$\color{Goldenrod}28_黄^7$|$\color{red}29_红^7$|$\color{black}30_黑^6$|$\color{green}31_绿^6$|$\color{Goldenrod}32_黄^6$|$\color{red}33_红^6$|34|
-|1 |2 |3 |4 |5 |6 |7 |8 |9 |10|11|12|$\color{green}13_绿^{10}$|$\color{black}14_黑^{10}$|$\color{Goldenrod}15_黄^{10}$|$\color{red}16_红^{10}$|17|
-|35|36|37|38|39|40|41|42|43|44|45|46|47|$\color{green}48_绿^5$|$\color{black}49_黑^5$|$\color{Goldenrod}50_黄^5$|$\color{red}51_红^5$|
+|52|$\color{black}53_4^黑$|$\color{green}54_4^绿$|$\color{Goldenrod}55_4^黄$|$\color{red}56_4^红$|$\color{black}57_3^黑$|$\color{green}58_3^绿$|$\color{Goldenrod}59_3^黄$|$\color{red}60_3^红$|$\color{black}61_2^黑$|$\color{green}62_2^绿$|$\color{Goldenrod}63_2^黄$|$\color{red}64_2^红$|$\color{black}65_1^黑$|$\color{green}66_1^绿$|$\color{Goldenrod}67_1^黄$|$\color{red}68_1^红$|
+|$\color{black}18_9^黑$|$\color{green}19_9^绿$|$\color{Goldenrod}20_9^黄$|$\color{red}21_9^红$|$\color{black}22_8^黑$|$\color{green}23_8^绿$|$\color{Goldenrod}24_8^黄$|$\color{red}25_8^红$|$\color{black}26_7^黑$|$\color{green}27_7^绿$|$\color{Goldenrod}28_7^黄$|$\color{red}29_7^红$|$\color{black}30_6^黑$|$\color{green}31_6^绿$|$\color{Goldenrod}32_6^黄$|$\color{red}33_6^红$|34|
+|1 |2 |3 |4 |5 |6 |7 |8 |9 |10|11|12|$\color{green}13_{10}^绿$|$\color{black}14_{10}^黑$|$\color{Goldenrod}15_{10}^黄$|$\color{red}16_{10}^红$|17|
+|35|36|37|38|39|40|41|42|43|44|45|46|47|$\color{green}48_5^绿$|$\color{black}49_5^黑$|$\color{Goldenrod}50_5^黄$|$\color{red}51_5^红$|
 
