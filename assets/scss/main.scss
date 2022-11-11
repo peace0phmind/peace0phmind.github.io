@@ -191,3 +191,24 @@ figcaption {
 .medium-zoom-overlay {
   background: var(--medium-zoom-background);
 }
+
+.group {
+  margin-bottom: 20px;
+}
+
+.group .group-row {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.group .group-column {
+  flex: 1;
+}
+
+.group .group-column img {
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  width: 100%;
+}
