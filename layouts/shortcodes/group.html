@@ -12,20 +12,30 @@
         If you set this parameter to false, the image number that larger than layout will not show.
             For example: the layout="2-1-2" and you have 10 images, then the images will only have 3 rows,
             from first row to the last row, the image number is "2-1-2".
+
     showIndex: default true
         if true, will show item index on left-top as a badge.
+
+    indexShape: default "round". ["round", "corner"]
 */}}
 
 {{- $layout := "2" -}}
 {{- $loopLayout := true -}}
 {{- $showIndex := true -}}
+{{- $indexShape := "round" -}}
 
 {{- if .IsNamedParams -}}
     {{ $layout = default "2" (.Get "layout") }}
     {{ $loopLayout = default true (.Get "loopLayout") }}
     {{ $showIndex = default true (.Get "showIndex") }}
+    {{ $indexShape = default "round" (.Get "indexShape") }}
 {{- else -}}
     {{ $layout = default "2" (.Get 0) }}
+{{- end -}}
+
+{{- $indexShape = lower $indexShape -}}
+{{- if and (ne $indexShape "round") (ne $indexShape "corner") -}}
+{{- $indexShape = "round" -}}
 {{- end -}}
 
 {{- $layout = trim (replace $layout " " "") "-" -}}
@@ -63,7 +73,10 @@
         {{- range (split $groupIterators "") -}}
             {{- if lt $outputItemCount $itemSize -}}
                 {{- if eq . "c" -}}
-                <div class="group-column">{{- if $showIndex -}}<span class="badge">{{- add $outputItemCount 1 -}}</span>{{- end -}}{{- index $items $outputItemCount | markdownify -}}</div>
+                <div class="group-column">
+                    {{- index $items $outputItemCount | markdownify -}}
+                    {{- if $showIndex -}}<div class="{{- $indexShape -}}"><span >{{- add $outputItemCount 1 -}}</span></div>{{- end -}}
+                </div>
                     {{- $outputItemCount = add $outputItemCount 1 -}}
                 {{- else -}}
             </div>
