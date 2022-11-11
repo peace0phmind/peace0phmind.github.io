@@ -204,11 +204,25 @@ figcaption {
 
 .group .group-column {
   flex: 1;
+  position:relative;
+  display:inline-block;
+}
+
+.group .group-column .badge {
+  position: absolute;
+  left:3px;
+  top:3px;
+  background:var(--content-bg-color);
+  color:var(--text-color);
+  font-size:10px;
+  text-align: center;
+  border-radius: 10px;
+  min-width: 20px;
 }
 
 .group .group-column img {
   height: 100%;
+  width: 100%;
   margin: 0;
   object-fit: cover;
-  width: 100%;
 }

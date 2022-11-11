@@ -1,26 +1,29 @@
 {{/*
     Parameters
     ----------
-    layout : default "2"
+    layout: default "2"
         horizontal layout images, when image number larger then layout number, the image will show in a new line.
         you can use '-' to split multiple layout
 
-    loopLayout : default true
+    loopLayout: default true
         will loop use layout.
             For example: the layout="2-1-2" and you have 10 images, then the images will have 6 rows,
             from first row to the last row, the image number is "2-1-2-2-1-2".
         If you set this parameter to false, the image number that larger than layout will not show.
             For example: the layout="2-1-2" and you have 10 images, then the images will only have 3 rows,
             from first row to the last row, the image number is "2-1-2".
-
+    showIndex: default true
+        if true, will show item index on left-top as a badge.
 */}}
 
 {{- $layout := "2" -}}
 {{- $loopLayout := true -}}
+{{- $showIndex := true -}}
 
 {{- if .IsNamedParams -}}
     {{ $layout = default "2" (.Get "layout") }}
     {{ $loopLayout = default true (.Get "loopLayout") }}
+    {{ $showIndex = default true (.Get "showIndex") }}
 {{- else -}}
     {{ $layout = default "2" (.Get 0) }}
 {{- end -}}
@@ -60,7 +63,7 @@
         {{- range (split $groupIterators "") -}}
             {{- if lt $outputItemCount $itemSize -}}
                 {{- if eq . "c" -}}
-                    <div class="group-column">{{- index $items $outputItemCount | markdownify -}}</div>
+                <div class="group-column">{{- if $showIndex -}}<span class="badge">{{- add $outputItemCount 1 -}}</span>{{- end -}}{{- index $items $outputItemCount | markdownify -}}</div>
                     {{- $outputItemCount = add $outputItemCount 1 -}}
                 {{- else -}}
             </div>
