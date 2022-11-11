@@ -73,14 +73,8 @@ tags:
 ## 零件加工
 
 ### 接线端子的安装方法
-- 剥离线缆最外层绝缘层
-- 继续剥离各电线自身绝缘层，让铜线裸露约1cm左右
-- 找到对应颜色的接线端子
-- 将裸露的铜线`完全`插入接线端子，使铜线头从接线端子顶端露出
-- 使用打线钳将接线端子与铜线进行固定
-- 使用剪线钳将多余的露出端子头的裸露铜线减除
 
-{{< group layout="3" >}}
+{{< group 3 >}}
 ![](/images/202211/data-acquisition-kit-assembly/DC_1.jpg "剥离线缆最外层绝缘层")
 ![](/images/202211/data-acquisition-kit-assembly/DC_2.jpg "继续剥离各电线自身绝缘层，让铜线裸露约1cm左右")
 ![](/images/202211/data-acquisition-kit-assembly/DC_3.jpg "找到对应颜色的接线端子")

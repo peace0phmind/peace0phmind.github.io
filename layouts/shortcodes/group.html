@@ -3,15 +3,15 @@
     ----------
     layout : default "2"
         horizontal layout images, when image number larger then layout number, the image will show in a new line.
-        you can use ',' to split multiple layout
+        you can use '-' to split multiple layout
 
     loopLayout : default true
         will loop use layout.
-            For example: the layout="2,1,2" and you have 10 images, then the images will have 6 rows,
-            from first row to the last row, the image number is "2,1,2,2,1,2".
+            For example: the layout="2-1-2" and you have 10 images, then the images will have 6 rows,
+            from first row to the last row, the image number is "2-1-2-2-1-2".
         If you set this parameter to false, the image number that larger than layout will not show.
-            For example: the layout="2,1,2" and you have 10 images, then the images will only have 3 rows,
-            from first row to the last row, the image number is "2,1,2".
+            For example: the layout="2-1-2" and you have 10 images, then the images will only have 3 rows,
+            from first row to the last row, the image number is "2-1-2".
 
 */}}
 
@@ -22,11 +22,11 @@
     {{ $layout = default "2" (.Get "layout") }}
     {{ $loopLayout = default true (.Get "loopLayout") }}
 {{- else -}}
-    {{ with .Get 0 }} {{ $layout = . }} {{- end -}}
+    {{ $layout = default "2" (.Get 0) }}
 {{- end -}}
 
-{{- $layout = trim (replace $layout " " "") "," -}}
-{{- if findRE "^([0-9]+,)*([0-9]+)$" $layout -}}
+{{- $layout = trim (replace $layout " " "") "-" -}}
+{{- if findRE "^([0-9]+-)*([0-9]+)$" $layout -}}
     {{/* 获取items以及items的大小 */}}
     {{- $items := split (trim (replaceRE "(\n)+" "\n" .Inner) "\n") "\n" -}}
     {{- $itemSize := cond (eq (len (index $items 0)) 0) 0 (len $items) -}}
@@ -34,7 +34,7 @@
     {{- if gt $itemSize 0 -}}
         {{/* 获取layout的set */}}
         {{- $layoutSet := slice -}}
-        {{- range (split $layout ",") -}}
+        {{- range (split $layout "-") -}}
             {{- $layoutSet = $layoutSet | append (int (. | strings.TrimLeft "0")) -}}
         {{- end -}}
 
