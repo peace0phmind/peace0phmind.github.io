@@ -45,19 +45,9 @@
     margin-left: 4px;
   }
 
-  // For fancybox and pandoc
-  .image-caption, img + figcaption, .fancybox + figcaption {
-    color: $grey-dark;
-    font-size: $font-size-small;
-    font-weight: bold;
-    line-height: 1;
-    margin: -15px auto 15px;
-    text-align: center;
-  }
-
-  iframe, img, video, embed {
-    margin-bottom: 20px;
-  }
+  //iframe, img, video, embed {
+  //  margin-bottom: 20px;
+  //}
 
   .video-container {
     height: 0;

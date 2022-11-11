@@ -612,13 +612,6 @@ params:
   # 第三方插件和服务设置
   # Third Party Plugins & Services Settings
   # ---------------------------------------------------------------
-
-  # TODO
-  # FancyBox is a tool that offers a nice and elegant way 
-  # to add zooming functionality for images.
-  # For more information: https://fancyapps.com/fancybox/
-  fancybox: false
-
   # TODO
   # Vanilla JavaScript plugin for lazyloading images.
   # For more information: https://apoorv.pro/lozad.js/demo/

@@ -183,10 +183,8 @@ figure {
 }
 
 figcaption {
-  background-color: black;
-  color: white;
+  color: var(--text-color);
   font-style: italic;
-  padding: 2px;
   text-align: center;
 }
 
