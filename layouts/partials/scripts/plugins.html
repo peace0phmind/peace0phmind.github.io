@@ -1,5 +1,13 @@
-{{/* mathjax */}}
 {{- $js := .Site.Data.assets.js -}}
+
+{{/* medium-zoom */}}
+{{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.medium_zoom.url $js.medium_zoom.version) $js.medium_zoom.sri | safeHTML }}
+<script type="text/javascript">
+    mediumZoom('[data-zoomable]', {background: null});
+</script>
+
+
+{{/* mathjax */}}
 {{- if or (.Page.Store.Get "has_math") .Site.Params.mathDefaultInclude -}}
 <script type="text/javascript">
     window.MathJax = {

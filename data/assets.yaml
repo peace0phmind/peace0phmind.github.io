@@ -7,3 +7,7 @@ js:
     version: "9.2.0"
     sri: "sha512-bAUSYGDF/K+6ME3orRcyGh86wxE7kBRunb1tPd4btqx+iZrS3CWaxil1KNUNsVw2OlqQJvXw3id+jsPflaK49g=="
     url: "https://cdn.jsdelivr.net/npm/mermaid@%s/dist/mermaid.min.js"
+  medium_zoom:
+    version: "1.0.6"
+    sri: "sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM="
+    url: "https://cdn.jsdelivr.net/npm/medium-zoom@%s/dist/medium-zoom.min.js"

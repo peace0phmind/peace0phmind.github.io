@@ -405,3 +405,8 @@ $label : (
   'warning' : lighten(adjust-hue(map-get($note-border, 'warning'), 10), 83% + $lbg),
   'danger'  : lighten(adjust-hue(map-get($note-border, 'danger'), -10), 87% + $lbg)
 );
+
+
+// medium-zoom
+$medium-zoom-background : rgba(255, 255, 255, 0.9);
+$medium-zoom-background-dark : rgba(0, 0, 0, 0.9);

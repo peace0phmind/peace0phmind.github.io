@@ -51,6 +51,7 @@
       
       const iframe = document.querySelector('iframe.giscus-frame');
       if (iframe) {
+        console.log("aaaa hello world!")
         const config = { setConfig: { theme: theme } };
         iframe.contentWindow.postMessage({ giscus: config }, 'https://giscus.app');
       }

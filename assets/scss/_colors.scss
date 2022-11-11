@@ -26,6 +26,8 @@
   --highlight-gutter-background: #{$highlight-gutter-background};
   --highlight-gutter-foreground: #{$highlight-gutter-foreground};
 
+  --medium-zoom-background: #{$medium-zoom-background};
+
   color-scheme: light;
 }
 
@@ -56,6 +58,8 @@
   --highlight-gutter-background: #{$highlight-gutter-background-dark};
   --highlight-gutter-foreground: #{$highlight-gutter-foreground-dark};
 
+  --medium-zoom-background: #{$medium-zoom-background-dark};
+
   color-scheme: dark;
 }
 
@@ -68,5 +72,5 @@ img[data-theme="dark"] {
 }
 
 iframe[data-theme="dark"] {
-  color-scheme: light;
+  color-scheme: dark;
 }
