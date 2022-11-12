@@ -75,7 +75,7 @@
                 {{- if eq . "c" -}}
                 <div class="group-column">
                     {{- index $items $outputItemCount | markdownify -}}
-                    {{- if $showIndex -}}<div class="{{- $indexShape -}}"><span >{{- add $outputItemCount 1 -}}</span></div>{{- end -}}
+                    {{- if $showIndex -}}<div class="badge"><div class="{{- $indexShape -}}"><span>{{- add $outputItemCount 1 -}}</span></div></div>{{- end -}}
                 </div>
                     {{- $outputItemCount = add $outputItemCount 1 -}}
                 {{- else -}}

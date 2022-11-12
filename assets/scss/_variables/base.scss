@@ -411,6 +411,8 @@ $label : (
 $medium-zoom-background : rgba(255, 255, 255, 0.9);
 $medium-zoom-background-dark : rgba(0, 0, 0, 0.9);
 
-// box-shadow
-$box-shadow: 3px 3px 2px $grey-light;
-$box-shadow-dark: 3px 3px 2px rgba(0, 181, 255, 0.6);
+// image border, box-shadow
+$image-border: 2px solid $black-light;
+$image-border-dark: 2px solid $grey-light;
+$image-box-shadow: 3px 3px 2px rgba(49, 112, 143, 0.6);
+$image-box-shadow-dark: 3px 3px 2px rgba(0, 181, 255, 0.6);
