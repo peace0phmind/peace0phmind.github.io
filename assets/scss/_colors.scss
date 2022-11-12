@@ -28,6 +28,8 @@
 
   --medium-zoom-background: #{$medium-zoom-background};
 
+  --box-shadow: #{$box-shadow};
+
   color-scheme: light;
 }
 
@@ -59,6 +61,8 @@
   --highlight-gutter-foreground: #{$highlight-gutter-foreground-dark};
 
   --medium-zoom-background: #{$medium-zoom-background-dark};
+
+  --box-shadow: #{$box-shadow-dark};
 
   color-scheme: dark;
 }

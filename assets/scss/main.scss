@@ -180,12 +180,23 @@ table thead tr th:empty {
 
 figure {
   margin: 0px;
+  padding-right: 7px;
 }
 
 figcaption {
   color: var(--text-color);
+  font-family: sans-serif;
+  font-size: 10px;
   font-style: italic;
   text-align: center;
+}
+
+img {
+  border: 2px solid #fff;
+  box-shadow: var(--box-shadow);
+  -moz-box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+  -khtml-box-shadow: var(--box-shadow);
 }
 
 .medium-zoom-overlay {
@@ -247,8 +258,8 @@ figcaption {
 }
 
 .group .group-column img {
-  height: 100%;
-  width: 100%;
-  margin: 0;
+  //height: 100%;
+  //width: 100%;
+  //margin: 0;
   object-fit: cover;
 }
