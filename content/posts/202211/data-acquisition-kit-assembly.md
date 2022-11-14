@@ -39,6 +39,8 @@ tags:
 | ![](/images/202211/data-acquisition-kit-assembly/C14.jpg_160x120) | 黑色接线端子E0306 | $C_{14}$ | 40个 | 用于变送器信号线 |
 | ![](/images/202211/data-acquisition-kit-assembly/C15.jpg_160x120) | 红色接线端子TE0508 | $C_{15}$ | 1个 | 用于电源线 |
 | ![](/images/202211/data-acquisition-kit-assembly/C16.jpg_160x120) | 黑色接线端子TE0508 | $C_{16}$ | 1个 | 用于电源线 |
+| ![](/images/202211/data-acquisition-kit-assembly/C17.jpg_160x120) | 红色接线端子E0508 | $C_{17}$ | 1个 | 用于电源线 |
+| ![](/images/202211/data-acquisition-kit-assembly/C18.jpg_160x120) | 黑色接线端子E0508 | $C_{18}$ | 1个 | 用于电源线 |
 | ![](/images/202211/data-acquisition-kit-assembly/P1.jpg_160x120) | 220V转24VDC电源 | $P_{1}$ | 1个 | 电源 |
 | ![](/images/202211/data-acquisition-kit-assembly/P2.jpg_160x120) | 数字采集器端子台 | $P_{2}$ | 1个 | 端子台 |
 | ![](/images/202211/data-acquisition-kit-assembly/P3.jpg_160x120) | RJ45双端子台 | $P_{3}$ | 2个 | RJ45双端子台 |
@@ -58,7 +60,13 @@ tags:
 - 请确保贴纸与PCB板上丝印与表格顺序一致
 - 如发现丝印错误请联系厂商，如发现贴纸顺序错误则可以将贴纸撕下再按正确顺序粘帖
 
+#### $P_2$ 正面与侧面图
+{{< group layout="2" indexShape="corner" >}}
+![DC_1](/images/202211/data-acquisition-kit-assembly/P2.jpg "俯视图")
+![DC_1](/images/202211/data-acquisition-kit-assembly/P2_1.jpg "黄色标签")
+{{</ group >}}
 
+#### $P_2$丝印编号表
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 |52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|
@@ -66,11 +74,39 @@ tags:
 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10|11|12|13|14|15|16|17|
 |35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|
 
-{{< group >}}
-![DC_1](/images/202211/data-acquisition-kit-assembly/P2.jpg "俯视图")
-![DC_1](/images/202211/data-acquisition-kit-assembly/P2_1.jpg "黄色标签")
+### RJ45端子台($P_3， P_4$)配件确认与调整
+
+#### $P_3$错误与正确方向图，以及调整方式
+- 将$P_3或P_4$侧面放置，如下图1或3，螺丝左侧有凹槽的为上端，螺丝左侧有突起的为下端
+- 将端子台按正确方向放置并检查，RJ45口在上端的为错误，RJ45口在下端的为正确
+- 调整方式见图2,将一侧螺丝卸下，将pcb板调整方向，最后将螺丝和边盖重新装配上
+- $P_4$的侧面图与$P_3$类似，调整方式一致
+
+{{< group layout="3" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/P3_1.jpg "错误的侧面图")
+![](/images/202211/data-acquisition-kit-assembly/P3_2.jpg "调整方式图")
+![](/images/202211/data-acquisition-kit-assembly/P3_3.jpg "正确的侧面图")
 {{</ group >}}
 
+#### $P_3$正确线序
+- 按图1所示方向放置$P_3$
+- 如图2,端子顺序按从上层到下层，从左侧向右侧数分别为：8,7,6,5; 4,3,2,1
+- RJ45从左侧向右侧数顺序为：8,7,6,5,4,3,2,1
+- 请用万用表检测最左上的接线端子与RJ45最左侧的线是否联通来检测顺序是否正确
+
+{{< group layout="2" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/P3.jpg "正面图")
+![](/images/202211/data-acquisition-kit-assembly/P3_4.jpg "接线顺序图")
+{{</ group >}}
+
+### RJ45端子$P_{10}$线序确认
+- 如图1和图2所示，从左向右数，端子与RJ45的线序为: 8,7,6,5,4,3,2,1
+- 请用万用表检测最左侧的接线端子与RJ45最左侧的线是否联通来检测顺序是否正确
+
+{{< group layout="2" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/P10.jpg "正面")
+![](/images/202211/data-acquisition-kit-assembly/P10_1.jpg "正面俯看图")
+{{</ group >}}
 
 ## 零件加工
 
@@ -85,33 +121,42 @@ tags:
 ![](/images/202211/data-acquisition-kit-assembly/DC_6.jpg "使用剪线钳将多余的露出端子头的裸露铜线减除")
 {{</ group >}}
 
-### 端子台检查
+### Dim槽裁剪
+- 从$P_7$的原材料上，截取10个孔的Dim槽(见图2)，零件编号$Dim_{10}$
+- 裁剪时，从$P_7$的左侧开始数10个孔，在10和11孔中间使用锯子将零件截取下来
 
-### 
+{{< group layout="2" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/P7.jpg)
+![](/images/202211/data-acquisition-kit-assembly/P7_1.jpg)
+{{</ group >}}
 
-## 零部件组装
+### 变送器电源线线缆裁剪与加工
 
+#### 变送器电源线线缆裁剪
+将90cm的红黑两色电线裁剪成如下尺寸和数量。
 
-### 变送器电源线组装
+| 材料名称 | 长度(cm) | 数量 |
+|--|:-:|:-:|
+| 红色电线 | 6 | 9 |
+| 黑色电线 | 6 | 9 |
+| 红色电线 | 36 | 1 |
+| 黑色电线 | 36 | 1 |
 
-#### 线缆裁剪要求
-将90cm的红黑两色电线裁剪成如下尺寸和数量的电线。
-
-| 材料名称 | 材料编号 | 长度(cm) | 数量 | 
-|--|--|:--:|:--:|
-| 红色电线 | $L_{6}^{red}$ | 6 | 9 |
-| 黑色电线 | $L_{6}^{black}$ | 6 | 9 |
-| 红色电线 | $L_{36}^{red}$ | 36 | 1 |
-| 黑色电线 | $L_{36}^{black}$ | 36 | 1 |
-
-#### 组装方式
-
-
-#### 成品图片
+#### 变送器电源线线缆加工
+{{< group layout="3" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/L_1.jpg "裁剪后电线图")
+![](/images/202211/data-acquisition-kit-assembly/L_2.jpg "调整剥线钳限位器到1/2")
+![](/images/202211/data-acquisition-kit-assembly/L_3.jpg "电线顶住位置器进行剥线")
+![](/images/202211/data-acquisition-kit-assembly/L_4.jpg "所有电线两头剥除绝缘层")
+![](/images/202211/data-acquisition-kit-assembly/L_5.jpg "两端使用E0508，中间使用TE0508")
+![](/images/202211/data-acquisition-kit-assembly/L_6.jpg "零件成品，黑色零件与红色一致")
+{{</ group >}}
 
 
 ### 变送器信号线
-实际需要532cm，需要将
+
+#### 变送器信号线裁剪
+需要将540cm(实际需要532cm)4芯信号线裁剪成如下尺寸和数量。
 
 | 材料编号 | 长度(cm) | 数量 | 
 |--|:--:|:--:|
@@ -121,6 +166,37 @@ tags:
 | $SL_{36}$ | 36 | 3 |
 | $SL_{42}$ | 42 | 2 |
 | $SL_{48}$ | 48 | 2 |
+
+#### 变送器信号线加工
+{{< group layout="3" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/SL_1.jpg "按尺寸要求裁剪信号线")
+![](/images/202211/data-acquisition-kit-assembly/SL_2.jpg "调整剥线钳限位器到最大")
+![](/images/202211/data-acquisition-kit-assembly/SL_3.jpg "将线缆头与限位器右外侧对齐并剥线")
+![](/images/202211/data-acquisition-kit-assembly/SL_4.jpg "剥离外侧绝缘层的线缆")
+![](/images/202211/data-acquisition-kit-assembly/SL_5.jpg "调整剥线钳限位器到1/2")
+![](/images/202211/data-acquisition-kit-assembly/SL_6.jpg "将线缆头与限位器左内侧对齐并剥线")
+![](/images/202211/data-acquisition-kit-assembly/SL_7.jpg "剥离内侧绝缘层的线缆")
+![](/images/202211/data-acquisition-kit-assembly/SL_8.jpg "使用对应颜色E0306材料")
+![](/images/202211/data-acquisition-kit-assembly/SL_9.jpg "使用夹线钳对材料进行加工")
+{{</ group >}}
+
+#### 变送器信号线阶段效果图
+{{< group layout="2" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/SL_11.jpg "按照加工步骤1得到结果")
+![](/images/202211/data-acquisition-kit-assembly/SL_13.jpg "完成所有步骤得到结果")
+{{</ group >}}
+
+
+## 零部件组装
+
+
+### 变送器电源线组装
+
+
+#### 组装方式
+
+
+#### 成品图片
 
 
 ### 接线顺序
