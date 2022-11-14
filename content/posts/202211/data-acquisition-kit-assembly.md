@@ -187,10 +187,18 @@ tags:
 {{</ group >}}
 
 
-## 零部件组装
+## 部件装配
 
+### 组装Dim槽
+{{< group layout="3" indexShape="corner" >}}
+![](/images/202211/data-acquisition-kit-assembly/D_1.jpg "将Dim槽倒放，注意左右下脚的三角铁为下边")
+![](/images/202211/data-acquisition-kit-assembly/D_2.jpg "从左向右数，将2,3号螺丝卸下")
+![](/images/202211/data-acquisition-kit-assembly/D_3.jpg "将Dim零件3,8号孔与Dim槽2,3号孔对齐")
+![](/images/202211/data-acquisition-kit-assembly/D_4.jpg "螺丝从背面拧入，将Dim零件固定在Dim槽上")
+![](/images/202211/data-acquisition-kit-assembly/D_5.jpg "将RJ45等零件按如下位置安装上")
+![](/images/202211/data-acquisition-kit-assembly/D_6.jpg "最终安装结果如图")
 
-### 变送器电源线组装
+{{</ group >}}
 
 
 #### 组装方式
