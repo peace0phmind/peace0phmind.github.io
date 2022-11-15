@@ -109,15 +109,15 @@ tags:
 
 ## 零件加工
 
-### 接线端子的安装方法
+### 接线端子的详细安装步骤(以电源接线为例)
 
 {{< group layout="3" indexShape="corner" >}}
-![](/images/202211/data-acquisition-kit-assembly/DC_1.jpg "剥离线缆最外层绝缘层")
-![](/images/202211/data-acquisition-kit-assembly/DC_2.jpg "继续剥离各电线自身绝缘层，让铜线裸露约1cm左右")
+![](/images/202211/data-acquisition-kit-assembly/DC_2.jpg "剥离各电线自身绝缘层，让铜线裸露约1cm左右")
 ![](/images/202211/data-acquisition-kit-assembly/DC_3.jpg "找到对应颜色的接线端子")
 ![](/images/202211/data-acquisition-kit-assembly/DC_4.jpg "将裸露的铜线完全插入接线端子，使铜线头从端子顶端露出")
 ![](/images/202211/data-acquisition-kit-assembly/DC_5.jpg "使用打线钳将接线端子与铜线进行固定")
 ![](/images/202211/data-acquisition-kit-assembly/DC_6.jpg "使用剪线钳将多余的露出端子头的裸露铜线减除")
+![](/images/202211/data-acquisition-kit-assembly/DC_7.jpg "将电线按如图所示链接到电源($P_1$)上")
 {{</ group >}}
 
 ### Dim槽裁剪
@@ -298,3 +298,6 @@ tags:
 ![](/images/202211/data-acquisition-kit-assembly/P9_5.jpg "两组传感器加$P_{10}$接线端子为一个机器人采集单元")
 ![](/images/202211/data-acquisition-kit-assembly/P9_6.jpg "按如图颜色和顺序固定$P_9和p_{10}$")
 {{</ group >}}
+
+## 数据采集套件组装完成
+![](/images/202211/data-acquisition-kit-assembly/ALL.jpg "包括一个Dim槽(包括端子台、变送器和电源)+5组6轴传感器")
