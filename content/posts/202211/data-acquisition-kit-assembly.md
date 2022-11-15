@@ -9,7 +9,7 @@ lastmod: 2022-11-15T19:08:00+08:00
 author: peace0phmind
 url: "posts/202211/data-acquisition-kit-assembly"
 
-draft: true
+draft: false
 
 categories:
   -
