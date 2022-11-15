@@ -4,7 +4,7 @@ description: "data-acquisition-kit-assembly"
 keywords: ""
 
 date: 2022-11-10T09:09:34+08:00
-lastmod: 2022-11-10T09:09:34+08:00
+lastmod: 2022-11-15T19:08:00+08:00
 
 author: peace0phmind
 url: "posts/202211/data-acquisition-kit-assembly"
