@@ -29,33 +29,33 @@ tags:
 
 | 图片 | 材料名称 | 编号 | 数量 | 用途 |
 |--|--|--|--|--|
-| ![](/images/202211/data-acquisition-kit-assembly/C1.jpg_160x120) | 红色电线 | $C_1$ [123] [234] | 200cm | 用于变送器和采集器的电源 |
-| ![](/images/202211/data-acquisition-kit-assembly/C2.jpg_160x120) | 黑色电线 | $C_2$ | 200cm | 用于变送器和采集器的电源 |
-| ![](/images/202211/data-acquisition-kit-assembly/C3.jpg_160x120) | 4色信号线缆  | $C_3$ | 540cm | 用于变送器信号线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C4.jpg_160x120) | 3色电源线缆  | $C_4$ | 2m | 用于电源线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C11.jpg_160x120) | 红色接线端子E0306 | $C_{11}$ | 40个 | 用于变送器信号线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C12.jpg_160x120) | 黄色接线端子E0306 | $C_{12}$ | 40个 | 用于变送器信号线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C13.jpg_160x120) | 绿色接线端子E0306 | $C_{13}$ | 40个 | 用于变送器信号线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C14.jpg_160x120) | 黑色接线端子E0306 | $C_{14}$ | 40个 | 用于变送器信号线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C15.jpg_160x120) | 红色接线端子TE0508 | $C_{15}$ | 1个 | 用于电源线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C16.jpg_160x120) | 黑色接线端子TE0508 | $C_{16}$ | 1个 | 用于电源线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C17.jpg_160x120) | 红色接线端子E0508 | $C_{17}$ | 1个 | 用于电源线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C18.jpg_160x120) | 黑色接线端子E0508 | $C_{18}$ | 1个 | 用于电源线 |
-| ![](/images/202211/data-acquisition-kit-assembly/P1.jpg_160x120) | 220V转24VDC电源 | $P_{1}$ | 1个 | 电源 |
-| ![](/images/202211/data-acquisition-kit-assembly/P2.jpg_160x120) | 数字采集器端子台 | $P_{2}$ | 1个 | 端子台 |
-| ![](/images/202211/data-acquisition-kit-assembly/P3.jpg_160x120) | RJ45双端子台 | $P_{3}$ | 2个 | RJ45双端子台 |
-| ![](/images/202211/data-acquisition-kit-assembly/P4.jpg_160x120) | RJ45单端子台 | $P_{4}$ | 1个 | RJ45单端子台 |
-| ![](/images/202211/data-acquisition-kit-assembly/P5.jpg_160x120) | 3路变送器 | $P_{5}$ | 10个 | 3路变送器 |
-| ![](/images/202211/data-acquisition-kit-assembly/P6.jpg_160x120) | 机柜用Dim槽 | $P_{6}$ | 1个 | 机柜用Dim槽 |
-| ![](/images/202211/data-acquisition-kit-assembly/P7.jpg_160x120) | Dim槽 | $P_{7}$ | 1根 | Dim槽 |
-| ![](/images/202211/data-acquisition-kit-assembly/P8.jpg_160x120) | Dim槽端子 | $P_{8}$ | 1根 | Dim槽端子 |
-| ![](/images/202211/data-acquisition-kit-assembly/P9.jpg_160x120) | 三项交流电流传感器 | $P_{9}$ | 10组 | 1组3个，分别是红、黄、绿线 |
-| ![](/images/202211/data-acquisition-kit-assembly/P10.jpg_160x120) | RJ45端子 | $P_{10}$ | 5个 | 1组3个，分别是红、黄、绿线 |
-| ![](/images/202211/data-acquisition-kit-assembly/C5.jpg_160x120) | 端子台线缆  | $P_{11}$ | 1根 | 用于电源线 |
+| {{< a C_1 >}}  ![](/images/202211/data-acquisition-kit-assembly/C1.jpg_160x120) | 红色电线 | $C_1$ | 200cm | 用于变送器和采集器的电源 |
+| {{< a C_2 >}}  ![](/images/202211/data-acquisition-kit-assembly/C2.jpg_160x120) | 黑色电线 | $C_2$ | 200cm | 用于变送器和采集器的电源 |
+| {{< a C_3 >}}  ![](/images/202211/data-acquisition-kit-assembly/C3.jpg_160x120) | 4色信号线缆  | $C_3$ | 540cm | 用于变送器信号线 |
+| {{< a C_4 >}}  ![](/images/202211/data-acquisition-kit-assembly/C4.jpg_160x120) | 3色电源线缆  | $C_4$ | 2m | 用于电源线 |
+| {{< a C_11 >}} ![](/images/202211/data-acquisition-kit-assembly/C11.jpg_160x120) | 红色接线端子E0306 | $C_{11}$ | 40个 | 用于变送器信号线 |
+| {{< a C_12 >}} ![](/images/202211/data-acquisition-kit-assembly/C12.jpg_160x120) | 黄色接线端子E0306 | $C_{12}$ | 40个 | 用于变送器信号线 |
+| {{< a C_13 >}} ![](/images/202211/data-acquisition-kit-assembly/C13.jpg_160x120) | 绿色接线端子E0306 | $C_{13}$ | 40个 | 用于变送器信号线 |
+| {{< a C_14 >}} ![](/images/202211/data-acquisition-kit-assembly/C14.jpg_160x120) | 黑色接线端子E0306 | $C_{14}$ | 40个 | 用于变送器信号线 |
+| {{< a C_15 >}} ![](/images/202211/data-acquisition-kit-assembly/C15.jpg_160x120) | 红色接线端子TE0508 | $C_{15}$ | 1个 | 用于电源线 |
+| {{< a C_16 >}} ![](/images/202211/data-acquisition-kit-assembly/C16.jpg_160x120) | 黑色接线端子TE0508 | $C_{16}$ | 1个 | 用于电源线 |
+| {{< a C_17 >}} ![](/images/202211/data-acquisition-kit-assembly/C17.jpg_160x120) | 红色接线端子E0508 | $C_{17}$ | 1个 | 用于电源线 |
+| {{< a C_18 >}} ![](/images/202211/data-acquisition-kit-assembly/C18.jpg_160x120) | 黑色接线端子E0508 | $C_{18}$ | 1个 | 用于电源线 |
+| {{< a P_1 >}}  ![](/images/202211/data-acquisition-kit-assembly/P1.jpg_160x120) | 220V转24VDC电源 | $P_{1}$ | 1个 | 电源 |
+| {{< a P_2 >}}  ![](/images/202211/data-acquisition-kit-assembly/P2.jpg_160x120) | 数字采集器端子台 | $P_{2}$ | 1个 | 端子台 |
+| {{< a P_3 >}}  ![](/images/202211/data-acquisition-kit-assembly/P3.jpg_160x120) | RJ45双端子台 | $P_{3}$ | 2个 | RJ45双端子台 |
+| {{< a P_4 >}}  ![](/images/202211/data-acquisition-kit-assembly/P4.jpg_160x120) | RJ45单端子台 | $P_{4}$ | 1个 | RJ45单端子台 |
+| {{< a P_5 >}}  ![](/images/202211/data-acquisition-kit-assembly/P5.jpg_160x120) | 3路变送器 | $P_{5}$ | 10个 | 3路变送器 |
+| {{< a P_6 >}}  ![](/images/202211/data-acquisition-kit-assembly/P6.jpg_160x120) | 机柜用Dim槽 | $P_{6}$ | 1个 | 机柜用Dim槽 |
+| {{< a P_7 >}}  ![](/images/202211/data-acquisition-kit-assembly/P7.jpg_160x120) | Dim槽 | $P_{7}$ | 1根 | Dim槽 |
+| {{< a P_8 >}}  ![](/images/202211/data-acquisition-kit-assembly/P8.jpg_160x120) | Dim槽端子 | $P_{8}$ | 1根 | Dim槽端子 |
+| {{< a P_9 >}}  ![](/images/202211/data-acquisition-kit-assembly/P9.jpg_160x120) | 三项交流电流传感器 | $P_{9}$ | 10组 | 1组3个，分别是红、黄、绿线 |
+| {{< a P_10 >}} ![](/images/202211/data-acquisition-kit-assembly/P10.jpg_160x120) | RJ45端子 | $P_{10}$ | 5个 | 1组3个，分别是红、黄、绿线 |
+| {{< a P_11 >}} ![](/images/202211/data-acquisition-kit-assembly/P11.jpg_160x120) | 端子台线缆  | $P_{11}$ | 1根 | 用于电源线 |
 
 ## 配件确认
 
-### 数字采集器端子台($P_2$)配件确认与调整
+### 数字采集器端子台([$P_2$](#P_2))配件确认与调整
 
 - 如图示方向为端子台正确安装方向
 - 4排编号如下表格所示
@@ -120,7 +120,7 @@ tags:
 ### 电源线加工与安装(接线端子的详细安装步骤为图1-5)
 
 {{< group layout="3" indexShape="corner" >}}
-![](/images/202211/data-acquisition-kit-assembly/DC_2.jpg "材料($C_4$)：剥离各电线自身绝缘层，让铜线裸露约1cm左右")
+![](/images/202211/data-acquisition-kit-assembly/DC_2.jpg "材料([$C_4$](#C_4))：剥离各电线自身绝缘层，让铜线裸露约1cm左右")
 ![](/images/202211/data-acquisition-kit-assembly/DC_3.jpg "材料($C_{15}+2\times C_{16}$)：找到对应颜色的接线端子")
 ![](/images/202211/data-acquisition-kit-assembly/DC_4.jpg "将裸露的铜线完全插入接线端子，使铜线头从端子顶端露出")
 ![](/images/202211/data-acquisition-kit-assembly/DC_5.jpg "使用打线钳将接线端子与铜线进行固定")
