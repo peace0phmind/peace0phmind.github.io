@@ -260,8 +260,8 @@ tags:
 #### $P_5$输出接口接线方式
 
 |   |   |   |
-|:-:|--:|:-:|
-|![](/images/202211/data-acquisition-kit-assembly/P5o_0.jpg_320x240)| 7: $\color{red}信号(红色)$  </br> 8: $\color{Goldenrod}信号(黄色)$  </br> 9: $\color{green}信号(绿色)$  </br> 10: $\color{black}信号(黑色)$  </br> 11: $\color{black}电源(黑色)$  </br> 12: $\color{red}电源(红色)$  | ![](/images/202211/data-acquisition-kit-assembly/P5o_01.jpg_320x240)|
+|:--|--:|--:|
+|![](/images/202211/data-acquisition-kit-assembly/P5o_0.jpg_320x240)|7:$\color{red}信号(红色)$</br>8:$\color{Goldenrod}信号(黄色)$</br>9:$\color{green}信号(绿色)$</br>10:$\color{black}信号(黑色)$</br>11:$\color{black}电源(黑色)$</br>12:$\color{red}电源(红色)$| ![](/images/202211/data-acquisition-kit-assembly/P5o_01.jpg_320x240)|
 
 #### $P_2$接线表
 
