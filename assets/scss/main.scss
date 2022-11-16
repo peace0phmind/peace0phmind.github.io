@@ -211,6 +211,7 @@ img {
   display: flex;
   gap: 3px;
   margin-bottom: 3px;
+  page-break-inside: avoid;
 }
 
 .group .group-column {
