@@ -1,0 +1,18 @@
+{{/*
+    Parameters
+    ----------
+    name: default ""
+        label's name
+*/}}
+
+{{- $name := "" -}}
+
+{{- if .IsNamedParams -}}
+    {{ $name = default "" (.Get "name") }}
+{{- else -}}
+    {{ $name = default "" (.Get 0) }}
+{{- end -}}
+
+{{- if gt (len $name) 0 -}}
+<a name="{{ $name | safeHTML }}"></a>
+{{- end -}}
