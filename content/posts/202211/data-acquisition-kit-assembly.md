@@ -4,7 +4,7 @@ description: "data-acquisition-kit-assembly"
 keywords: ""
 
 date: 2022-11-10T09:09:34+08:00
-lastmod: 2022-11-15T19:08:00+08:00
+lastmod: 2022-11-16T19:08:00+08:00
 
 author: peace0phmind
 url: "posts/202211/data-acquisition-kit-assembly"
@@ -165,7 +165,7 @@ tags:
 ![](/images/202211/data-acquisition-kit-assembly/SL_2.jpg "调整剥线钳限位器到最大")
 ![](/images/202211/data-acquisition-kit-assembly/SL_3.jpg "将线缆头与限位器右外侧对齐并剥线")
 ![](/images/202211/data-acquisition-kit-assembly/SL_4.jpg "剥离外侧绝缘层的线缆")
-![](/images/202211/data-acquisition-kit-assembly/SL_5.jpg "调整剥线钳限位器到1/2")
+![](/images/202211/data-acquisition-kit-assembly/SL_5.jpg "调整剥线钳限位器到$\sfrac{1}{4}与\sfrac{1}{2}$中间位置")
 ![](/images/202211/data-acquisition-kit-assembly/SL_6.jpg "将线缆头与限位器左内侧对齐并剥线")
 ![](/images/202211/data-acquisition-kit-assembly/SL_7.jpg "剥离内侧绝缘层的线缆")
 ![](/images/202211/data-acquisition-kit-assembly/SL_8.jpg "使用对应颜色E0306材料")
