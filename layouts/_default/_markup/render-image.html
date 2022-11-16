@@ -9,8 +9,8 @@
     {{- $height = index $args 2 -}}
 {{- end -}}
 <figure>
-    <img data-zoomable src="/images/img-lazy-loading.gif" data-src="{{ $URL | safeURL }}" alt="{{ .Text }}"  {{ with $width}} width="{{ . }}" {{ end }}  {{ with $height}} height="{{ . }}" {{ end }}  {{ with .Title}} title="{{ . }}" {{ end }} />
+    <img data-zoomable src="/images/img-lazy-loading.gif" data-src="{{ $URL | safeURL }}" alt="{{ .Text }}"  {{ with $width}} width="{{ . }}" {{ end }}  {{ with $height}} height="{{ . }}" {{ end }}  {{ with .Title}} title="{{ . | markdownify }}" {{ end }} />
     {{ with .Title}}
-    <figcaption>{{ . }}</figcaption>
+    <figcaption>{{ . | markdownify }}</figcaption>
     {{ end }}
 </figure>

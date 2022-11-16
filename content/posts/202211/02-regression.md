@@ -51,7 +51,7 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 - 计算$w=w^0$时，对$L$的微分是多少：$\frac{{\partial}L}{{\partial}W}|_{w=w^0}$
   - 如果计算出来的结果为负数，则增加$w$
   - 如果计算出来的结果为正数，则减少$w$
-  - 增加或减少的数值为：${\color{red}\eta}\frac{{\partial}L}{{\partial}W}|_{w=w^0}$, $\color{red}\eta$:叫{{<clr>}}learning rate{{</clr>}},是一个hyperparameter
+  - 增加或减少的数值为：${\color{red}\eta}\frac{{\partial}L}{{\partial}W}|_{w=w^0}$, $\color{red}\eta$:叫{{<color>}}learning rate{{</color>}},是一个hyperparameter
   - 这个过程用的数学表达式是：$ w^1 \leftarrow w^0 - {\color{red}\eta}\frac{{\partial}L}{{\partial}W}|_{w=w^0} $
   - 重复上述步骤不断更新$w$。两种状况会停下来:
     - 更新的次数达到预设值
@@ -78,7 +78,7 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 
 上述模型有个共同的名字`Linear Models`
 
-{{<clr>}}调整模型参数，观察Training Loss和Testing Loss的变化，挑选合适的模型{{</clr>}}
+{{<color>}}调整模型参数，观察Training Loss和Testing Loss的变化，挑选合适的模型{{</color>}}
 #### 名词解释
 
 `hyperparameter`: 需要人来设置的参数
@@ -198,12 +198,12 @@ $$
 ```
 - Compute gradient $ g = \nabla L(\theta^0) $
 
-全部资料是$L$,批次编号为$L^1, L^2, L^3$。{{<clr>}}batch{{</clr>}}是进行参数更新的单位，即一个批次进行一次参数更新；{{<clr>}}epoch{{</clr>}}表示所有批次全部执行了参数更新。
+全部资料是$L$,批次编号为$L^1, L^2, L^3$。{{<color>}}batch{{</color>}}是进行参数更新的单位，即一个批次进行一次参数更新；{{<color>}}epoch{{</color>}}表示所有批次全部执行了参数更新。
 ![batch and epoch](/images/202211/02-regression/02.0010.jpg "batch and epoch")
 
 ### 使用$ Sigmoid \rightarrow ReLU $
 - `Rectified Linear Unit (ReLU)`: $ {\color{red}c}\\,max(0, {\color{green}b} + {\color{blue}w}x_1) $
-- 类似`sigmoid`和`ReLU`的函数在机器学习中叫做{{<clr>}}`Activation function`{{</clr>}}
+- 类似`sigmoid`和`ReLU`的函数在机器学习中叫做{{<color>}}`Activation function`{{</color>}}
 
 #### 作个数不同的ReLU
 - only one layer
@@ -219,7 +219,7 @@ $$
 #### 作多层ReLU
 - 100 ReLU for each layer
 - input features are the no. of views in the past 56 days
-- `Better on training data, worse on unseen data`: {{<clr>}}`Overfittin`{{</clr>}} , see layer count 4.
+- `Better on training data, worse on unseen data`: {{<color>}}`Overfittin`{{</color>}} , see layer count 4.
 
 | layer count | training loss | testing loss |
 |--|--|--|
@@ -251,11 +251,11 @@ $$
 - 假设Model Function为$ y = b + \sum w_i x_i $
 - 原来定义的Loss Function为$ L = \sum\limits_n( \hat{y}^n - ( b + \sum w_i x_i ) )^2$
 - Regularization既是在上面Loss Function的基础上加上红色部分: $ L = \sum\limits_n( \hat{y}^n - ( b + \sum w_i x_i ) )^2 + \color{red}\lambda\sum(w_i)^2$
-- {{<clr>}}The functions with smaller $w_i$ are better{{</clr>}}
+- {{<color>}}The functions with smaller $w_i$ are better{{</color>}}
 - Why smooth functions are preferred?
   - If some noises corrupt input $x_i$ when testing. A smoother function has less influence.
   - 因为在进行预测时，有噪音输入的情况下，越smooth的function对输出造成的影响越不敏感。
-- {{<clr>}}其中的$\lambda$也是一个hyperparameter{{</clr>}}
+- {{<color>}}其中的$\lambda$也是一个hyperparameter{{</color>}}
 
 当我们调整$\lambda$的值，观察Loss的变化是，我们可以观察到如下信息：
 - $\lambda$越大时，Regularization项影响就越大，整个function就越平滑

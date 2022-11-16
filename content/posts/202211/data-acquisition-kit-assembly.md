@@ -20,14 +20,16 @@ tags:
 
 本文主要说明1个Dim槽满配30路电流传感器的材料准备、零部件检查与调整、零部件组装、部件之间的装配到最后验收测试的整个过程。最后顺带介绍下辅助工具。
 ## 名词解释
+
 - `材料`: 材料为直接从供应商处采购，无法直接用于装配，需要二次加工的原材料。材料编号统一大写C加下标数字编号$Cn$。
 - `配件`: 配件为从供应商处采购，通过简单的安装(或组装)即可正常使用的部件。配件编号统一大写P加下标数字编号$Pn$。
 - `零件`: 从材料通过加工得到的部件，零件有其自己独立的编号体系。
 
 ## 材料和配件清单
+
 | 图片 | 材料名称 | 编号 | 数量 | 用途 |
 |--|--|--|--|--|
-| ![](/images/202211/data-acquisition-kit-assembly/C1.jpg_160x120) | 红色电线 | $C_1$ | 200cm | 用于变送器和采集器的电源 |
+| ![](/images/202211/data-acquisition-kit-assembly/C1.jpg_160x120) | 红色电线 | $C_1$ [123] [234] | 200cm | 用于变送器和采集器的电源 |
 | ![](/images/202211/data-acquisition-kit-assembly/C2.jpg_160x120) | 黑色电线 | $C_2$ | 200cm | 用于变送器和采集器的电源 |
 | ![](/images/202211/data-acquisition-kit-assembly/C3.jpg_160x120) | 4色信号线缆  | $C_3$ | 540cm | 用于变送器信号线 |
 | ![](/images/202211/data-acquisition-kit-assembly/C4.jpg_160x120) | 3色电源线缆  | $C_4$ | 2m | 用于电源线 |
@@ -52,19 +54,23 @@ tags:
 | ![](/images/202211/data-acquisition-kit-assembly/C5.jpg_160x120) | 端子台线缆  | $P_{11}$ | 1根 | 用于电源线 |
 
 ## 配件确认
+
 ### 数字采集器端子台($P_2$)配件确认与调整
+
 - 如图示方向为端子台正确安装方向
 - 4排编号如下表格所示
 - 请确保贴纸与PCB板上丝印与表格顺序一致
 - 如发现丝印错误请联系厂商，如发现贴纸顺序错误则可以将贴纸撕下再按正确顺序粘帖
 
 #### $P_2$正面与侧面图
+
 {{< group layout="2" indexShape="corner" >}}
 ![DC_1](/images/202211/data-acquisition-kit-assembly/P2.jpg "俯视图")
 ![DC_1](/images/202211/data-acquisition-kit-assembly/P2_1.jpg "黄色标签")
 {{</ group >}}
 
 #### $P_2$丝印编号表
+
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 |52|53|54|55|56|57|58|59|60|61|62|63|64|65|66|67|68|
@@ -73,7 +79,9 @@ tags:
 |35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|
 
 ### RJ45端子台$P_3(或P_4)$配件确认与调整
+
 #### $P_3(或P_4)$错误与正确方向图，以及调整方式
+
 - 将$P_3(或P_4)$侧面放置，螺丝左侧有凹槽的为上端(如图1或3左上)，螺丝左侧有突起的为下端(如图1或3左下)
 - 将端子台按正确方向放置并检查，RJ45口在上端的为错误，RJ45口在下端的为正确
 - 调整方式见图2,将一侧螺丝卸下，将pcb板调整方向，最后将螺丝和边盖重新装配上
@@ -86,6 +94,7 @@ tags:
 {{</ group >}}
 
 #### $P_3(或P_4)$正确线序
+
 - 按图1所示方向放置$P_3(或P_4)$
 - 如图2,端子顺序按从上层到下层，从左侧向右侧数分别为：8,7,6,5; 4,3,2,1
 - RJ45口从左侧向右侧数顺序为：8,7,6,5,4,3,2,1
@@ -97,6 +106,7 @@ tags:
 {{</ group >}}
 
 ### RJ45端子($P_{10}$)线序确认
+
 - 如图1和图2所示，从左向右数，端子与RJ45的线序为: 8,7,6,5,4,3,2,1
 - 请用万用表检测最左侧的接线端子与RJ45最左侧的线是否联通来检测顺序是否正确
 
@@ -106,7 +116,9 @@ tags:
 {{</ group >}}
 
 ## 零件加工
+
 ### 电源线加工与安装(接线端子的详细安装步骤为图1-5)
+
 {{< group layout="3" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/DC_2.jpg "材料($C_4$)：剥离各电线自身绝缘层，让铜线裸露约1cm左右")
 ![](/images/202211/data-acquisition-kit-assembly/DC_3.jpg "材料($C_{15}+2\times C_{16}$)：找到对应颜色的接线端子")
@@ -117,6 +129,7 @@ tags:
 {{</ group >}}
 
 ### Dim槽裁剪
+
 - 从$P_7$的原材料上，截取10个孔的Dim槽(见图2)，零件编号$D_{10}$
 - 裁剪时，从$P_7$的左侧开始数10个孔，在10和11孔中间使用锯子将零件截取下来
 
@@ -126,7 +139,9 @@ tags:
 {{</ group >}}
 
 ### 变送器电源线线缆裁剪与加工
+
 #### 变送器电源线线缆裁剪
+
 将90cm的红黑两色电线裁剪成如下尺寸和数量。
 
 | 材料名称 | 长度(cm) | 数量 |
@@ -137,6 +152,7 @@ tags:
 | 黑色电线($C_2$) | 36 | 1 |
 
 #### 变送器电源线线缆加工
+
 {{< group layout="3" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/L_1.jpg "材料($C_1, C_2$)：裁剪后材料图")
 ![](/images/202211/data-acquisition-kit-assembly/L_2.jpg "调整剥线钳限位器到1/2")
@@ -147,7 +163,9 @@ tags:
 {{</ group >}}
 
 ### 变送器信号线
+
 #### 变送器信号线裁剪
+
 需要将540cm(实际需要532cm)4芯信号线($C_3$)裁剪成如下尺寸和数量。
 
 | 材料编号 | 长度(cm) | 数量 | 
@@ -160,6 +178,7 @@ tags:
 | $SL_{48}$ | 48 | 2 |
 
 #### 变送器信号线加工
+
 {{< group layout="3" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/SL_1.jpg "材料($C_3$)：按尺寸要求裁剪信号线")
 ![](/images/202211/data-acquisition-kit-assembly/SL_2.jpg "调整剥线钳限位器到最大")
@@ -173,13 +192,16 @@ tags:
 {{</ group >}}
 
 #### 变送器信号线阶段效果图
+
 {{< group layout="2" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/SL_11.jpg "按照加工步骤1得到结果")
 ![](/images/202211/data-acquisition-kit-assembly/SL_13.jpg "完成所有步骤得到结果")
 {{</ group >}}
 
 ## 部件装配
+
 ### 组装Dim槽
+
 {{< group layout="3" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/D_1.jpg "配件($P_6$)：将Dim槽倒放，注意左右下脚的三角铁为下边")
 ![](/images/202211/data-acquisition-kit-assembly/D_2.jpg "零件($D_{10}$)：从左向右数，将2,3号螺丝卸下")
@@ -193,7 +215,9 @@ tags:
 {{</ group >}}
 
 ### RJ45端子台(RJ45双端子台$P_3或RJ45单端子台P_4$)到变送器($P_5$)信号线接线方式
+
 #### 注意事项与接线方式
+
 - 此处将一个$P_3$当作两个$P_4$，即此处一共有5个$P_4$ (见上图9成品顶视图)
 - 按上图9成品顶视图从左向右进行编号
 - 一个$P_4$加2个$P_5$组成一组。即：$(P_41, P_5[1,2]),(P_42, P_5[3,4]),\cdots,(P_45, P_5[9,10])$
@@ -212,6 +236,7 @@ tags:
 | $\color{red}右_6^5$ | $\color{Goldenrod}右_4^6$ | $\color{green}右_3^7$ | $\color{black}右_1^8$ |
 
 #### 端口照片以及接线示例
+
 {{< group layout="2" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/P5i_1.jpg "$P_5$输入端口编号:1,2,3,4,5,6")
 ![](/images/202211/data-acquisition-kit-assembly/P5i_2.jpg "$P_5$对应接线图")
@@ -221,7 +246,9 @@ tags:
 {{</ group >}}
 
 ### 数字采集器端子台($P_2$)到变送器($P_5$)接线方式
+
 #### 变送器编号与线材表
+
 - 按Dim槽装配图9顶视图从左向右对$P_5$编号1-10
 - 表头上标为$P_5$的编号，内容为对应$P_5$编号所使用的线材编号
 
@@ -231,11 +258,13 @@ tags:
 | $SL_{30}$ | $SL_{30}$ | $SL_{36}$ | $SL_{36}$ | $SL_{24}$ | $SL_{42}$ | $SL_{42}$ | $SL_{48}$ | $SL_{48}$ | $SL_{36}$ |
 
 #### $P_5$输出接口接线方式
+
 |   |   |   |
 |:-:|--:|:-:|
 |![](/images/202211/data-acquisition-kit-assembly/P5o_0.jpg_320x240)| 7: $\color{red}信号(红色)$  </br> 8: $\color{Goldenrod}信号(黄色)$  </br> 9: $\color{green}信号(绿色)$  </br> 10: $\color{black}信号(黑色)$  </br> 11: $\color{black}电源(黑色)$  </br> 12: $\color{red}电源(红色)$  | ![](/images/202211/data-acquisition-kit-assembly/P5o_01.jpg_320x240)|
 
 #### $P_2$接线表
+
 - 数字表示$P_2$丝印上的编号。
 - 数字的下标数字表示对应的[$P_5$的编号](#变送器编号与线材表)，如上表可知对应[编号所用线材标号](#变送器编号与线材表)。
 - 数字自身的颜色以及上标角标的颜色表示连接线对应的颜色。
@@ -249,6 +278,7 @@ tags:
 |35|36|37|38|39|40|41|42|43|44|45|46|47|$\color{green}48_5^绿$|$\color{black}49_5^黑$|$\color{Goldenrod}50_5^黄$|$\color{red}51_5^红$|
 
 #### 阶段图片示例
+
 {{< group layout="3" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/P5o_1.jpg "底视图")
 ![](/images/202211/data-acquisition-kit-assembly/P5o_2.jpg "先链接所有$P_5$的电源线")
@@ -259,11 +289,14 @@ tags:
 {{</ group >}}
 
 #### 阶段检测
+
 - 使用万用表的检测功能检测$P_4$到$P_5$之间的接线顺序是否正确
 - 使用万用表的检测功能检测$P_2$到$P_5$之间的接线顺序是否正确
 
 ### RJ45端子($P_{10}$)与电流传感器($P_9$)的组装
+
 #### $P_{10}$到$P_9$的组装步骤
+
 - 红、黄、绿三色传感器为一组，使用1个$P_9$表示。每$P_9$需使用TE0508与E0306对导线头重新处理，如图1-4
 - 2个$P_9$加一个$P_{10}$为一个六轴机器人采集单元
 - 下表中，表头上标为$P_{10}$的端口编号，按从左向右编号为8-1
@@ -275,6 +308,7 @@ tags:
 | $\color{black}2_负^黑$ | $\color{green}2^绿$ | $\color{Goldenrod}2^黄$ | $\color{red}2^红$ | $\color{black}1_负^黑$ | $\color{green}1^绿$ | $\color{Goldenrod}1^黄$ | $\color{red}1^红$ |
 
 #### $P_{10}$RJ45端子与$P_9$电流传感器图例
+
 {{< group layout="3" indexShape="corner" >}}
 ![](/images/202211/data-acquisition-kit-assembly/P9_1.jpg "红、黄、绿三色传感器一组为一个$P_9$")
 ![](/images/202211/data-acquisition-kit-assembly/P9_2.jpg "将每组的花色线使用剥线钳处理后，用打线钳加装TE0508组成共负极导线")
@@ -285,4 +319,5 @@ tags:
 {{</ group >}}
 
 ## 数据采集套件组装完成
+
 ![](/images/202211/data-acquisition-kit-assembly/ALL.jpg "包括一个Dim槽(包括端子台、变送器和电源)+5个六轴机器人采集单元")

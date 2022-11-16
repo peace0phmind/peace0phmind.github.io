@@ -61,14 +61,14 @@ tags:
 - 假设x为其中一种颜色的圆圈，则：$P(x|C_1)$表示从Class1中选中x的几率，$P(x|C_2)$表示从Class2中选中x的几率，
 - 选中x属于class1的几率就是：$ P(C_1|x) = \frac{P(C_1)P(x|C_1)}{P(C_1)P(x|C_1)+P(C_2)P(x|C_2)} $
 - 选中x的总几率就是： $ P(x) = P(x|C_1)P(C_1) + P(x|C_2)P(C_2) $
-- Estimating the Probabilities From training data, 这整个想法就叫做{{<clr>}}Generative Model{{</clr>}}
+- Estimating the Probabilities From training data, 这整个想法就叫做{{<color>}}Generative Model{{</color>}}
 
 ![Generative Model](/images/202211/03-classification/4.010.jpg "Generative Model")
 
 ### Gaussian Distribution
 - $ f_{\mu,\sum}(x) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\sum|^{1/2}} exp \\{ -\frac{1}{2}(x-\mu)^T\sum^{-1}(x-\mu) \\} $
 - input: vector x, output: probability of sampling x(实际是probability density，概率密度与概率成正比,此处简略为概率)
-- The shape of the function determines by {{<clr>}}mean $\mu${{</clr>}} and {{<clr>}}covariance matrix $\sum${{</clr>}}(协方差矩阵)
+- The shape of the function determines by {{<color>}}mean $\mu${{</color>}} and {{<color>}}covariance matrix $\sum${{</color>}}(协方差矩阵)
 
 ![Gaussian Distribution](/images/202211/03-classification/4.014.jpg "Gaussian Distribution")
 
@@ -92,7 +92,7 @@ tags:
 | `Defense`,`SP Defense` | $ \mu^1, \mu^2 $ : 2-dim vector <br/> $\Sigma^1, \Sigma^2$: 2*2 matrices | 47% |
 | All the 7 features     | $ \mu^1\dots\mu^7 $ : 7-dim vector <br/> $\Sigma^1\dots\Sigma^7$: 7*7 matrices | 54% |
 
-{{<clr>}}结果不理想，需要重新调整模型。{{</clr>}}
+{{<color>}}结果不理想，需要重新调整模型。{{</color>}}
 
 ### Modifying Model (Ref: Bishop chapter 4.2.2)
 - 给每一个Gaussian有一个自己的$\mu$和自己的covariance matrix $\Sigma$是很少见的
@@ -111,7 +111,7 @@ tags:
 #### 模型修改后画出的图形
 - 从原来的曲线，变成了一条直线
 - 由于边界(boundary)是一条直线，所以这种模型也叫做Linear Model。
-- {{<clr green>}}在这个模型下，考虑所有的7个features进行计算，则accuracy从原来的54%上升到73%{{</clr>}}
+- {{<color green>}}在这个模型下，考虑所有的7个features进行计算，则accuracy从原来的54%上升到73%{{</color>}}
 
 ### 总结一下3个步骤
 - Function Set(Model):
@@ -175,7 +175,7 @@ z &= ln\frac{|\Sigma^2|^{1/2}}{|\Sigma^1|^{1/2}} - \frac{1}{2}x^T(\Sigma^1)^{-1}
 P(C_1|x) &= \sigma(z) \cr &= \sigma(w \cdot x + b)
 \end{align}
 
-{{<clr>}}How about directly find w and b?{{</clr>}}
+{{<color>}}How about directly find w and b?{{</color>}}
 
 ## reference video
 

@@ -84,12 +84,12 @@ weight: 1
 
 ### history (Ups and downs of Deep Learning)
 - 1958: Perceptron (linear model)
-- {{<clr>}}1969: Perceptron has limitation{{</clr>}}
+- {{<color>}}1969: Perceptron has limitation{{</color>}}
 - 1980: Multi-layer perceptron
   - Do not have significant difference from DNN today
 - 1986: Backpropagation
   - Usually more than 3 hidden layers is not helpful
-- {{<clr>}}1989: 1 hidden layer is "good enough", why deep?{{</clr>}}
+- {{<color>}}1989: 1 hidden layer is "good enough", why deep?{{</color>}}
 - 2006: RBM initialization (breakthrough)
 - 2009: GPU
 - 2011: Start to be popular in speech recognition
@@ -119,7 +119,7 @@ weight: 1
     - Any continuous function f
     - $ f : R^N \rightarrow R^M $
     - Can be realized by a network with one hidden layer (given `enough` hidden neurons)
-    - {{<clr>}}Why `Deep` neural network not `Fat` neural network?{{</clr>}}
+    - {{<color>}}Why `Deep` neural network not `Fat` neural network?{{</color>}}
 
 
 ## Reference
