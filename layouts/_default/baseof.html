@@ -17,7 +17,7 @@
 <body itemscope itemtype="http://schema.org/WebPage" {{ if .Site.Params.motion.enable }} class="use-motion" {{ end }}>
   <div class="headband"></div>
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header not-print" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner">
         {{- partial "header.html" . }}
       </div>
@@ -36,7 +36,7 @@
       {{- end }}
     </div>
   </main>
-  <footer class="footer">
+  <footer class="footer not-print">
     <div class="footer-inner">
       {{- partialCached "footer.html" . }}
     </div>

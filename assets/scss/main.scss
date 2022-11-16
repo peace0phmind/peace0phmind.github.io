@@ -273,3 +273,13 @@ img {
   margin: 0;
   object-fit: cover;
 }
+
+@media only print {
+  .not-print {
+    display: none;
+  }
+
+  .print {
+    display: block;
+  }
+}

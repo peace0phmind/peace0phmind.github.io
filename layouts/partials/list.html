@@ -4,7 +4,7 @@
 </div>
 {{ range .Pages }}
 <article itemscope itemtype="http://schema.org/Article">
-  <header class="post-header">
+  <header class="post-header not-print">
     <div class="post-meta-container">
       {{ $month := .Date.Format .Site.Params.monthFormat }}
       <time itemprop="dateCreated" datetime="{{ .Date.Format .Site.Params.timeFormat }}" content="{{ $month }}">
