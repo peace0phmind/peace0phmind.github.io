@@ -112,7 +112,7 @@ gs -sDEVICE=jpeg -sPageList=4 -r192 -dDownScaleFactor=2 -dTextAlphaBits=4 -dGrap
 
 最终选择质量和大小相对能接受的参数：
 ```bash
-gs -sDEVICE=jpeg -r192 -dDownScaleFactor=2 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o jpg.%03d.jpg input.pdf
+gs -sDEVICE=jpeg -r192 -dDownScaleFactor=2 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -o 01.%03d.jpg input.pdf
 ```
 
 ## Show PDF

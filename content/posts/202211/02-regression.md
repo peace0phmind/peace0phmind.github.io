@@ -20,8 +20,6 @@ tags:
 
 `Regression`: Input a vector, the function outputs a scalar.
 
-# 单参数到历史多参数的模型演进
-
 ## 使用简单模型
 预测问题：根据前面的浏览数据，预测后面的浏览量
 
@@ -39,7 +37,7 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
   - if $y$ and $\hat{y}$ are both probability distributions, then use `Cross-Entropy`
 
 使用不同的参数，计算出来的Loss画出来的等高线图叫做：`Error Surface`
-![等高线图](/images/202211/02-regression/01.0001.jpg "等高线图: Error Surface")
+![等高线图](/images/202211/02-regression/01.013.jpg "等高线图: Error Surface")
 
 ### Optimization
 找一个$w$和$b$，使$L$最小： $ w^\*, b^\* = arg \min\limits_{w, b} L$
@@ -56,6 +54,8 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
   - 重复上述步骤不断更新$w$。两种状况会停下来:
     - 更新的次数达到预设值
     - 微分为0
+
+![](/images/202211/02-regression/01.016.jpg "Gradient Descent")
 
 当两个参数$w$, $b$时:
 - 随机初始化$w^0$, $b^0$
@@ -94,11 +94,11 @@ $w$(`weight`) and $b$(`bias`) are unknown parameters (learned from data)  <br/>
 
 ## 打破模型局限
 不同的w和不同的b对Linear Models的影响如蓝色线。红色表示可能的真实趋势。这种来自于Model的限制叫做`Model Bias`。
-![Linear Models的局限性](/images/202211/02-regression/02.0002.jpg "Linear Models的局限性")
+![Linear Models的局限性](/images/202211/02-regression/01.023.jpg "Linear Models的局限性")
 
 ### All Piecewise Linear Curves
 All Piecewise Linear Curves = constant + sum of a set of `Hard Sigmoid`
-![Piecewise Linear Curves](/images/202211/02-regression/02.0003.jpg "Piecewise Linear Curves")
+![Piecewise Linear Curves](/images/202211/02-regression/01.025.jpg "Piecewise Linear Curves")
 
 ### sigmoid
 \begin{align*}
@@ -107,7 +107,7 @@ y &= {\color{red}c}\frac{1}{1+e^{-({\color{green}b}+{\color{blue}w}x_1)}}  \cr
 \end{align*}
 
 调整$ {\color{blue}w}, {\color{green}b}, {\color{red}c} $对应的函数图像
-![Sigmoid Parameters](/images/202211/02-regression/02.0004.jpg "Sigmoid Parameters")
+![Sigmoid Parameters](/images/202211/02-regression/01.028.jpg "Sigmoid Parameters")
 
 相对于红色线段，可以用多个`Sigmoid`函数组合出来，将0:`constant`和1,2,3`sigmoid`加起来就是红色线段
 
