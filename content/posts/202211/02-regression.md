@@ -269,7 +269,7 @@ $$
 - We prefer smooth function, but don't be too smooth.
 - 所以$\lambda$的选择值选择在Testing的Loss的转折点处
 
-![Regularization Loss](/images/202211/02-regression/1.0001.jpg "Regularization Loss")
+![Regularization Loss](/images/202211/02-regression/01.035.jpg "Regularization Loss")
 
 ## Reference Video
 {{< youtube Ye018rCVvOo >}}
