@@ -180,4 +180,3 @@ P(C_1|x) &= \sigma(z) \cr &= \sigma(w \cdot x + b)
 ## reference video
 
 {{< youtube fZAZUYEeIMg >}}
-{{< youtube hSXFuypLukA >}}
