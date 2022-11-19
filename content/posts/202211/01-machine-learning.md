@@ -78,7 +78,7 @@ weight: 1
 
 简单的理解就是在输入和输出中找一个函数
 
-![Different types of Functions](/images/202211/01-machine-learning/01.0001.jpg "Different types of Functions")
+![Different types of Functions](/images/202211/01-machine-learning/01.007.jpg "Different types of Functions")
 
 ## Deep Learning Introduce
 
@@ -100,7 +100,7 @@ weight: 1
 - 输出叫`Output Layer`
 - 中间层叫`hidden Layers`
 
-![Fully Connect Feedforward Network](/images/202211/01-machine-learning/6.0002.jpg "Fully Connect Feedforward Network")
+![Fully Connect Feedforward Network](/images/202211/01-machine-learning/06.009.jpg "Fully Connect Feedforward Network")
 
 ### Deep = Many hidden layers
 - AlexNet(2012), 8 layers, error rate: 16.4%
