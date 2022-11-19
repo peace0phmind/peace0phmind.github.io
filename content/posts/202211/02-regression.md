@@ -121,7 +121,7 @@ y = b + \sum_{i=1}^3{\color{red}c_i}\\,sigmoid({\color{green}b_i}+{\color{blue}w
 \end{align*}
 
 
-![Sigmoid Parameters](/images/202211/02-regression/02.0005.jpg "Sigmoid Parameters")
+![Sigmoid Parameters](/images/202211/02-regression/01.029.jpg "Sigmoid Parameters")
 
 基于sigmoid的模型，对原来的模型进行调整如下：
 \begin{align*}
@@ -150,10 +150,10 @@ r_3 &= {\color{green}b_3} + {\color{blue}w_{31}}x_1 + {\color{blue}w_{32}}x_2 + 
 \end{align*}
 
 其中$\color{red}\sigma$表示`sigmoid`表达式
-![展开图示](/images/202211/02-regression/02.0008.jpg "Sigmoid 展开图示")
+![展开图示](/images/202211/02-regression/01.037.jpg "Sigmoid 展开图示")
 
 如下图所示，x为`feature`；而所有的$W, {\color{green}b}, c^T, b$作为unknown parameters展开为一个长的一维向量，定义为$\color{red}\theta$
-![unknown parameters](/images/202211/02-regression/02.0009.jpg "unknown parameters")
+![unknown parameters](/images/202211/02-regression/01.038.jpg "unknown parameters")
 
 ### Loss function
 - Loss is a function of parameters $L(\theta)$
@@ -199,11 +199,13 @@ $$
 - Compute gradient $ g = \nabla L(\theta^0) $
 
 全部资料是$L$,批次编号为$L^1, L^2, L^3$。{{<color>}}batch{{</color>}}是进行参数更新的单位，即一个批次进行一次参数更新；{{<color>}}epoch{{</color>}}表示所有批次全部执行了参数更新。
-![batch and epoch](/images/202211/02-regression/02.0010.jpg "batch and epoch")
+
+![batch and epoch](/images/202211/02-regression/01.044.jpg "batch and epoch")
 
 ### 使用$ Sigmoid \rightarrow ReLU $
 - `Rectified Linear Unit (ReLU)`: $ {\color{red}c}\\,max(0, {\color{green}b} + {\color{blue}w}x_1) $
 - 类似`sigmoid`和`ReLU`的函数在机器学习中叫做{{<color>}}`Activation function`{{</color>}}
+- 1个`sigmoid`图形需要2个`ReLU`来表示
 
 #### 作个数不同的ReLU
 - only one layer
@@ -234,16 +236,19 @@ $$
 ### Gradient Descent
 - 对每一个参数针对L进行偏微分得到: $\nabla L(\theta)$
 - 使用`batch`的数据对参数$\theta$进行更新.
+
 ![Gradient Descent](/images/202211/02-regression/7.0001.jpg "Gradient Descent")
 
 ### Chain Rule
 - case 1: $\frac{dz}{dx}=\frac{dz}{dy}\frac{dy}{dx}$
 - case 2: $\frac{dz}{ds}=\frac{dz}{dx}\frac{dx}{ds}+\frac{dz}{dy}\frac{dy}{ds}$
+
 ![Chain Rule](/images/202211/02-regression/7.0002.jpg "Chain Rule")
 
 ### Forward and Backward pass:
 - `Forward pass`: Compute $\sfrac{\partial z}{\partial w}$for all parameters
 - `Backward pass`: Compute $\sfrac{\partial C}{\partial z}$ for all activation function inputs z
+
 ![Forward and Backward pass](/images/202211/02-regression/7.0003.jpg "Forward and Backward pass")
 
 ## Regularization
@@ -266,12 +271,9 @@ $$
 
 ![Regularization Loss](/images/202211/02-regression/1.0001.jpg "Regularization Loss")
 
-# TODO: 完成$ X \rightarrow X^x $的模型演进
-
-# Reference Video
+## Reference Video
 {{< youtube Ye018rCVvOo >}}
 {{< youtube bHcJCp2Fyxs >}}
 
-{{< youtube Dr-WRlEFefw >}}
 {{< youtube ibJpTrp5mcE >}}
 {{< youtube fegAeph9UaA >}}

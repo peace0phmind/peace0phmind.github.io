@@ -99,6 +99,7 @@ weight: 1
 - 输入叫`Input Layer`
 - 输出叫`Output Layer`
 - 中间层叫`hidden Layers`
+
 ![Fully Connect Feedforward Network](/images/202211/01-machine-learning/6.0002.jpg "Fully Connect Feedforward Network")
 
 ### Deep = Many hidden layers
@@ -131,6 +132,10 @@ weight: 1
 - [Machine Learning 2019](https://speech.ee.ntu.edu.tw/~hylee/ml/2019-spring.php)
 - [Machine Learning 2016 FALL](https://speech.ee.ntu.edu.tw/~hylee/ml/2016-fall.php)
 - [MLDS 2015 FALL](https://speech.ee.ntu.edu.tw/~hylee/mlds/2015-fall.php)
+
+### Reference Video
+
+{{< youtube Dr-WRlEFefw >}}
 
 ### Nvidia Resources
 - [nvidia training resource](https://www.nvidia.com/en-us/training/resources/)
