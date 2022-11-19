@@ -28,7 +28,10 @@ weight: 1
 - [Regression](/posts/202211/02-regression)
   - [Backpropagation](/posts/202211/02-regression#backpropagation)
   - [Regularization](/posts/202211/02-regression#regularization)
-- [Classification](/posts/202211/03-classification)
+- [Classification]
+  - [Generative](/posts/202211/03-classification)
+  - [Discriminative(/Logistic Regression)](/posts/202211/04-logistic-regression)
+  - [Feature Transformation](/posts/202211/04-logistic-regression#feature-transformation)
 - Structured Learning
   - Create something with structure (image, document)
 
