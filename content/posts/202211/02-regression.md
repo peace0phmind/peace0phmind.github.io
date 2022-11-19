@@ -237,19 +237,19 @@ $$
 - 对每一个参数针对L进行偏微分得到: $\nabla L(\theta)$
 - 使用`batch`的数据对参数$\theta$进行更新.
 
-![Gradient Descent](/images/202211/02-regression/7.0001.jpg "Gradient Descent")
+![Gradient Descent](/images/202211/02-regression/07.002.jpg "Gradient Descent")
 
 ### Chain Rule
 - case 1: $\frac{dz}{dx}=\frac{dz}{dy}\frac{dy}{dx}$
 - case 2: $\frac{dz}{ds}=\frac{dz}{dx}\frac{dx}{ds}+\frac{dz}{dy}\frac{dy}{ds}$
 
-![Chain Rule](/images/202211/02-regression/7.0002.jpg "Chain Rule")
+![Chain Rule](/images/202211/02-regression/07.003.jpg "Chain Rule")
 
 ### Forward and Backward pass:
 - `Forward pass`: Compute $\sfrac{\partial z}{\partial w}$for all parameters
 - `Backward pass`: Compute $\sfrac{\partial C}{\partial z}$ for all activation function inputs z
 
-![Forward and Backward pass](/images/202211/02-regression/7.0003.jpg "Forward and Backward pass")
+![Forward and Backward pass](/images/202211/02-regression/07.005.jpg "Forward and Backward pass")
 
 ## Regularization
 `Regularization`出现的背景：当原始数据有过多的feature和模型有大量的w，可能存在某些feature确实与最终的结果无关，在这种情况下可以先将所有feature包含进来，然后通过`Regularization`的思路对w进行优化，从而降低无效feature对最终结果的影响。
