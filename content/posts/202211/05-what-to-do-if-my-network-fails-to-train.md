@@ -110,6 +110,48 @@ markmap:
 - 需要对训练资料和测试资料有一定的了解才能分清到底是不是mismatch
 - mismatch和overfitting不是一个东西，overfitting可以通过增加训练资料来解决，而mismatch无法通过增加训练资料来解决
 
+## Optimization
+
+### Optimization Fails because
+- loss is `Not small enough`, because the gradient is close to zero.
+- Gradient为零的情况有：`local minima`, `local maxima`, `saddle point`等
+- `saddle point`: Gradient为零, 同时既不是`local minima`也不是`local maxima`的地方
+- Gradient为零的点统称为`critical point`
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-1.002.jpg)
+
+### Tayler Series Approximation(泰勒级数逼近)
+- 如何知道一个`critical point`是`local minima`还是`saddle point`
+- 其中包括 Gradient $\color{green}g$ is a <u>vector</u>, Hessian $\color{red}H$ is a <u>matrix</u>.
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-1.004.jpg)
+
+#### Hessian
+- Gradient $\color{green}g$ 为0时，则可知目前所在位置为临界点`Critical Point`
+- Hessian $\color{red}H$ can telling the properties of critical points.
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-1.005.jpg)
+
+- 当$\color{red}H$这个矩阵中的值全部为正值，则当前所在为`Local Minima`
+- 当$\color{red}H$这个矩阵中的值全部为负值，则当前所在为`Local Maxima`
+- 当$\color{red}H$这个矩阵中的值有正有负，则当前所在为`Saddle Point`
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-1.006.jpg)
+
+### Saddle Point v.s. Local Minima
+- 在一维的空间中看到的local minima，在二维的空间中看到的可能就只是saddle point.
+- 当我们有更多的参数，也许local minima是很少见的
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-1.014.jpg)
+
+#### Minimum Ratio
+- 是所有`Local Minima`的数量与所有`Critical Point`的比值
+- 从图上可知，最大的ratio也只是0.6
+- 图上Eigen Values就是前文所说的Hessian Matrix.
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-1.015.jpg)
+
+
 ## Reference Video
 
 
