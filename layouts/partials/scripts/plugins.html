@@ -98,17 +98,5 @@
         height: 100%;
     }
 </style>
-<script type="text/javascript">
-    window.markmap = {
-        autoLoader: {
-            manual: false,
-            onReady() {
-                const {autoLoader, builtInPlugins} = window.markmap;
-                // Disable Prism highlighting plugin as it conflicts and attempts to re-render code blocks outside of Markmap.
-                autoLoader.transformPlugins = builtInPlugins.filter(plugin => plugin.name !== 'prism');
-            },
-        },
-    };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
+{{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"d></script>" (printf $js.markmap.url $js.markmap.version) $js.markmap.sri | safeHTML }}
 {{- end -}}

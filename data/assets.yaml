@@ -11,3 +11,7 @@ js:
     version: "1.0.6"
     sri: "sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM="
     url: "https://cdn.jsdelivr.net/npm/medium-zoom@%s/dist/medium-zoom.min.js"
+  markmap:
+    version: "0.14.4-alpha.1"
+    sri: ""  # No SRI as dynamically generated.
+    url: "https://cdn.jsdelivr.net/npm/markmap-autoloader@%s"
