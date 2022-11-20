@@ -21,18 +21,18 @@ tags:
 
 ## 机器学习的一般步骤
 
-```markmap
+```markmap {height="200px"}
 ---
 markmap:
   maxWidth: 300
-  colorFreezeLevel: 3
-  initialExpandLevel: 4
+  colorFreezeLevel: 6
+  initialExpandLevel: 10
 ---
 
 # loss on training data
 
 ## large
-- model bias
+- [model bias](#model-bias)
   - make your model complex
 - optimization
 
@@ -50,6 +50,54 @@ markmap:
 - Split your training data into training set and validation set for model selection
 
 ```
+
+### Model Bias
+- The model is too simple.
+  - find a needle in a haystack (大海捞针)
+  - but there is no needle
+- Solution: redesign your model to make it more flexible
+  - more features
+  - more neurons, layers
+
+### Optimization Issue
+- Large loss not always imply model bias. There is another possibility ...
+  - A needle is in a haystack..., Just cannot find it.
+
+### Model Bias v.s. Optimization Issue
+- Gaining the insights from comparison
+- 当在测试数据上和训练数据上有着类似的loss曲线时，这说明是`Optimization Issue`的问题
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02.009.jpg)
+
+#### Optimization Issue
+- Start from shallower networks(or other models), which are easier to optimize.
+- 从更容易优化的较浅的网络（或其他模型）开始。
+- If deeper networks do not obtain smaller loss on `training data`, then there is optimization issue.
+- 如果更深的网络在“训练数据”上没有获得更小的损失，那么就存在优化问题。
+
+### Overfitting
+- Small loss on training data, large loss on testing data. Why?
+- 数据分布的这条虚线通常是无法明确的获知的，我们通常只能拿到在这条曲线上的多个`Training Data`
+- 由于model的Flexible, 训练出来的这个模型，在没有训练数据的地方会有“freestyle”, 从而导致测试数据的overfitting
+  - 增加训练数据
+  - Data augmentation(用一些对这个问题的理解，自己创造出新的训练数据。例如：对图片左右反转，或者是截取其中一块等)
+  - 通过限制model来解决overfitting，给model制造限制的方法：
+    - make your model simpler
+    - Less parameters, sharing parameters
+      - Fully-connected的架构是一个比较有弹性的架构；而CNN是一个比较有限制的架构（根据影像的特性来限制模型的弹性）
+    - Less features
+    - Early stopping
+    - Regularization
+    - Dropout
+  - 这里需要注意，太多的限制和太简单的模型会导致`model bias`
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02.014.jpg)
+
+### Bias-Complexity Trade-off
+- 通过观察`Training loss`和`Testing loss`的loss曲线来选择model和对应的模型限制
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02.020.jpg)
+
 
 ## Reference Video
 

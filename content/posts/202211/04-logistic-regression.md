@@ -9,7 +9,7 @@ lastmod: 2022-11-19T22:23:55+08:00
 author: peace0phmind
 url: "posts/202211/04-logistic-regression"
 
-draft: true
+draft: false
 
 categories:
   -
