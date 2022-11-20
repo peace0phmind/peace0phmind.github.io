@@ -34,19 +34,19 @@ markmap:
 ## large
 - [model bias](#model-bias)
   - make your model complex
-- optimization
+- [optimization](#optimization-issue)
 
 ## small
 - loss on testing data
   - large
-    - overfitting
+    - [overfitting](#overfitting)
       - more training data
       - data augmentation
       - make your model simpler
-    - mismatch
+    - [mismatch](#mismatch)
   - small :blush:
   
-## model complex trade-off(权衡)
+## [model complex trade-off(权衡)](#bias-complexity-trade-off)
 - Split your training data into training set and validation set for model selection
 
 ```
@@ -98,6 +98,17 @@ markmap:
 
 ![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02.020.jpg)
 
+### N-fold Cross Validation
+- Cross Validation就是N-flod Cross Validation的一个特例
+- 如果使用`Cross Validation`, 则使用`Validation Set`的loss最小进行模型的选择
+- 当使用`N-fold Cross Validation`时，则使用mse的avg最小来挑选模型
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02.024.jpg)
+
+### Mismatch
+- Your training and testing data have different distributions.
+- 需要对训练资料和测试资料有一定的了解才能分清到底是不是mismatch
+- mismatch和overfitting不是一个东西，overfitting可以通过增加训练资料来解决，而mismatch无法通过增加训练资料来解决
 
 ## Reference Video
 
