@@ -288,7 +288,7 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 
 ### Learning Rate Scheduling
 - Learning Rate Decay
-  - As the training goes, we are closer to the destination, so we reduce the learning rate.
+  - After the training goes, we are closer to the destination, so we reduce the learning rate.
 - Warm Up
   - Increase and then decrease?
   - [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
