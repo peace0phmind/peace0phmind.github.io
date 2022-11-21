@@ -227,6 +227,83 @@ markmap:
 
 ![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-2.017.jpg)
 
+## Adaptive Learning Rate
+- $ \text{Training stuck} \ne \text{Small Gradient} $ 
+- 当loss不再下降的时候，需要确认一下Gradient是否为0；即loss不再下降需要分析stuck的原因
+- 如图，当loss不再下降时，norm of gradient 并没有为0
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.002.jpg)
+
+Training can be difficult even without critical points.
+- Learning rate cannot be one-size-fits-all(一刀切).
+- Different parameters needs different learning rate.
+- 相对平坦的Gradient Descent需要较大的Learning Rate
+- 相对尖锐的Gradient Descent需要较小的Learning Rate
+
+Formulation for `one` parameter:
+
+\begin{align}
+  \theta_i^{t+1} & \leftarrow \theta_i^t - {\color{red}\eta}g_i^t \cr
+  g_i^t & = \frac{\partial L}{\partial \theta_i} |_{\theta=\theta^t} \cr
+  & \Downarrow \cr
+  \theta_i^{t+1} & \leftarrow \theta_i^t - {\color{red}\frac{\eta}{\sigma_i^t}}g_i^t 
+\end{align}
+
+${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rate,下面介绍几种常见的计算方法：
+
+### Root Mean Square (Used in Adagrad)
+\begin{align}
+\theta_i^1 & \leftarrow \theta_i^0 - \frac{\eta}{\sigma_i^0}g_i^0  &  \sigma_i^0 &= \sqrt{(g_i^0)^2} = |g_i^0| \cr
+\theta_i^2 & \leftarrow \theta_i^1 - \frac{\eta}{\sigma_i^1}g_i^1  &  \sigma_i^1 &= \sqrt{\frac{1}{2}[(g_i^0)^2+(g_i^1)^2]} \cr
+\theta_i^3 & \leftarrow \theta_i^2 - \frac{\eta}{\sigma_i^2}g_i^2  &  \sigma_i^2 &= \sqrt{\frac{1}{3}[(g_i^0)^2+(g_i^1)^2+(g_i^2)^2]} \cr
+& \vdots \cr
+\theta_i^{t+1} & \leftarrow \theta_i^t - \frac{\eta}{\sigma_i^t}g_i^t  &  \sigma_i^t &= \sqrt{\frac{1}{t+1}\sum_{i=0}^t(g_i^t)^2}
+\end{align}
+
+- 小的$\sigma_i^t$会有大的step
+- 大的$\sigma_i^t$会有小的step
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.007.jpg)
+
+### Learning rate adapts dynamically
+- 即使针对同一个参数，在不同的时候，可能也需要有不同的Learning Rate
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.008.jpg)
+
+#### RMSProp
+\begin{align}
+\theta_i^1 & \leftarrow \theta_i^0 - \frac{\eta}{\sigma_i^0}g_i^0  &  \sigma_i^0 &= \sqrt{(g_i^0)^2} = |g_i^0| \cr
+& & & \text{设 } 0 < \alpha < 1 \cr
+\theta_i^2 & \leftarrow \theta_i^1 - \frac{\eta}{\sigma_i^1}g_i^1  &  \sigma_i^1 &= \sqrt{\alpha(\sigma_i^0)^2 + (1-\alpha)(g_i^1)^2} \cr
+\theta_i^3 & \leftarrow \theta_i^2 - \frac{\eta}{\sigma_i^2}g_i^2  &  \sigma_i^2 &= \sqrt{\alpha(\sigma_i^1)^2 + (1-\alpha)(g_i^2)^2]} \cr
+& \vdots \cr
+\theta_i^{t+1} & \leftarrow \theta_i^t - \frac{\eta}{\sigma_i^t}g_i^t  &  \sigma_i^t &= \sqrt{\alpha(\sigma_i^{t-1})^2 + (1-\alpha)(g_i^t)^2}
+\end{align}
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.010.jpg)
+
+#### Adam: RMSProp + Momentum
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.011.jpg)
+
+### Learning Rate Scheduling
+- Learning Rate Decay
+  - As the training goes, we are closer to the destination, so we reduce the learning rate.
+- Warm Up
+  - Increase and then decrease?
+  - [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+  - [Attention Is All You Need](https://arxiv.org/abs/1706.03762 "Transformer")
+  - [On the Variance of the Adaptive Learning Rate and Beyond](https://arxiv.org/abs/1908.03265 "RAdam")
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.016.jpg)
+
+## Summary Of Optimization
+- Momentum: weighted sum of the previous gradients (考虑方向)
+- $\sigma_i^t$: 只考虑大小不考虑方向
+- $\eta^t$: Learning rate scheduling
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.017.jpg)
+
 
 ## Reference Video
 
