@@ -216,6 +216,18 @@ markmap:
 - [Large Batch Training of Convolutional Networks](https://arxiv.org/abs/1708.03888)
 - [Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour](https://arxiv.org/abs/1706.02677)
 
+## Momentum
+
+### (Vanilla) Gradient Descent
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-2.016.jpg)
+
+### Gradient Descent + Momentum
+- Movement: movement of last step minus gradient at present
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-2.017.jpg)
+
+
 ## Reference Video
 
 
