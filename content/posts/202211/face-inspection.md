@@ -54,10 +54,9 @@ sequenceDiagram
 
 ```json
 {
-  "sn": "15e6dd99-7008-4d4d-8929-797a31c005fe", // 唯一序列号, 防止重复请求
-  "seat": "2排201", // 工位信息，用于描述当前工位，长度不大于255; 或是一个全局唯一的id
+  "s_id": "123", // 测点id
   "temperature": 36.5, // 表示温度
-  "image": "XXXXXX"  // base64编码的人脸图片 
+  "image": "XXXXXX"  // base64编码的人脸jpg图片 
 }
 ```
 
