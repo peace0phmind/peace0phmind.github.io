@@ -339,14 +339,21 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 ## Batch Normalization
 
 ### Changing Landscape
-- $w_1, w_2$与不同的feature相关，由于不同的feature范围导致了$w_1, w_2$的变动对最终的loss产生不同的影响
+- $w_1, w_2$与不同的feature相关，由于不同的feature范围不同，导致了$w_1, w_2$的变动对最终的loss产生不同的影响
 - 是否可以找到一个方法，让不同的feature有着相似的range
 
 ![](/images/202211/05-many-factors-affecting-optimization/02-5.003.jpg)
 
 ### Feature Normalization
+- $ x^1, x^2, \cdots, x^R $ 为数据的R个features
+- For each dimension i: 
+  - $m_i$ : mean
+  - $\sigma_i$ : standard deviation
+- Normalization: $\tilde{x}_i^r \leftarrow \frac{x_i^r-m_i}{\sigma_i} $
+  - The means of all dims are 0, and the variances are all 1
+- In general, feature normalization makes gradient descent converge faster.
 
-
+![](/images/202211/05-many-factors-affecting-optimization/02-5.004.jpg)
 
 
 
