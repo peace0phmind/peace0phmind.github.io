@@ -23,3 +23,5 @@ tags:
 ```bash
 cat xxx.md | sed 's/(\/images\//(/g' | pandoc -f markdown -t docx --resource-path=../../../static/images --reference-doc=../../../static/templates/numbered-sections.docx -o xxx.docx
 ```
+
+cat face-inspection-program.md | sed 's/(\/images\//(/g' | pandoc -f markdown -t docx --resource-path=../../../static/images --reference-doc=../../../static/templates/numbered-sections.docx -o xxx.docx
