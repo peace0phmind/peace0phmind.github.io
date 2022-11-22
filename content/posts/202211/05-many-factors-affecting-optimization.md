@@ -335,17 +335,37 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 
 ![](/images/202211/05-many-factors-affecting-optimization/02-4.009.jpg)
 
+
+## Batch Normalization
+
+### Changing Landscape
+- $w_1, w_2$与不同的feature相关，由于不同的feature范围导致了$w_1, w_2$的变动对最终的loss产生不同的影响
+- 是否可以找到一个方法，让不同的feature有着相似的range
+
+![](/images/202211/05-many-factors-affecting-optimization/02-5.003.jpg)
+
+### Feature Normalization
+
+
+
+
+
 ## Reference Video
 
-
 {{< youtube WeHM2xpYQpw >}}
+
 {{< youtube QW6uINn7uGk >}}
+
 {{< youtube zzbr1h9sF54 >}}
+
 {{< youtube HYUXEeh3kwY >}}
+
 {{< youtube O2VkP8dJ5FE >}}
 
 {{< youtube _j9MVVcvyZI >}}
 
 {{< youtube 1_HBTJyWgNA >}}
+
 {{< youtube 4pUmZ8hXlHM >}}
+
 {{< youtube e03YKGHXnL8 >}}
