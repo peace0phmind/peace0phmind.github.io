@@ -304,6 +304,39 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 
 ![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-3.017.jpg)
 
+## Loss for Classification
+
+### Class as one-hot vector
+- one-hot vector for multi-output
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-4.005.jpg)
+
+### Soft-max
+- soft-max对上层多输出结果做一个normalize
+- 并且让大的值和小的值之间的差距更大
+- soft-max有时又叫做logit
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-4.007.jpg)
+
+### Loss function
+- Mean Square Error (MSE): $ e = \sum\limits_i(\hat y_i - y_i^\prime)^2 $
+- Cross-entropy: $ e = -\sum\limits_i \hat y_i ln y_i^\prime $
+- Minimizing cross-entropy is equivalent to maximizing likelihood.
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-4.008.jpg)
+
+### Loss function affect Optimization
+- 设目前做一个三分类的模型，当前这个分类的结果是$ \hat y = \begin{bmatrix}1 \cr 0 \cr 0 \end{bmatrix} $
+- e表示$y到\hat y$之间的距离，可以是MSE，也可以是Cross-entropy
+- $y_1$的取值范围为[-10, 10], $y_2$的取值范围为[-10, 10], $y_3$的取值为固定值-1000
+- 下图左右分别为MSE和Cross-entropy想对于y的取值的Error Surface,
+- 这两张图中Error Surface的特点都是右下角loss小，左上角loss大
+- 假设我们开始的地方都是左上角：如果我们选择Cross-entropy，左上角的地方是有斜率的,所以可以通过gradient的方法一路向右下角走达到small loss;
+  如果我们选择MSE，我们就卡住了，在MSE左上角这个loss很大的地方，它的gradient非常小，趋进于零，而距离目标又很远，没有很好的办法通过gradient的方法走到右下角。
+- 所以如果做classification时，选择使用MSE做loss时，有很大可能性train不起来; 当然如果使用类似Adam这些好的Optimizer时，也许有机会走到右下角。
+- {{<color>}} Changing the loss function can change the difficulty of optimization. {{</color>}}
+
+![](/images/202211/05-what-to-do-if-my-network-fails-to-train/02-4.009.jpg)
 
 ## Reference Video
 
