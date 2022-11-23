@@ -33,17 +33,17 @@ dataloader = DataLoader(dataset, batch_size, shuffle=True)
 from torch.utils.data import Dataset, DataLoader
 
 class MyDataset(Dataset):
-    # Read data & preprocess
-    def __init__(self):
-        self.data = ...
+  # Read data & preprocess
+  def __init__(self):
+    self.data = ...
 
-    # Returns one sample at a time
-    def __getitem__(self, index):
-        return self.data[index]
+  # Returns one sample at a time
+  def __getitem__(self, index):
+    return self.data[index]
 
-    # Returns the size of the dataset
-    def __len__(self):
-        return len(self.data)
+  # Returns the size of the dataset
+  def __len__(self):
+    return len(self.data)
 ```
 
 ## Tensors
@@ -207,9 +207,160 @@ z = \sum_i\sum_jx_{i,j}^2 \tag{2} \cr
 \frac{\partial z}{\partial x} = \begin{bmatrix} 2 & 0 \cr -2 & 2 \end{bmatrix} \tag{4}
 \end{align}
 
+## torch.nn
 
+### Network Layers
+- Linear Layer (Fully-connected Layer)
 
-## Reference Videos
+```python
+layer = torch.nn.Linear(32, 64)
+layer.weight.shape
+# output is: torch.Size([64, 32])
+layer.bias.shape
+# output is: torch.Size([64])
+```
+
+### Non-Linear Activation Functions
+- Sigmoid Activation: nn.Sigmoid()
+- ReLU Activation: nn.ReLU()
+
+### Build your own neural network
+
+```python
+import torch.nn as nn
+
+class MyModel(nn.Module):
+  def __init__(self):
+    super(MyModel, self).__init__()
+    self.net = nn.Sequential(
+      nn.Linear(10, 32),
+      nn.Sigmoid(),
+      nn.Linear(32, 1)
+    )
+
+  def forward(self, x):
+    return self.net(x)
+```
+
+上下这两段代码是等价的
+
+```python
+import torch.nn as nn
+
+class MyModel(nn.Module):
+  def __init__(self):
+    super(MyModel, self).__init__()
+    self.layer1 = nn.Linear(10, 32)
+    self.layer2 = nn.Sigmoid()
+    self.layer3 = nn.Linear(32, 1)
+
+  def forward(self, x):
+    out = self.layer1(x)
+    out = self.layer2(out)
+    out = self.layer3(out)
+    return out
+```
+
+### Loss Functions
+- Mean Squared Error (for regression tasks)
+  - criterion = nn.MSELoss()
+- Cross Entropy (for classification tasks)
+  - criterion = nn.CrossEntropyLoss()
+- loss = criterion(model_output, expected_value)
+
+### Optimization Algorithms
+- Gradient-based optimization algorithms that adjust network
+  parameters to reduce error. 
+- E.g. Stochastic Gradient Descent (SGD)
+  - torch.optim.SGD(model.parameters(), lr, momentum = 0)
+
+### torch.optim
+optimizer = torch.optim.SGD(model.parameters(), lr, momentum = 0)
+
+- For every batch of data:
+  - Call optimizer.zero_grad() to reset gradients of model parameters.
+  - Call loss.backward() to backpropagate gradients of prediction loss.
+  - Call optimizer.step() to adjust model parameters.
+
+###  Training Loop
+
+```python
+dataset = MyDataset(file)                           # read data via MyDataset
+tr_set = DataLoader(dataset, 16, shuffle=True)      # put dataset into Dataloader
+model = MyModel().to(device)                        # construct model and move to device (cpu/cuda)
+criterion = nn.MSELoss()                            # set loss function
+optimizer = torch.optim.SGD(model.parameters(), 0.1)# set optimizer
+
+for epoch in range(n_epochs):                       # iterate n_epochs
+  model.train()                                     # set model to train mode
+  for x, y in tr_set:                               # iterate through the dataloader
+    optimizer.zero_grad()                           # set gradient to zero
+    x, y = x.to(device), y.to(device)               # move data to device (cpu/cuda)
+    pred = model(x)                                 # forward pass (compute output)
+    loss = criterion(pred, y)                       # compute loss
+    loss.backward()                                 # compute gradient (backpropagation)
+    optimizer.step()                                # update model with optimizer
+```
+
+### Validation Loop
+
+```python
+model.eval()                                        # set model to evaluation mode
+total_loss = 0
+for x, y in dv_set:                                 # iterate through the dataloader
+  x, y = x.to(device), y.to(device)                 # move data to device (cpu/cuda)
+  with torch.no_grad():                             # disable gradient calculation
+    pred = model(x)                                 # forward pass (compute output)
+    loss = criterion(pred, y)                       # compute loss
+  total_loss += loss.cpu().item() * len(x)          # accumulate loss
+  avg_loss = total_loss / len(dv_set.dataset)       # compute averaged loss
+```
+
+### Testing Loop
+
+```python
+model.eval()                                        # set model to evaluation mode
+preds = []
+for x in tt_set:                                    # iterate through the dataloader
+  x = x.to(device)                                  # move data to device (cpu/cuda)
+  with torch.no_grad():                             # disable gradient calculation
+    pred = model(x)                                 # forward pass (compute output)
+    preds.append(pred.cpu())                        # collect prediction
+```
+
+### Notice - model.eval(), torch.no_grad()
+- model.eval()
+  - Changes behaviour of some model layers, such as dropout and batch normalization.
+  - 类似dropout或者batch normalization在训练和测试的时候做的事情是不一样的，所以需要告知模型当前在做训练还是测试
+- with torch.no_grad()
+  - Prevents calculations from being added into gradient computation graph. Usually used to prevent accidental training on validation/testing data.
+  - 梯度是拿来调整模型的，在做测试的时候我们不需要做这件事情，把梯度计算关掉会跑的快一点点。另外，也可以避免用测试数据的梯度更新我们的模型。
+
+### Save/Load Trained Models
+```python
+# Save
+torch.save(model.state_dict(), path)
+
+# Load
+ckpt = torch.load(path)
+model.load_state_dict(ckpt)
+```
+
+### More About PyTorch
+- torchaudio: speech/audio processing
+- torchtext: natural language processing
+- torchvision: computer vision
+- skorch: scikit-learn + pyTorch
+
+## Reference
+
+### Reference projects
+- [huggingface-transformers](https://github.com/huggingface/transformers) (transformer models: BERT, GPT, ...)
+- [Facebook-fairseq](https://github.com/facebookresearch/fairseq) (sequence modeling for NLP & speech)
+- [espnet](https://github.com/espnet/espnet) (speech recognition, translation, synthesis, ...)
+- [pytorch tutorials](https://pytorch.org/tutorials/index.html)
+
+### Reference Videos
 
 {{< youtube 85uJ9hSaXig >}}
 
