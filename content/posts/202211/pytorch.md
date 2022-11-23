@@ -169,10 +169,44 @@ see [oﬃcial documentation](https://pytorch.org/docs/stable/tensors.html) for m
 | x.squeeze() | x.squeeze() |
 | x.unsqueeze(1) | np.expand_dims(x, 1) |
 
-### Device
-- 
-
 Ref [https://github.com/wkentaro/pytorch-for-numpy-users](https://github.com/wkentaro/pytorch-for-numpy-users)
+
+### Device
+- Tensors & modules will be computed with CPU by default
+- Use .to() to move tensors to appropriate devices.
+- Multiple GPUs: specify 'cuda:0', 'cuda:1', 'cuda:2', ...
+- Why use GPUs?
+  - Parallel computing with more cores for arithmatic calculations
+  - See [What is a GPU and do you need one in Deep Learning?](https://towardsdatascience.com/what-is-a-gpu-and-do-you-need-one-in-deep-learning-718b9597aa0d)
+
+```python
+# CPU
+x = x.to('cpu')
+
+# GPU
+x = x.to('cuda')
+
+# Check if your computer has NVIDIA GPU
+torch.cuda.is_available()
+```
+
+### Gradient Calculation
+
+```python
+x = torch.tensor([[1., 0.], [-1., 1.]], requires_grad=True) # 1
+z = x.pow(2).sum()                                          # 2
+z.backword()                                                # 3
+x.grad                                                      # 4
+# output is: tensor([[2., 0.], [-2., 2.]])
+```
+
+\begin{align}
+x = \begin{bmatrix} 1 & 0 \cr -1 & 1 \end{bmatrix} \tag{1} \cr
+z = \sum_i\sum_jx_{i,j}^2 \tag{2} \cr
+\frac{\partial z}{\partial x_{i,j}} = 2x_{i,j} \tag{3} \cr
+\frac{\partial z}{\partial x} = \begin{bmatrix} 2 & 0 \cr -2 & 2 \end{bmatrix} \tag{4}
+\end{align}
+
 
 
 ## Reference Videos
