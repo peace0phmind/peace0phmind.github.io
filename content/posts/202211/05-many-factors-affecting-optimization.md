@@ -336,7 +336,7 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 ![](/images/202211/05-many-factors-affecting-optimization/02-4.009.jpg)
 
 
-## Batch Normalization
+## Normalization
 
 ### Changing Landscape
 - $w_1, w_2$与不同的feature相关，由于不同的feature范围不同，导致了$w_1, w_2$的变动对最终的loss产生不同的影响
@@ -345,6 +345,7 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 ![](/images/202211/05-many-factors-affecting-optimization/02-5.003.jpg)
 
 ### Feature Normalization
+- 下图只是Feature Normalization的一种可能
 - $ x^1, x^2, \cdots, x^R $ 为数据的R个features
 - For each dimension i: 
   - $m_i$ : mean
@@ -355,6 +356,50 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 
 ![](/images/202211/05-many-factors-affecting-optimization/02-5.004.jpg)
 
+#### $\theta$的Normalization
+- $\tilde{x}^1$在经过$W^1$后得到的$z^1$也是具有不同的range的，这将导致针对$W^2$的optimize会比较的困难
+- 对于$W^2$来说，这里的z或者a也是feature，所以这里需要考虑对z或者a做Normalization
+- 那么到底在激活函数的前面还是后面做normalization呢？实作中都可以，但当activation function为Sigmoid时，建议在Sigmoid的前面，也就是这里的z做normalization。
+
+![](/images/202211/05-many-factors-affecting-optimization/02-5.005.jpg)
+
+#### Feature Normalization的计算
+- $\mu = \frac{1}{n}\sum\limits_{i=1}^nz^i $
+- $ \sigma = \sqrt{\frac{1}{n}\sum\limits_{i=1}^n(z^i-\mu)^2} $
+- $ \tilde{z}^i = \frac{z^i-\mu}{\sigma} $
+
+#### Batch normalization
+- 由于需要对$x, z^1, z^2, \cdots, z^n$都做normalization，所以这是一个巨大的network，如果使用这个巨大的network针对所有的数据去求$\mu和\sigma$是不太现实的，
+  所以只能将范围缩小到一个batch，从而诞生了batch normalization。
+- 而在做Batch normalization的时候，往往还会加上一个$\beta和\gamma$， 得到方程$ \hat{z}^i = \gamma\odot\tilde{z}^i+\beta $ 其中 $ \tilde{z}^i = \frac{z^i-\mu}{\sigma} $
+- 实际在做训练时，考虑到normalization的情况，在初始情况下$\gamma$会被初始化为one vector(全1的向量), 而$\beta$会被初始化为zero vector(全0的向量)。
+
+![](/images/202211/05-many-factors-affecting-optimization/02-5.008.jpg)
+
+#### Batch normalization - Testing
+- We do not always have batch at testing stage.
+- Computing the moving average of $\mu$ and $\sigma$ of the batches during training.
+- 如下计算出$\bar{\mu}, \bar{\sigma}$，替换training中的表达式$ \tilde{z} = \frac{z-\mu}{\sigma} $得到$ \tilde{z} = \frac{z-\bar{\mu}}{\bar{\sigma}} $
+- How to compute moving average?
+
+\begin{align}
+\mu^1, \mu^2, \mu^3, \cdots, \mu^t \cr
+\bar{\mu} \leftarrow p\bar{\mu} + (1-p)\mu^t
+\end{align}
+
+#### Batch Normalization Refs
+- [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/abs/1502.03167)
+- [How Does Batch Normalization Help Optimization](https://arxiv.org/abs/1805.11604)
+  - Experimental results (and theoretically analysis) support batch normalization change the landscape of error surface.
+  - This suggests that the positive impact of BatchNorm on training might be somewhat serendipitous(偶然的，发现了一个意料之外的东西).
+
+### Normalization Refs
+- [Batch Renormalization: Towards Reducing Minibatch Dependence in Batch-Normalized Models](https://arxiv.org/abs/1702.03275)
+- [Layer Normalization](https://arxiv.org/abs/1607.06450)
+- [Instance Normalization: The Missing Ingredient for Fast Stylization](https://arxiv.org/abs/1607.08022)
+- [Group Normalization](https://arxiv.org/abs/1803.08494)
+- [Weight Normalization: A Simple Reparameterization to Accelerate Training of Deep Neural Networks](https://arxiv.org/abs/1602.07868)
+- [Spectral Norm Regularization for Improving the Generalizability of Deep Learning](https://arxiv.org/abs/1705.10941)
 
 
 ## Reference Video
@@ -368,6 +413,8 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 {{< youtube HYUXEeh3kwY >}}
 
 {{< youtube O2VkP8dJ5FE >}}
+
+{{< youtube BABPWOkSbLE >}}
 
 {{< youtube _j9MVVcvyZI >}}
 
