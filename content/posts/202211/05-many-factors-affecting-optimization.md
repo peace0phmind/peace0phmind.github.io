@@ -405,13 +405,13 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 ## New Optimization
 
 ### What you have known before?
-- SGD - Stochastic gradient descent: 随机梯度下降
-- SGDM - Stochastic gradient descent with momentum
+- SGD - stochastic gradient descent: 随机梯度下降
+- SGDM - stochastic gradient descent with momentum
 - Adagrad
 - RMSProp
 - Adam
 
-### Some Notations
+#### Some Notations
 - $\theta_t$: model parameters at time step t
 - $\nabla L(\theta_t) \text{or } g_t$: gradient at $\theta_t$, used to compute $\theta_{t+1}$
 - $m_{t+1}$: momentum accumulated from time step 0 to time step t, which is used to compute $\theta_{t+1}$
@@ -421,20 +421,137 @@ g_t \cr
 \overleftarrow{x_t \rightarrow \theta_t \rightarrow y_t ^\underleftrightarrow{L(\theta_t;x_t)} \hat{y}_t}
 \end{align}
 
-### What is Optimization about ?
+#### What is Optimization about ?
 - Find a $\theta$ to get the lowest $\sum_x L(\theta; x)$ !!
 - Or, Find a $\theta$ to get the lowest $L(\theta)$ !!
 
-### On-line vs Off-line learning
+#### On-line vs Off-line learning
 - On-line: one pair of $(x_t, \hat{y}_t)$ at a time step
 - Off-line: pour all $(x_t, \hat{y}_t)$ into the model at every time step
 
-### SGD
+#### SGD (stochastic gradient descent)
 - Start at position $\theta^0$
 - Compute gradient at $\theta^0$
 - Move to $\theta^1 = \theta^0 - \eta \nabla L(\theta^0)$
+- Compute gradient at $\theta^1$
+- Move to $\theta^2 = \theta^1 - \eta \nabla L(\theta^1)$
+- Stop until $\nabla L(\theta^t) \approx 0$
 
 ![](/images/202211/05-many-factors-affecting-optimization/03.010.jpg)
+
+#### SGDM (stochastic gradient descent with momentum)
+- Start at point $\theta^0$
+- Movement $V^0=0$
+- Compute gradient at $\theta^0$
+- Movement $V^1=\lambda V^0 - \eta \nabla L(\theta^0)$
+- Move to $\theta^1 = \theta^0 + V^1$
+- Compute gradient at $\theta^1$
+- Movement $V^2 = \lambda V^1 - \eta \nabla L(\theta^1)$
+- Move to $\theta^2 = \theta^1 + V^2$
+
+![](/images/202211/05-many-factors-affecting-optimization/03.011.jpg)
+
+#### Adagrad
+- $\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{\sum_{i=0}^{t-1}(g_i)^2}}g_{t-1}$
+
+![](/images/202211/05-many-factors-affecting-optimization/03.014.jpg)
+
+#### RMSProp
+- $\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{v_t}}g_{t-1}$
+- $v_1 = g_0^2$
+- $v_t = \alpha v_{t-1} + (1-\alpha)(g_{t-1})^2$
+
+![](/images/202211/05-many-factors-affecting-optimization/03.015.jpg)
+
+#### Adam 
+- $ \theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{\hat{v}_t} + \varepsilon}\hat{m}_t $
+
+![](/images/202211/05-many-factors-affecting-optimization/03.016.jpg)
+
+### Optimizers: Real Application
+- BERT: 作Q/A， 文章生成， 2018年提出，使用 ADAM
+- Transformer: 用于翻译， 使用 ADAM
+- Tacotron: 最早使用神经网络作逼真的语音生成的模型, 2017年提出, 使用 ADAM
+- Yolo:  使用 SGDM
+- Mask R-CNN: 使用 SGDM
+- ResNet: 使用 SGDM
+- Gig-GAN: 生成影像， 使用 ADAM
+- MEMO: 在不同的分类任务中学到共同的资讯， 使用 ADAM
+
+### Adam vs SGDM
+- Adam: fast training, large generalization gap, unstable
+- SGDM: stable, little generalization gap, better convergence(?)
+
+#### Simply combine Adam with SGDM?
+- SWATS: Begin with Adam(fast), end with SGDM
+
+#### Towards improving Adam
+
+##### Troubleshooting
+- 根据前面的计算公式，从100000到100998的梯度都是1,所以movement都是$\eta$
+- 第100999步的梯度很大，100000,对应的movement为$10\sqrt{10}\eta$
+- 这导致了前面很多无用的批次的梯度产生了约1000$\eta$的无用变化（乱走），而其中一个有用的很小的批次带来的变化只有33个$\eta$
+- 当梯度大部分都很小时，就会产生这样的问题；有用的大的梯度对应的批次会被大量的小的无用的梯度牵着鼻子走
+
+![](/images/202211/05-many-factors-affecting-optimization/03.029.jpg)
+
+##### AMSGrad
+- Reduce the influence of non-informative gradients
+- Remove de-biasing due to the max operation
+- 这个算法的改进可以类比为Adagrad和RMSProp, 所以感觉并没有起到很好的效果
+
+##### Troubleshooting
+- In the final stage of training, most gradients are small and non-informative, while some mini-batches provide large informative gradient rarely
+- Learning rates are either extremely large(for small gradients) or extremely small(for large gradients)
+
+##### AdaBound
+- AMSGrad only handles large learning rates
+- AdaBound的公式中，有参数并非adaptive的，而是有点工程方法
+
+#### Towards Improving SGDM
+- Adaptive learning rate algorithms: dynamically adjust learning rate over time
+- SGD-type algorithms: fix learning rate for all updates... too slow for small learning rates and bad result for large learning rates
+- There might be a "best" learning rate?
+
+#### Learning Rate range test
+- Learning Rate 在很大或很小的时候，性能都不会很好
+- Learning Rate 适中的时候，性能才比较好
+
+![](/images/202211/05-many-factors-affecting-optimization/03.035.jpg)
+
+##### Cyclical LR
+- learning rate: decide by LR range test
+- step size: several epochs
+- avoid local minimum by varying learning rate
+- learning rate在大小，大小的循环进行变化
+- 变大的时候时在作exploration(探索)，变小的时候是在作收敛
+- The more exploration the better!
+
+![](/images/202211/05-many-factors-affecting-optimization/03.036.jpg)
+
+##### SGDR
+- 不用象Cyclical LR一样不断的变大再变小，而是在变小后，重新变回初始值重新开始
+
+![](/images/202211/05-many-factors-affecting-optimization/03.037.jpg)
+
+##### One-Cycle LR
+- warm-up + annealing + fine-tuning
+
+![](/images/202211/05-many-factors-affecting-optimization/03.038.jpg)
+
+### Does Adam need warm-up?
+- distorted(扭曲的) gradient -> distorted EMA squared gradients -> Bad learning rate
+- keep your step size small at the beginning of training helps to reduce the variance of the gradients 
+- 新的warm-up的方法是，先变小，再变大
+
+![](/images/202211/05-many-factors-affecting-optimization/03.040.jpg)
+
+#### RAdam
+
+![](/images/202211/05-many-factors-affecting-optimization/03.041.jpg)
+
+
+
 
 ## Reference Video
 
