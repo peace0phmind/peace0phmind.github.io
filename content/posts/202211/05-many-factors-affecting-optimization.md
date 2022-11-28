@@ -402,6 +402,40 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 - [Spectral Norm Regularization for Improving the Generalizability of Deep Learning](https://arxiv.org/abs/1705.10941)
 
 
+## New Optimization
+
+### What you have known before?
+- SGD - Stochastic gradient descent: 随机梯度下降
+- SGDM - Stochastic gradient descent with momentum
+- Adagrad
+- RMSProp
+- Adam
+
+### Some Notations
+- $\theta_t$: model parameters at time step t
+- $\nabla L(\theta_t) \text{or } g_t$: gradient at $\theta_t$, used to compute $\theta_{t+1}$
+- $m_{t+1}$: momentum accumulated from time step 0 to time step t, which is used to compute $\theta_{t+1}$
+
+\begin{align}
+g_t \cr
+\overleftarrow{x_t \rightarrow \theta_t \rightarrow y_t ^\underleftrightarrow{L(\theta_t;x_t)} \hat{y}_t}
+\end{align}
+
+### What is Optimization about ?
+- Find a $\theta$ to get the lowest $\sum_x L(\theta; x)$ !!
+- Or, Find a $\theta$ to get the lowest $L(\theta)$ !!
+
+### On-line vs Off-line learning
+- On-line: one pair of $(x_t, \hat{y}_t)$ at a time step
+- Off-line: pour all $(x_t, \hat{y}_t)$ into the model at every time step
+
+### SGD
+- Start at position $\theta^0$
+- Compute gradient at $\theta^0$
+- Move to $\theta^1 = \theta^0 - \eta \nabla L(\theta^0)$
+
+![](/images/202211/05-many-factors-affecting-optimization/03.010.jpg)
+
 ## Reference Video
 
 {{< youtube WeHM2xpYQpw >}}
@@ -415,8 +449,6 @@ ${\color{red}\frac{\eta}{\sigma_i^t}}$就是`Parameter dependent`的Learning Rat
 {{< youtube O2VkP8dJ5FE >}}
 
 {{< youtube BABPWOkSbLE >}}
-
-{{< youtube _j9MVVcvyZI >}}
 
 {{< youtube 1_HBTJyWgNA >}}
 

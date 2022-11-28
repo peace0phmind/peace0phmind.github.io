@@ -85,6 +85,7 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\curvearrowleft$ \curvearrowleft       | $\curvearrowright$ \curvearrowright     | |
 | $\circlearrowleft$ \circlearrowleft     | $\circlearrowright$ \circlearrowright   | |
 
+- [arrow-latex](https://latex-tutorial.com/arrow-latex/)
 
 ## Miscellaneous Symbols
 
@@ -146,6 +147,7 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\unlhd$ \unlhd                 | $\unrhd$ \unrhd                     | $\wr$ \wr                       |
 
 ## AMS Miscellaneous
+
 |  |  |  |
 |--|--|--|
 | $\hbar$ \hbar | $\hslash$ \hslash | $\Bbbk$ \Bbbk |
@@ -159,6 +161,7 @@ alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, n
 | $\eth$ \eth | $\mho$ \mho |  |
 
 ## bold fonts
+
 For those symbols where `\mathbf` is not applicable, the `\boldsymbol` or `\pmb` commands can be used.
 
 ```text
