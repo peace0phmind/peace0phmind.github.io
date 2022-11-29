@@ -579,13 +579,115 @@ g_t \cr
 & &emsp;\phi_t = \phi_{t-1} + \alpha(\theta_{t,k} - \phi_{t-1})
 \end{align}
 
-- 1 step back: avoid too dangerous exploration
-- Look for a more flatten minimum
+- 1 step back: avoid too dangerous exploration, 避免走入一个峡谷的minima
+- Look for a more flatten minimum, 寻找更多的平坦的minima
 - More stable
 - Better generalization
 
 ![](/images/202211/05-many-factors-affecting-optimization/03.044.jpg)
 
+
+### More than momentum
+
+#### Can we look into the future?
+- Nesterov accelerated gradient (NAG)
+- SGDM
+  - $ \theta_t = \theta_{t-1} - m_t $
+  - $ m_t = \lambda m_{t-1} + \eta \nabla L (\theta_{t-1}) $
+- Look into the future
+  - $ \theta_t = \theta_{t-1} - m_t $
+  - $ m_t = \lambda m_{t-1} + \eta \nabla L (\theta_{t-1} - \lambda m_{t-1}) $
+
+\begin{align}
+\text{Let } {\theta_t}^\prime &= \theta_t - \lambda m_t  \cr
+&= \theta_{t-1} - m_t - \lambda m_t  \cr
+&= \theta_{t-1} - \lambda m_t - \lambda m_{t-1} - \eta \nabla L(\theta_{t-1} - \lambda m_{t-1})  \cr
+&= {\theta_{t-1}}^\prime - \lambda m_t - \eta \nabla L({\theta_{t-1}}^\prime)  \cr
+m_t &= \lambda m_{t-1} + \eta \nabla L({\theta_{t-1}}^\prime)
+\end{align}
+
+#### Adam in the future
+- Nadam
+  - $ \theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{\hat{v}}+\varepsilon} \hat{m}_t $
+  - $ \hat m_t = \frac{\beta_1 m_t}{1-{\beta_1}^{t+1}} + \frac{(1-\beta_1) g_{t-1}}{1-{\beta_1}^t} $
+- SGDM
+  - $ \hat m_t = \frac{1}{1-{\beta_1}^t}(\beta_1 m_{t-1} + (1-\beta_1)g_{t-1}) $
+  - $ = \frac{\beta_1m_{t-1}}{1-{\beta_1}^t} + \frac{(1-\beta_1)g_{t-1}}{1-{\beta_1}^t} $
+
+
+### Do you really know your optimizer?
+- A story of L2 regularization
+- AdamW & SGDW with momentum
+  - SGDWM
+  - AdamW
+
+### Something helps optimization
+
+#### 增加随机性的方法
+- Shuffling
+- Dropout： 增加随机性的方法
+- Gradient noise: 在计算Gradient后，加上一个高斯的noise
+
+{{<color>}} The more exploration, the better {{</color>}}
+
+#### 和Learning Rate调整相关的方法
+- Warm-up
+- Curriculum learning: 比如使用没有噪音的声音去训练它，等到它足够强的时候，再融入有噪音的训练样本。
+  - Train your model with easy data(e.g. clean voice) first, then difficult data.
+  - Perhaps helps to improve generalization.
+- Fine-tuning
+
+{{<color>}} Teach your model patiently! {{</color>}}
+
+#### Normalization
+- Batch Normalization
+- Instance Normalization
+- Group Normalization
+- Layer Normalization
+- Positional Normalization
+
+#### Regularization
+
+### Optimize method
+- Team SGD
+  - SGD
+  - SGDM
+  - Learning rate scheduling
+  - NAG
+  - SGDWM
+- Team Adam
+  - Adagrad
+  - RMSProp
+  - Adam
+  - AMSGrad
+  - AdaBound
+  - Learning rate scheduling
+  - Radam
+  - Nadam
+  - AdamW
+- SWATS
+- Lookahead
+
+| SGDM | Adam |
+|--|--|
+| Slow | Fast |
+| Better convergence | Possibly non-convergence |
+| Stable | Unstable |
+| Smaller generalization gap | Larger generalization gap |
+
+- SGDM
+  - Computer vision
+  - image classification
+  - segmentation
+  - object detection
+- Adam
+  - NLP
+    - QA
+    - machine translation
+    - summary
+  - Speech synthesis
+  - GAN
+  - Reinforcement learning
 
 
 
