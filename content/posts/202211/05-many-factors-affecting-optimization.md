@@ -550,6 +550,42 @@ g_t \cr
 
 ![](/images/202211/05-many-factors-affecting-optimization/03.041.jpg)
 
+### RAdam vs SWATS
+
+| &nbsp; | RAdam | SWATS |
+|--|--|--|
+| Inspiration <br/> 灵感 | Distortion of gradient at the beginning of training results in inaccurate adaptive learning rate <br/> 训练开始时梯度失真导致自适应学习率不准确 | non-convergence and generalization gap of Adam, slow training of SGDM <br/> Adam 的不收敛和泛化差距，SGDM 训练缓慢 |
+| How | Apply warm-up learning rate to reduce the influence of inaccurate adaptive learning rate <br/> 应用预热学习率减少自适应学习率不准确的影响 | Combine their advantages by applying Adam first, then SGDM <br/> 通过先应用 Adam，然后应用 SGDM 来结合它们的优势|
+| Switch | SGDM to RAdam | Adam to SGDM |
+| Why switch | The approximation of the variance of $\hat{v}_t$ is invalid at the beginning of training <br/> 方差的近似值$\hat{v}_t$在训练开始时无效 | To purse better convergence <br/> 追求更好的收敛 |
+| Switch point | When the approximation becomes valid <br/> 当近似值成立时 | Some human-defined criteria <br/> 一些人为定义的标准 |
+
+### K step forward, 1 step back
+- Lookahead: universal wrapper for all optimizers
+- 这个算法有两组weight：
+  - 这里$\theta$是用于explore(探索)的，叫做Fast weights
+  - $\phi$是真正需要的weight，叫做Slow weights
+- 循环分外循环和内循环。
+  - 内循环会走k步，内循环的Optim可以使用任意的optimizer
+  - 每走完一遍内循环，根据当前位置，到内循环开始前的位置，根据$\alpha$计算出下次循环开始的位置
+  - 接下来，使用新计算出来的$\phi$进行新一轮的内循环
+- 这个方法和Memo里面的演算法Reptile很像
+
+\begin{align}
+& \text{For }t = 1, 2, \dots \text{(outer loop)} \cr
+& &emsp;\theta_{t,0} = \phi_{t-1} \cr
+& &emsp;\text{For }  i = 1, 2, \dots, k \text{(inner loop)} \cr 
+& &emsp; &emsp;\theta_{t,i} = \theta_{t, i-1} + \text{Optim(Loss, data, }\theta_{t, i-1}\text{)} \cr
+& &emsp;\phi_t = \phi_{t-1} + \alpha(\theta_{t,k} - \phi_{t-1})
+\end{align}
+
+- 1 step back: avoid too dangerous exploration
+- Look for a more flatten minimum
+- More stable
+- Better generalization
+
+![](/images/202211/05-many-factors-affecting-optimization/03.044.jpg)
+
 
 
 
