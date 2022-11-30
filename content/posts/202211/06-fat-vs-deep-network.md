@@ -56,10 +56,10 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 
 {{< youtube _j9MVVcvyZI >}}
 
+{{< youtube yXd2D5J0QDU >}}
+
 {{< youtube xQXh3fSvD1A >}}
 
 {{< youtube OP5HcXJg2Aw >}}
-
-{{< youtube yXd2D5J0QDU >}}
 
 {{< youtube SoCywZ1hZak >}}
