@@ -52,6 +52,80 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 - Larger N and smaller $|H| \Rightarrow L(h^{train}, D_{all}) - L(h^{all}, D_{all}) \leq \delta $
 - Smaller $ |H| \Rightarrow \text{Larger }L(h^{all}, D_{all})$
 
+## Why Hidden Layer?
+- Piecewise Linear
+  - We can have good approximation with sufficient pieces.
+  - piecewise linear = constant + sum of a set of `Hard Sigmoid`
+  - or use two `Rectified Linear Unit (ReLU)` instead of one `Hard Sigmoid`
+- 一层的Piecewise Linear就可以模拟出任何的函数，那么为何需要多层呢？
+- Why we want "Deep" network, not "Fat" network?
+
+### Deeper is Better?
+- 下面列出了层数与正确率的列表，左边Thin + Tall;右边Fat + Short
+- 表格中5X2k的参数量与3772相当，所以放在一起做个比较
+- 从表格中可以的出结论，在参数量相当的情况下，瘦高型要好于矮胖型
+
+| Layer X Size | Word Error Rate(%) | Layer X Size | Word Error Rate(%) |
+|--|--|--|--|
+| 1 X 2k | 24.2 | | |
+| 2 X 2k | 20.4 | | |
+| 3 X 2k | 18.4 | | |
+| 4 X 2k | 17.8 | | |
+| 5 X 2k | 17.2 | 1 X 3772 | 22.5 |
+| 7 X 2k | 17.1 | 1 X 4634 | 22.6 |
+| | | 1 X 16K | 22.1 |
+
+### Why we need deep ?
+- yes, one hidden layer can represent any function.
+- However, using deep structure is more effective.
+- 产生相同的function，Shallow的参数数量要多于Deep的。
+
+![](/images/202211/06-fat-vs-deep-network/03.014.jpg)
+
+### Analogy - Logic Circuits
+- parity check (奇偶校验)
+  - For input sequence with `d` bits, 假设此处d=4。
+  - Two-layer circuit need O($2^d$) gates: O = 16
+  - 或者，3个XNOR的gates也可以达到相同的效果
+  - With multiple layers, we need only O(d) gates：O = 4
+
+![](/images/202211/06-fat-vs-deep-network/03.015.jpg)
+
+### Use Neuron Network
+
+#### $2^2$ pieces
+- 如图，假设图中所用activation function为ReLU
+- 图中所画图形需要旋转90度，将x作为横轴来看
+- x与$a_1$的关系是，当x从0-1时，$a_1$先下降(从1-0)后上升(从0-1)
+- $a_1$与$a_2$的关系是，当$a_1$从0-1时，$a_2$先下降(从1-0)后上升(从0-1)
+- x与$a_2$的关系, 会得到4个线段
+
+![](/images/202211/06-fat-vs-deep-network/03.020.jpg)
+
+#### $2^3$ pieces
+- 接上步， x与$a_2$的关系, 会得到4个线段
+- $a_2$与$a_3$的关系是，当$a_2$从0-1时，$a_3$先下降(从1-0)后上升(从0-1)
+- x与$a_3$的关系, 会得到8个线段
+
+![](/images/202211/06-fat-vs-deep-network/03.021.jpg)
+
+#### $2^k$ pieces
+- 假设在x从0-1的变化过程中，需要让一个nn的output y有$2^k$的线段
+  - 使用deep的方式，那么只需要k层，每层2个neurons，总共2K个neurons就可以满足需要
+  - 使用shallow的方式，那么需要$2^k$个neurons才能满足需要
+- 所以要产生同样的function
+  - Deep: 参数量比较小，smaller $|H|$; 模型比较简单
+  - Shallow: 参数量比较大，larger $|H|$；模型比较复杂
+  - 在样本数相同的情况下，复杂的模型比较容易overfitting
+
+![](/images/202211/06-fat-vs-deep-network/03.022.jpg)
+
+### Think more
+- Deep networks outperforms shallow ones when the required functions are `complex and regular`.
+  - Image, speech, etc. have this characteristics.
+- 当所需功能“复杂且有规律”时，深度网络优于浅层网络。
+- Deep is exponentially better than shallow even when $ y = x^2 $
+
 ## Reference video
 
 {{< youtube _j9MVVcvyZI >}}
@@ -63,3 +137,7 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 {{< youtube OP5HcXJg2Aw >}}
 
 {{< youtube SoCywZ1hZak >}}
+
+{{< youtube FN8jclCrqY0 >}}
+
+{{< youtube qpuLxXrHQB4 >}}

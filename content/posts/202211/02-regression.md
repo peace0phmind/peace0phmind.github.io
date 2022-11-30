@@ -221,7 +221,7 @@ $$
 #### 作多层ReLU
 - 100 ReLU for each layer
 - input features are the no. of views in the past 56 days
-- `Better on training data, worse on unseen data`: {{<color>}}`Overfittin`{{</color>}} , see layer count 4.
+- `Better on training data, worse on unseen data`: {{<color>}}`Overfitting`{{</color>}} , see layer count 4.
 
 | layer count | training loss | testing loss |
 |--|--|--|
