@@ -126,6 +126,12 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 - 当所需功能“复杂且有规律”时，深度网络优于浅层网络。
 - Deep is exponentially better than shallow even when $ y = x^2 $
 
+## I used a validation set, but my model still overfitted
+- 什么时候理想和现实会有差距
+  - 抽到一个不好的training（validation）data的时候，会有较大的差距（overfitting）
+  - 模型比较复杂
+  - 待选择的模型太多了，也可能overfitting
+
 ## Reference video
 
 {{< youtube _j9MVVcvyZI >}}
