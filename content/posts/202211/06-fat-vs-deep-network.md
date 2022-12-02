@@ -132,6 +132,9 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
   - 模型比较复杂
   - 待选择的模型太多了，也可能overfitting
 
+## 
+
+
 ## Reference video
 
 {{< youtube _j9MVVcvyZI >}}
@@ -143,6 +146,8 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 {{< youtube OP5HcXJg2Aw >}}
 
 {{< youtube SoCywZ1hZak >}}
+
+{{< youtube KKT2VkTdFyc >}}
 
 {{< youtube FN8jclCrqY0 >}}
 
