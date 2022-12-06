@@ -9,10 +9,10 @@ lastmod: 2022-12-06T16:22:41+08:00
 author: peace0phmind
 url: "posts/202212/create-sudo-enabled-user"
 
-draft: true
+draft: false
 
 categories:
-  -
+  - blog
 tags:
   - sudo
   - user
