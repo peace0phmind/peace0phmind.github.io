@@ -78,3 +78,30 @@ docker node promote <node-id>
 ```bash
 docker node demote <node-id>
 ```
+
+### Get All Labels as map
+```bash
+# run command under swarm manager
+docker node ls -q | xargs docker node inspect -f '{{ .ID }} [{{ .Description.Hostname }}]: {{ .Spec.Labels }}'
+```
+
+### Get All Labels
+```bash
+# run command under swarm manager
+docker node ls -q | xargs docker node inspect \
+  -f '{{ .ID }} [{{ .Description.Hostname }}]: {{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }} {{end}}'
+```
+
+### Add Labels
+Run docker node update --label-add on a manager node to add label metadata to a node. The --label-add flag supports either a <key> or a <key>=<value> pair.
+- 当只输入<key>时，得到的是一个空值标签
+- 再次使用update可以更新该<key>值标签
+
+```bash
+docker node update --label-add <key> --label-add <key>=<value> <node_hostname>
+```
+
+### Remove Labels
+```bash
+docker node update --label-rm <key> <node_hostname>
+```
