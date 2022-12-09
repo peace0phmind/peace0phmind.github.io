@@ -44,8 +44,12 @@ bash Miniconda3-py38_4.12.0-Linux-x86_64.sh
 
 ### init miniconda
 ```bash
+# cd to conda install path ./bin
+./conda init zsh
+# restart terminator
+
 conda create --name <env_name> --clone base
 nano ~/.zshrc
 # add under line in the bottom of ~/.zshrc
-conda activate s232
+conda activate <env_name>
 ```
