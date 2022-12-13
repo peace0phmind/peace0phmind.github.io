@@ -23,9 +23,10 @@ tags:
 - Volume Groups (VG)： 卷组, 由物理卷组成（如： vg=/dev/sda + /dev/sdb）
 - Logical Volumes (LV): 逻辑卷, 由卷组划分而来
 
-## PV
+## 显示信息
 
-### 显示物理卷
+### 显示物理卷信息
+
 键入以下命令以查看有关物理卷的信息
 ```bash
 sudo pvs
@@ -36,9 +37,8 @@ sudo pvs
 sudo pvdisplay
 ```
 
-## vg
+### 显示卷组信息
 
-### 显示卷组
 键入以下命令以查看有关卷组的信息
 
 ```bash
@@ -50,9 +50,8 @@ sudo vgs
 sudo vgdisplay
 ```
 
-## LV
+### 显示逻辑卷信息
 
-### 显示逻辑卷
 键入以下命令以查看有关逻辑卷的信息
 
 ```bash
@@ -64,7 +63,7 @@ sudo lvs
 sudo lvdisplay
 ```
 
-## 查找新磁盘信息
+### 查找磁盘信息
 ```bash
 # list all disk
 sudo fdisk -l
@@ -72,7 +71,7 @@ sudo fdisk -l
 sudo fdisk -l | grep '^Disk /dev/'
 ```
 
-## 创建并扩展LVM
+## 扩展LVM
 
 ### 创建新的PV
 
@@ -93,7 +92,7 @@ sudo wipefs --all --backup /dev/sdb
 ```
 执行上述命令后，直接执行`sudo pvcreate /dev/sdb`，提示成功
 
-### 讲新的pv添加到vg中
+### 将新的pv添加到vg中
 ```bash
 sudo vgextend vgubuntu /dev/sdb
 ```
