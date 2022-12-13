@@ -19,9 +19,14 @@ tags:
 
 ---
 
-导出markdown到docx
+## 导出markdown到docx
 ```bash
 cat xxx.md | sed 's/(\/images\//(/g' | pandoc -f markdown -t docx --resource-path=../../../static/images --reference-doc=../../../static/templates/numbered-sections.docx -o xxx.docx
 ```
 
 cat face-inspection-program.md | sed 's/(\/images\//(/g' | pandoc -f markdown -t docx --resource-path=../../../static/images --reference-doc=../../../static/templates/numbered-sections.docx -o xxx.docx
+
+## Keychron fn keybord under linux
+```bash
+echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
+```
