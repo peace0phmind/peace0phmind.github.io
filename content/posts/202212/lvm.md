@@ -9,7 +9,7 @@ lastmod: 2022-12-13T10:37:56+08:00
 author: peace0phmind
 url: "posts/202212/lvm"
 
-draft: true
+draft: false
 
 categories:
   -
