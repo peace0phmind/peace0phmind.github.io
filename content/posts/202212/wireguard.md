@@ -142,6 +142,33 @@ wg set wg0 listen-port 53 private-key /path/to/private-key peer ABCDEF... allowe
 wg setconf wg0 myconfig.conf
 ```
 
+server端demo配置
+```
+[Interface]
+Address = 10.66.66.1/24,fd42:42:42::1/64
+PostUp = iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE; ip6tables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+PostDown = iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; ip6tables -t nat -D POSTROUTING -o ens3 -j MASQUERADE
+ListenPort = 53
+PrivateKey = <server private key>
+
+[Peer]
+PublicKey = <client 1 public key>
+AllowedIPs = 10.66.66.2/32, fd42:42:42::2/128
+```
+
+peer1端demo配置
+```
+[Interface]
+PrivateKey = <client 1 private key>
+Address = 10.66.66.2/24,fd42:42:42::2/64
+DNS = 176.103.130.130,176.103.130.131
+
+[Peer]
+PublicKey = <server public key>
+Endpoint = <server public IP>:53
+AllowedIPs = 0.0.0.0/0,::/0
+```
+
 最后使用ip-link(8)激活该接口
 
 ```bash
@@ -175,7 +202,6 @@ wg pubkey < wireguard-privatekey > wireguard-publickey
 wg genkey | tee privatekey | wg pubkey > publickey
 ```
 
-
 ### NAT和防火墙穿越持久性
 
 默认情况下，WireGuard在不使用时会尽量保持安静；它不是一个繁琐的协议。大多数情况下，它仅在对等方希望发送数据包时才传输数据。当它没有被要求发送数据包时，它会停止发送数据包，直到再次被要求。在大多数配置中，这很有效。但是，当对等点位于NAT或防火墙之后时，它可能希望能够接收传入的数据包，即使它没有发送任何数据包。因为NAT和状态防火墙跟踪“连接”，如果NAT或防火墙后面的对等方希望接收传入数据包，他必须通过定期发送保持活动数据包来保持NAT/防火墙映射有效。这称为持久保活。启用此选项后，将每隔interval秒向服务器端点发送一次保活数据包。适用于各种防火墙的合理间隔是25秒。将其设置为0将关闭该功能，这是默认设置，因为大多数用户不需要它，并且它会使WireGuard更健壮。可以通过在配置文件中向对等节点添加PersistentKeepalive=字段或在命令行设置persistent-keepalive来指定此功能。如果您不需要此功能，请不要启用它。但是，如果您位于NAT或防火墙后面，并且您希望在网络流量停止后很长时间内接收传入连接，则此选项将使“连接”在NAT眼中保持打开状态。
@@ -188,6 +214,44 @@ wg genkey | tee privatekey | wg pubkey > publickey
 sudo modprobe wireguard && echo module wireguard +p > /sys/kernel/debug/dynamic_debug/control
 ```
 如果您使用的是用户空间实现，请设置环境变量`export LOG_LEVEL=verbose`
+
+## 通过服务器转发客户端的流量
+
+### 在服务器上启用路由
+
+首先我们需要在服务器上启用IPv4和IPv6路由，以便它可以转发数据包。
+
+```
+echo "net.ipv4.ip_forward = 1
+net.ipv6.conf.all.forwarding = 1" > /etc/sysctl.d/wg.conf
+
+sysctl --system
+```
+
+### 在服务器上启用NAT
+
+我们想在服务器的公共接口（对我来说是ens3）和wg0接口之间启用NAT。为此，我们需要两个iptables命令：
+
+```
+iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+ip6tables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+```
+
+WireGuard可以在启动时为我们执行这些操作。为了保持干净，我们想在界面关闭时删除它们，所以这里是您需要添加到服务器上的[Interface]块的内容：
+```
+PostUp = iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE; ip6tables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+PostDown = iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; ip6tables -t nat -D POSTROUTING -o ens3 -j MASQUERADE
+```
+
+### 使服务器成为客户端的网关
+
+我们可以利用AllowedIPs选项来覆盖客户端上的默认路由。只需将行更改为：
+
+```
+AllowedIPs = 0.0.0.0/0,::/0
+```
+
+重启界面。完成，所有客户端的数据包都通过服务器！
 
 ## 已知限制
 
@@ -230,4 +294,5 @@ WireGuard使用系统时间作为可靠的单调计数器。如果向前跳转�
 目前在本地和网络上检测路由环路存在一些问题，并且有各种技巧，例如将外部src更改为内部src。
 
 ## Reference
-[wireguard](https://www.wireguard.com/)
+- [wireguard](https://www.wireguard.com/)
+- [How to setup a VPN server using WireGuard (with NAT and IPv6)](https://stanislas.blog/2019/01/how-to-setup-vpn-server-wireguard-nat-ipv6/)
