@@ -39,6 +39,16 @@ gzip还指该实用程序使用的相关压缩数据格式。
 ### pigz
 [pigz](https://zlib.net/pigz/): 是gzip的并行实现，是gzip的全功能替代品，它在压缩数据时充分利用多个处理器和多个内核。 
 
+tar with pigz
+```bash
+# uncompress
+tar -I pigz -xf <filename.tar.gz>
+# compress
+tar -I pigz -cf <filename.tar.gz> <dir or file>
+# compress with options
+tar cf - <paths-to-archive> | pigz -9 -p 32 > <archive.tar.gz>
+```
+
 ### XZ Utils
 [XZ Utils](https://tukaani.org/xz/): XZ Utils 是一款免费的通用数据压缩软件，具有高压缩比。 XZ Utils 是为类 POSIX 系统编写的，但也适用于一些不太 POSIX 的系统。
 XZ Utils 是 LZMA Utils 的继承者。
