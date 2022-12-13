@@ -92,6 +92,12 @@ docker node ls -q | xargs docker node inspect \
   -f '{{ .ID }} [{{ .Description.Hostname }}]: {{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }} {{end}}'
 ```
 
+### Backup Labels
+```bash
+docker node ls -q | xargs docker node inspect \
+  -f 'docker node update {{ range $k, $v := .Spec.Labels }}--label-add {{ $k }}={{ $v }} {{end}}{{ .Description.Hostname }}'
+```
+
 ### Add Labels
 Run docker node update --label-add on a manager node to add label metadata to a node. The --label-add flag supports either a <key> or a <key>=<value> pair.
 - 当只输入<key>时，得到的是一个空值标签
