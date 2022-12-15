@@ -24,6 +24,11 @@ ubuntu操作系统使用如下命令：
 sudo systemd-resolve --flush-caches
 ```
 
+### 22.04
+```bash
+resolvectl flush-caches
+```
+
 参考：[How to clear DNS cache](https://www.ispsystem.com/news/clear-dns-cache)
 
 ## 获取不同网络环境下的ping值，DNS解析结果等
