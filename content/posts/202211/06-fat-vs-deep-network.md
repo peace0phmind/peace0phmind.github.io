@@ -153,6 +153,22 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 ![](/images/202211/06-fat-vs-deep-network/01.005.jpg)
 
 
+### Universality
+- Given a shallow network structure with one hidden layer with ReLU activation and linear output
+- Given a L-Lipschitz function $f^*$
+  - How many neurons are needed to approximate $f^*$?
+  - L-Lipschitz Function (smooth)
+  - $ || f(x_1) - f(x_2) || \le L || x_1 - x_2 || $
+  - 左边是Output change, 右边是Input change
+  - L = 1 for "1-Lipschitz" function; 当L取1时，式子表示为:$ || f(x_1) - f(x_2) || \le || x_1 - x_2 || $, 即输出的变化不能大于输入的变化
+  - L = 2 for "2 - Lipschitz" function
+  - 下图，蓝色变化比较快的就不是一个1-Lipschitz function,而绿色的是一个1-Lipschitz function
+
+![](/images/202211/06-fat-vs-deep-network/01.008.jpg)
+
+
+
+
 ## Reference video
 
 {{< youtube _j9MVVcvyZI >}}
