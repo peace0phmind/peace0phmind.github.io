@@ -132,7 +132,25 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
   - 模型比较复杂
   - 待选择的模型太多了，也可能overfitting
 
-## 
+## Can shallow network fit any function
+- network structure: 网络架构，决定了网络怎么连接
+- 同样的structure，填入不同的参数（填入不同的weight和bias），得到不同的function，即一个function space(/set)
+
+### deep vs shallow
+- 假设一个function: $ f(x) = 2(2cos^2(x)-1)^2-1 $, 如下图
+- 图中不同颜色的线段代表不同的hidden层数
+- 横坐标表示units(/parameters)的数量，纵坐标表示对应的loss
+- 从图中可以看出在相同参数量的情况下，deep越深，loss越小（fit越好）
+- 相应的当观察相同loss的情况下，deep越深参数量越小
+- 注：unit的数目就是neuron的数目，用neuron的数目表示一个network的架构，neuron的数目和parameter的数目是正相关的
+
+![](/images/202211/06-fat-vs-deep-network/01.003.jpg)
+
+- 假设一个目标function： $ y = x^2 $
+- 假设一个small的shallow的function，可能并不能很好的fit到这个function，只有当这个shallow的参数足够large的时候，才能找到有效的function
+- 而deep去fit同样的function，需要的参数是少的
+
+![](/images/202211/06-fat-vs-deep-network/01.005.jpg)
 
 
 ## Reference video
