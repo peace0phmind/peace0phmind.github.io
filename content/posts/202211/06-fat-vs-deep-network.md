@@ -178,10 +178,15 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
     - 如下图：$ l = ||x_1 - x_2 || $, $ error = || f(x_1) - f(x_2) || $
     - 由L-Lipschitz function得到: $  || f(x_1) - f(x_2) || \le L || x_1 - x_2 || \le \epsilon \Rightarrow error \le l \times L \le \epsilon \Rightarrow error \le \epsilon $
     - 则： $ l \times L \le \epsilon \Rightarrow l \le \epsilon / L $
-    - 从而得到下图2,当x的取值是[0, 1]： $ segments = L/\epsilon $
 
 ![](/images/202211/06-fat-vs-deep-network/01.010.jpg)
-![](/images/202211/06-fat-vs-deep-network/01.011.jpg)
+
+- 结合上面推到，下面图可以得到如下结论：
+  - 当x的取值是[0, 1]： $ segments = L/\epsilon $
+  - 每一段L-Lipschitz function是由2个ReLU neurons组成，即： $ \text{relu neurons} = 2L/\epsilon $
+
+![](/images/202211/06-fat-vs-deep-network/01.014.jpg)
+
 
 
 
