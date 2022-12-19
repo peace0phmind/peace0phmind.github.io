@@ -157,15 +157,31 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 - Given a shallow network structure with one hidden layer with ReLU activation and linear output
 - Given a L-Lipschitz function $f^*$
   - How many neurons are needed to approximate $f^*$?
-  - L-Lipschitz Function (smooth)
-  - $ || f(x_1) - f(x_2) || \le L || x_1 - x_2 || $
-  - 左边是Output change, 右边是Input change
-  - L = 1 for "1-Lipschitz" function; 当L取1时，式子表示为:$ || f(x_1) - f(x_2) || \le || x_1 - x_2 || $, 即输出的变化不能大于输入的变化
-  - L = 2 for "2 - Lipschitz" function
-  - 下图，蓝色变化比较快的就不是一个1-Lipschitz function,而绿色的是一个1-Lipschitz function
+    - L-Lipschitz Function (smooth)
+    - $ || f(x_1) - f(x_2) || \le L || x_1 - x_2 || $
+    - 左边是Output change, 右边是Input change
+    - L = 1 for "1-Lipschitz" function; 当L取1时，式子表示为:$ || f(x_1) - f(x_2) || \le || x_1 - x_2 || $, 即输出的变化不能大于输入的变化
+    - L = 2 for "2 - Lipschitz" function
+    - 下图，蓝色变化比较快的就不是1-Lipschitz function,而绿色的是1-Lipschitz function
 
 ![](/images/202211/06-fat-vs-deep-network/01.008.jpg)
 
+- Given a L-Lipschitz function $f^*$
+  - How many neurons are needed to approximate $f^*$?
+    - $ f \in N(K) \Rightarrow {\color{green}\text{The function space defined by the network with K neurons.}} $
+    - Given a small number $\epsilon > 0$, what is the number of K such that
+    - Exist $  f \in N(K), \max\limits_{0 \le x \le 1}|f(x) - f^*(x)| \le \epsilon $
+    - The difference between $f(x)$ and $f^*(x)$ is smaller than $\epsilon$.
+    - All the functions in N(K) are piecewise linear.
+    - Approximate $f^*$ by a piecewise linear function f
+  - How to make the  $ errors \le \epsilon $ 
+    - 如下图：$ l = ||x_1 - x_2 || $, $ error = || f(x_1) - f(x_2) || $
+    - 由L-Lipschitz function得到: $  || f(x_1) - f(x_2) || \le L || x_1 - x_2 || \le \epsilon \Rightarrow error \le l \times L \le \epsilon \Rightarrow error \le \epsilon $
+    - 则： $ l \times L \le \epsilon \Rightarrow l \le \epsilon / L $
+    - 从而得到下图2,当x的取值是[0, 1]： $ segments = L/\epsilon $
+
+![](/images/202211/06-fat-vs-deep-network/01.010.jpg)
+![](/images/202211/06-fat-vs-deep-network/01.011.jpg)
 
 
 
