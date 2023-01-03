@@ -230,6 +230,9 @@ if __name__ == '__main__':
 ```
 
 下面代码说明deep & narrow的网络的piece数(abs_activation_test.py):
+- 每个layer有2个ReLU组成一个abs activation function, 每个layer有2个region
+- 当有3层layer时，有$2^3$的region(piecewise linear)
+- deep成立的先决条件是，同样的pattern，反复的出现
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -247,7 +250,7 @@ def abs_activation(x):
 
 
 if __name__ == '__main__':
-    layer_number = 4
+    layer_number = 3
     x = np.linspace(start=0, stop=1, num=1001)
     y = x
     for _ in range(layer_number):
@@ -255,6 +258,9 @@ if __name__ == '__main__':
     plt.plot(x, y)
     plt.show()
 ```
+
+### Lower Bound of Linear Pieces
+- If K is width, H is depth. We can have at least $K^H$ pieces.
 
 ## Reference video
 
