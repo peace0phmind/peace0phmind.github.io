@@ -188,7 +188,73 @@ math.log(2*10000/0.1, math.e)/(2*0.1**2)
 ![](/images/202211/06-fat-vs-deep-network/01.014.jpg)
 
 
+## Potential of Deep
 
+### Why we need deep?
+- ReLU networks can represent piecewise linear functions
+  - same number of parameters with Shallow & Wide will have Less pieces. 
+  - same number of parameters with Deep & Narrow will have More pieces.
+
+![](/images/202211/06-fat-vs-deep-network/01.020.jpg)
+
+### Upper Bound of Linear Pieces
+- Each "activation pattern" defines a linear function
+- ReLU的network，每一个neuron有两个operation的region;一个region的output是0，另一个region的input等于output。
+- activation pattern: 某一种neuron的mode的组合
+- 假设有n个neuron，且每个neuron为并联(shallow & wide)，则最大有n+1个piecewise
+- 假设有n个neuron，且每个neuron为串联(deep & narrow)，则最大有$2^N$个piecewise
+
+下面代码说明shallow & wide的网络的piece数(upper_bound_test.py):
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def relu(x):
+    return (np.maximum(0, x))
+
+
+def upper_bound_test(x):
+    y1 = relu(x * 1 + 1)
+    y2 = relu(x * 1 - 1)
+    y3 = relu(x * 1 + 0)
+
+    return (y1 + y2 + y3) * 1 + 0
+
+
+if __name__ == '__main__':
+    x = np.linspace(start=-2, stop=2, num=41)
+    y = upper_bound_test(x)
+    plt.plot(x, y)
+    plt.show()
+```
+
+下面代码说明deep & narrow的网络的piece数(abs_activation_test.py):
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def relu(x):
+    return (np.maximum(0, x))
+
+
+def abs_activation(x):
+    y1 = relu(x * 1 - 0.5)
+    y2 = relu(x * -1 + 0.5)
+
+    return (y1 + y2) * 2 + 0
+
+
+if __name__ == '__main__':
+    layer_number = 4
+    x = np.linspace(start=0, stop=1, num=1001)
+    y = x
+    for _ in range(layer_number):
+        y = abs_activation(y)
+    plt.plot(x, y)
+    plt.show()
+```
 
 ## Reference video
 
