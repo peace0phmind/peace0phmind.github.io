@@ -14,7 +14,7 @@ def abs_activation(x):
 
 
 if __name__ == '__main__':
-    layer_number = 4
+    layer_number = 3
     x = np.linspace(start=0, stop=1, num=1001)
     y = x
     for _ in range(layer_number):
