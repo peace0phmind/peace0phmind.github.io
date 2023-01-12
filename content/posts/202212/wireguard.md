@@ -293,6 +293,18 @@ WireGuard使用系统时间作为可靠的单调计数器。如果向前跳转�
 
 目前在本地和网络上检测路由环路存在一些问题，并且有各种技巧，例如将外部src更改为内部src。
 
+
+### 有用的命令行
+
+```bash
+nano wg0.conf
+sudo wg-quick down wg0
+sudo wg-quick up wg0
+sudo systemctl start wg-quick@wg0
+sudo systemctl enable wg-quick@wg0
+sudo systemctl restart wg-quick@wg0
+```
+
 ## Reference
 - [wireguard](https://www.wireguard.com/)
 - [How to setup a VPN server using WireGuard (with NAT and IPv6)](https://stanislas.blog/2019/01/how-to-setup-vpn-server-wireguard-nat-ipv6/)
