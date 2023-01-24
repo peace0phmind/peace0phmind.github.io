@@ -262,6 +262,12 @@ if __name__ == '__main__':
 ### Lower Bound of Linear Pieces
 - If K is width, H is depth. We can have at least $K^H$ pieces.
 
+### 使用MNIST进行实验，得到如下结论
+- 当宽度固定，不断的增加深度，则piece按照指数递增
+- 当层数固定，而增加每层的宽度，piece的增加并不明显
+- 当输入是一个二维的圆圈，在一个100个layer上的network得到的piece，每一层都会是一个对称的图形
+- 越接近输入端的layer就越重要
+
 ## Reference video
 
 {{< youtube _j9MVVcvyZI >}}
