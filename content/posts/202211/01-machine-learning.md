@@ -33,6 +33,7 @@ weight: 1
   - [Discriminative(/Logistic Regression)](/posts/202211/04-logistic-regression)
   - [Feature Transformation](/posts/202211/04-logistic-regression#feature-transformation)
 - [Optimization](/posts/202211/05-many-factors-affecting-optimization)
+- [Deep is Better Than Shallow](/posts/202211/06-fat-vs-deep-network)
 - Structured Learning
   - Create something with structure (image, document)
 
