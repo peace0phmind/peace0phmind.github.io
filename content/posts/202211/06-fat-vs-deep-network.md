@@ -9,7 +9,7 @@ lastmod: 2022-11-24T10:01:58+08:00
 author: peace0phmind
 url: "posts/202211/06-fat-vs-deep-network"
 
-draft: true
+draft: false
 
 categories:
   -
@@ -267,6 +267,40 @@ if __name__ == '__main__':
 - 当层数固定，而增加每层的宽度，piece的增加并不明显
 - 当输入是一个二维的圆圈，在一个100个layer上的network得到的piece，每一层都会是一个对称的图形
 - 越接近输入端的layer就越重要 
+
+## Using deep structure to fit functions
+###  假设需要fit一个简单的function $ f(x) = x ^ 2$
+- $f_m(x)=2^m$, a function with $2^m$ pieces
+- $ \max\limits_{0 \le x \le 1} | f(x) - f_m(x) | \le \epsilon $
+- the minimum m is: $ m \ge -\frac{1}{2}log_2\epsilon -1 $
+
+$ f(x) = x ^ 2$对应的是下图两个线段相减
+
+![](/images/202211/06-fat-vs-deep-network/01.033.jpg)
+
+### Why care about $ y=x^2 $
+- $ y=x^2 $ : Square Net
+- 有了`Square Net`，就有了`Multiply Net`。$ y = x_1 x_2 = \frac{1}{2}((x_1+x_2)^2 - x_1^2 - x_2^2) $ 。运用三个`Square Net`，可以得到一个`Multiply Net`。
+- 有了`Square Net`和`Multiply Net`就可以做`Polynomial(多项式)`。
+
+### Deep better than Shallow
+- The Power of Depth for Feedforward Neural Networks, COLT, 2016:
+  - A function expressible by a 3-layer feedforward network cannot be approximated by 2-layer network.
+    - Unless the width of 2-layer network is VERY large
+    - Applied on activation functions beyond relu
+      - The width of 3-layer network is K.
+      - The width of 2-layer network should be $Ae^{BK^{\sfrac{4}{19}}}$
+- Benefits of depth in neural networks, COLT, 2016.
+  - A function expressible by a deep feedforward network cannot be approximated by a shallow netowrk.
+    - Unless the width of the shallow network is VERY large
+    - Applied on activation functions beyond relu
+- Depth-Width Tradeoffs in Approximating Natural Functions with Neural Networks, ICML, 2017
+  - 一个球形，3-layer, width 100， is better than 2-layer, width 800
+- Error bounds for approximations with deep ReLU networks, arXiv, 2016
+- Optimal approximation of continuous functions by very deep ReLU nertworks, arXiv 2018
+- Why Deep Neural Networks for function Approximation?, ICLR, 2017
+- Depth-width Tradeoffs in Approximating Natural Functions with Neural Networks, ICML, 2017
+- When and Why Are Deep Networks Better Than Shallow Ones?, AAAI, 2017
 
 ## Reference video
 
