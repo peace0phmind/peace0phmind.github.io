@@ -12,7 +12,7 @@ url: "posts/202211/03-classification"
 draft: false
 
 categories:
-  - machine-learning
+  - ml
 tags:
   - classification
 

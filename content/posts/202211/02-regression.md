@@ -12,7 +12,7 @@ url: "posts/202211/02-regression"
 draft: false
 
 categories:
-  - machine-learning
+  - ml
 tags:
   - regression
 

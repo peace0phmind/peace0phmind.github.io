@@ -12,7 +12,7 @@ url: "posts/202211/05-many-factors-affecting-optimization"
 draft: false
 
 categories:
-  -
+  - ml
 tags:
   - optimization
 

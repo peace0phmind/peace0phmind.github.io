@@ -12,7 +12,7 @@ url: "posts/202211/01-machine-learning"
 draft: false
 
 categories:
-  - machine-learning
+  - ml
 tags:
   - 
 

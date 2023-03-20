@@ -12,7 +12,7 @@ url: "posts/202211/04-logistic-regression"
 draft: false
 
 categories:
-  -
+  - ml
 tags:
   - logistic
   - regression

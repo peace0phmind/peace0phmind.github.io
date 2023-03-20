@@ -12,7 +12,7 @@ url: "posts/202211/06-fat-vs-deep-network"
 draft: false
 
 categories:
-  -
+  - ml
 tags:
   - fat
   - deep
@@ -309,8 +309,6 @@ $ f(x) = x ^ 2$对应的是下图两个线段相减
 {{< youtube yXd2D5J0QDU >}}
 
 {{< youtube xQXh3fSvD1A >}}
-
-{{< youtube OP5HcXJg2Aw >}}
 
 {{< youtube SoCywZ1hZak >}}
 
