@@ -310,8 +310,6 @@ $ f(x) = x ^ 2$对应的是下图两个线段相减
 
 {{< youtube xQXh3fSvD1A >}}
 
-{{< youtube SoCywZ1hZak >}}
-
 {{< youtube KKT2VkTdFyc >}}
 
 {{< youtube FN8jclCrqY0 >}}
