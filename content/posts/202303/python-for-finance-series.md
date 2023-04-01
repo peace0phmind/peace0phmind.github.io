@@ -165,6 +165,121 @@ ax.legend(loc='lower right');
 
 我更喜欢使用Winsorization的原因是，在同时使用多个特征进行机器学习模型训练时，相比简单的去除异常值（simple return），Winsorization不会意外地移除任何信息。
 
+### Part Two: 以移动平均数和标准差为界
+
+```python
+# 这里，我们重复使用第一部分中相同的数据集。
+
+import pandas as pd 
+import yfinance as yf
+import matplotlib.pyplot as plt
+plt.style.use('seaborn')
+plt.rcParams['figure.dpi'] = 300
+df = yf.download('AAPL',
+                 start = '2000-01-01',
+                 end= '2010-12-31')
+d1 = pd.DataFrame(df['Adj Close'])
+d1.rename(columns={'Adj Close':'adj_close'}, inplace=True)
+d1['simple_rtn']=d1.adj_close.pct_change()
+d1.head()
+
+# 为了计算均值和标准差，选择了一个 21 天的窗口，因为它代表一个月中的平均交易日。您可以选择任何日期，但敏感度会有所不同。
+d1[['mean', 'std']] = d1['simple_rtn'].rolling(window=21).agg(['mean', 'std'])
+# 处理后，数据中会有很多NaNs,需要删除他们
+d1.dropna(inplace=True)
+
+
+# 用如下代码，结合标准差进行画图
+fig, ax = plt.subplots()
+
+ax.plot(d1.index, d1['simple_rtn'], label='simple_rtn',c='c', lw=1)
+ax.plot(d1.index, d1['mean'], label= 'mean',c='r')
+ax.plot(d1.index, d1[ 'std'], label= 'std',linestyle='-',c='m', lw=1 )
+ax.plot(d1.index, -d1['std'],label='-std', linestyle='-',c='m', lw=1)
+ax.legend(loc='lower right')
+
+```
+
+绘制一个图形并找出边界所在的位置：
+
+![](/images/202303/python-for-finance-series/005.webp_640x370)
+
+改用 std 的三倍会怎样？
+
+![](/images/202303/python-for-finance-series/006.webp_640x370)
+
+嗯...有些超过了。我们将其更改为两倍的标准差。
+
+```python
+
+fig, ax = plt.subplots()
+#d1.plot(use_index=True)
+#d1[['simple_rtn', 'mean', 'std', 'std']].plot(ax=ax)
+ax.plot(d1.index, d1['simple_rtn'], label='simple_rtn',c='c', lw=1)
+ax.plot(d1.index, d1['mean'], label= 'mean',c='r')
+ax.plot(d1.index, 2*d1['std'], label= 'std',linestyle='-',c='m', lw=1 )
+ax.plot(d1.index, -2*d1['std'],label='-std', linestyle='-',c='m', lw=1)
+ax.legend(loc='lower right')
+```
+
+![](/images/202303/python-for-finance-series/007.webp_640x370)
+
+现在是寻找那些异常值的时候了。
+
+```python
+def get_outliers(df, mu=mu, sigma=sigma, n_sigmas=2):
+    '''
+    df: the DataFrame
+    mu: mean
+    sigmas: std
+    n_sigmas: number of std as boundary
+    '''
+    x = df['simple_rtn']
+    mu = df['mean']
+    sigma = df['std']
+    
+    if (x > mu+n_sigmas*sigma) | (x<mu-n_sigmas*sigma):
+        return 1
+    else:
+        return 0
+d1['outlier']=d1.apply(get_outliers, axis=1)
+outliers = d1.loc[d1['outlier'] == 1, ['simple_rtn']]
+outliers.head()
+```
+
+以上的代码片段可以重构如下：
+
+```python
+cond = (d1['simple_rtn'] > d1['mean'] + d1['std'] * 2) | (d1['simple_rtn'] < d1['mean'] - d1['std'] 
+d1['outliers'] = np.where(cond, 1, 0)
+```
+
+看异常值信息。我们知道在2,745个数据点中有127个异常值（约占4.6％）：
+
+如果我们将两倍的标准差作为边界值，我们得到超出范围的数据点约占4.6％。我们可以挑选这些异常值，将它们放入另一个DataFrame中，并在图表中显示出来：
+
+```python
+fig, ax = plt.subplots()
+ax.plot(d1.index, d1.simple_rtn, 
+        color='blue', label='Normal')
+ax.scatter(outliers.index, outliers.simple_rtn, 
+           color='red', label='Anomaly')
+ax.set_title("Apple's stock returns outliers")
+ax.legend(loc='lower right')
+```
+
+![](/images/202303/python-for-finance-series/008.webp_640x370)
+
+看起来有点过度了。让我们将标准差调整为2.5倍。这一次，我们得到41个异常值（约占1.5％）：
+
+![](/images/202303/python-for-finance-series/009.webp_640x370)
+
+需要注意的一件事是，当附近有很多较大的收益时，算法将第一个收益视为异常值，第二个收益视为正常观察值（如圆圈所示）。这可能是因为第一个异常值进入了滚动窗口并影响了移动平均/标准差。
+
+滑动窗口的大小和标准差都会影响最终结果。我们可以微调它们中的每一个来更好地满足我们的要求。与之前的方法相比，移动平均方法更为敏感。您可以查看以前的文章以获得更好的理解.
+ 
+
 
 ## Reference
 - [Identifying Outliers — Part One](https://python.plainenglish.io/identifying-outliers-part-one-c0a31d9faefa)
+- [Identifying Outliers — Part Two](https://betterprogramming.pub/identifying-outliers-part-two-4c00b2523362)
