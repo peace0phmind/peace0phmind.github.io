@@ -1,6 +1,6 @@
 ---
-title: "Python for Finance Series"
-description: "python-for-finance-series"
+title: "Python for Finance Series: Identifying outliers"
+description: "python-for-finance-series-identifying-outliers"
 keywords: "python,for,finance,series"
 
 date: 2023-03-25T09:40:10+08:00
