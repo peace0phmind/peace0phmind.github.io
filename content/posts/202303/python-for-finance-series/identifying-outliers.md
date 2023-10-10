@@ -372,3 +372,5 @@ d1['outliers'] = np.where(condition, 1, 0)
 - [Identifying Outliers — Part One](https://python.plainenglish.io/identifying-outliers-part-one-c0a31d9faefa)
 - [Identifying Outliers — Part Two](https://betterprogramming.pub/identifying-outliers-part-two-4c00b2523362)
 - [Identifying Outliers — Part Three](https://medium.com/swlh/identifying-outliers-part-three-257b09f5940b)
+- [Stylized Facts](https://towardsdatascience.com/data-whispering-eebb77a422da)
+- 
