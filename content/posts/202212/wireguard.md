@@ -308,3 +308,11 @@ sudo systemctl restart wg-quick@wg0
 ## Reference
 - [wireguard](https://www.wireguard.com/)
 - [How to setup a VPN server using WireGuard (with NAT and IPv6)](https://stanislas.blog/2019/01/how-to-setup-vpn-server-wireguard-nat-ipv6/)
+
+
+### 2023-12-31 add for m to b routing
+
+sudo iptables -A FORWARD -i wg0 -o br0 -j ACCEPT
+sudo iptables -A FORWARD -i br0 -o wg0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+sudo iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
